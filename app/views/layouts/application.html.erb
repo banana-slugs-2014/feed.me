@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>IntroToRails</title>
+  <title>Help.me</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
+<div class="header">
+<h1>The
+</div>
+
+<div class="body">
 <%= yield %>
+</div>
+
+<div class="footer">
+  <p>Made with love by the Help.Me team</p>
+  <p><a href="twitter.com/jonathanpeterwu">@jonathanpeterwu</a>, <a href="twitter.com/jonathanpeterwu">@harrywhelchel</a>, <a href="twitter.com/jonathanpeterwu">@darrandahl</a>, <a href="twitter.com/jonathanpeterwu">@philvargas</a>, <a href="twitter.com/jonathanpeterwu">@mathildemouw</a></p>
+</div>
 
 </body>
 </html>
