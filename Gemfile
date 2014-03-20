@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.13'
 gem 'pg'
 gem 'bcrypt-ruby', '~> 3.0.0 '
-gem 'simplecov', :require => false, :group => :test
 
 
 group :assets do
@@ -12,6 +11,8 @@ end
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'debugger'
+  gem 'pry'
 end
 
 group :development do
@@ -19,6 +20,8 @@ group :development do
 end
 
 group :test do
+  gem 'simplecov', :require => false
+  gem 'rake'
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
   gem 'faker'
@@ -28,5 +31,3 @@ group :test do
 end
 
 gem 'jquery-rails'
-gem 'debugger'
-gem 'pry'
