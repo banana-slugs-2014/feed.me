@@ -5,6 +5,8 @@ gem 'pg'
 gem 'bcrypt-ruby', '~> 3.0.0 '
 gem 'simplecov', :require => false, :group => :test
 
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 group :assets do
   gem 'uglifier', '>= 1.0.3'
