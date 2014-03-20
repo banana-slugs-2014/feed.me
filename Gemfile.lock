@@ -194,6 +194,7 @@ DEPENDENCIES
   pg
   pry
   rails (= 3.2.13)
+  rake
   rspec-rails
   selenium-webdriver
   shoulda-matchers
