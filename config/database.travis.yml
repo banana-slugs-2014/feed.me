@@ -5,16 +5,7 @@ postgresql: &postgresql
   database: helpme_<%= Rails.env %>
   min_messages: ERROR
 
-defaults: 
+test:
   adapter: postgresql
   encoding: unicode
   database: helpme_test
-  
-development:
-  <<: *defaults
-
-test:
-  <<: *defaults
-
-production:
-  <<: *defaults
