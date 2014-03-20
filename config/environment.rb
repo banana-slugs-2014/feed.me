@@ -10,8 +10,7 @@ APP_NAME = APP_ROOT.basename.to_s
 
 unless Rails.env.test?
   env_config = YAML.load_file(APP_ROOT.join('config', 'facebook.yml'))
-end
-
-env_config.each do |key,value|
-  ENV[key] = value
+  env_config.each do |key,value|
+    ENV[key] = value
+  end
 end
