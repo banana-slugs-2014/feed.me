@@ -9,7 +9,6 @@
   // THIS WILL LOG A USER OUT BEWARE - SHOULD REDIRECT
   $(".logout").on("click", function(){
     FB.logout(function(response) {
-        // Person is now logged out
     });
   })
   // THIS WILL ALLOW USER POSTS TO FACEBOOK!
