@@ -4,6 +4,8 @@ gem 'rails', '3.2.13'
 gem 'pg'
 gem 'bcrypt-ruby', '~> 3.0.0 '
 
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 group :assets do
   gem 'uglifier', '>= 1.0.3'
