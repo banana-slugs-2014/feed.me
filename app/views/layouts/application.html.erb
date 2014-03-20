@@ -5,9 +5,12 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD68icKf9bzhJpG6SZHjIi3_DRRvmWVeFc&sensor=false">
+    </script>
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
 </head>
 <body>
-
 <%= yield %>
 
 </body>
