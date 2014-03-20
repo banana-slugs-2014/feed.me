@@ -3,6 +3,9 @@
 ## A path to the simpler choices in life.
 #### Let us make the dinner choice for you
 
+#[Link to Trello!](https://trello.com/b/YaWsIABY/help-me)
+
+
 ![](http://emilymeixin.files.wordpress.com/2013/09/ios7_icon_redesign_by_ida_swarczewskaja.png)
 
 
