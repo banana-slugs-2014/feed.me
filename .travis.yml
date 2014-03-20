@@ -1,0 +1,16 @@
+language: ruby
+rvm:
+  - 1.9.3
+env:
+  - DB=postgresql
+bundler_args: --without development
+branches:
+  only:
+    - master
+before_script:
+  - cp config/database.travis.yml config/database.yml
+  - psql -c 'create database helpme_test' -U postgres
+script:
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rake db:test:prepare
+  - bundle exec rake
