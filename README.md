@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/banana-slugs-2014/help.me.png?branch=master)](https://travis-ci.org/banana-slugs-2014/help.me)
 #Help.me
 
 ## A path to the simpler choices in life.
