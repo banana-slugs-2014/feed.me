@@ -10,7 +10,6 @@ APP_NAME = APP_ROOT.basename.to_s
 
 env_config = YAML.load_file(APP_ROOT.join('config', 'facebook.yml'))
 
-require "pry"; binding.pry
 
 env_config.each do |key,value|
   ENV[key] = value
