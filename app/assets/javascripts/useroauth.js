@@ -16,7 +16,7 @@ App.Controller.prototype = {
     this.facebook.login(function(response){
       $.ajax({
         type: "POST",
-        url: 'users/login',
+        url: '/login',
         data: response
       }).done(function(data){
         //this.view.doSomething
