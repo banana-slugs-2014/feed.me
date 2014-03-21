@@ -16,3 +16,4 @@
 config/database.yml
 config/google_keys.yml
 config/facebook.yml
+Gemfile.lock
