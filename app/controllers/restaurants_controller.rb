@@ -3,7 +3,8 @@ class RestaurantsController < ApplicationController
   def index
   end
 
-  def show
+  def create
+    p params
     redirect_to '/'
   end
 end
