@@ -16,11 +16,13 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'debugger'
   gem 'pry'
+  gem 'jasmine'
 end
 
 group :development do
   gem "better_errors"
 end
+
 
 group :test do
   gem 'simplecov', :require => false
@@ -31,7 +33,6 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'database_cleaner'
-  gem 'jasmine-rails'
 end
 
 gem 'jquery-rails'
