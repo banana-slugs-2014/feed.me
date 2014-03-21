@@ -3,7 +3,13 @@ $(document).ready(function(){
   myUser.getPos();
 
   $('input').on('click', function(e){
-    e.preventDefault()
+    e.preventDefault();
+    // $.ajax({
+
+    //   context: this,
+    //   data: {position: myUser.position},
+
+    // })
     HelpMe.showNearbyRestaurants(myUser.position);
   })
 
@@ -26,17 +32,14 @@ User.prototype = {
   }
 }
 
-
-
 var HelpMe = {}
+
+
 
 HelpMe.showNearbyRestaurants = function(position){
   var service = new google.maps.places.PlacesService(document.getElementById('result'))
-  // var nearbyArea = new google.maps.places.PlacesService.nearbySearch(position)
-  // console.log(nearbyArea)
   var opts = {
     location: position,
-    // radius: 3000,
     types: ['restaurant', 'food', 'cafe'],
     rankBy: google.maps.places.RankBy.DISTANCE
   }
