@@ -9,6 +9,7 @@
   // THIS WILL LOG A USER OUT BEWARE - SHOULD REDIRECT
   $(".logout").on("click", function(){
     FB.logout(function(response) {
+        // Person is now logged out
     });
   })
   // THIS WILL ALLOW USER POSTS TO FACEBOOK!
@@ -64,7 +65,26 @@
   function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
-      debugger;
       console.log('Good to see you, ' + response.name + '.');
     });
+
+    FB.api("/me/likes", function(response){
+      if(response && !response.error){
+      var red = getCategories(response.data)
+      console.log(red)
+      console.log(CATS)
+      return red
+      }
+    })
   }
+
+  function getCategories(likes){
+
+  var catagories = []
+  for(var i = 0; i < likes.length; i++){
+  if (likes[i].category === "Food/beverages" || this[i].category === "Restaurant/cafe"){
+    catagories.push(likes[i]);
+  }
+}
+return CATS = catagories
+}
