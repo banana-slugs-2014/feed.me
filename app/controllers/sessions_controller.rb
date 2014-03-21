@@ -7,7 +7,6 @@ class SessionsController < ApplicationController
       user.uid = params[:authResponse][:userID]
       user.oauth_token = params[:authResponse][:accessToken]
       user.save
-      login_user(user.uid)
       # api call more info <- json "api call"
     end
     login_user(user.uid)
