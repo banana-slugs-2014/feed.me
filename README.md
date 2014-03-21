@@ -6,7 +6,7 @@
 
 #[Link to Trello!](https://trello.com/b/YaWsIABY/help-me)
 
-[](http://i.imgur.com/Tc0nJRe.png)
+![](http://i.imgur.com/Tc0nJRe.png)
 
 
 
