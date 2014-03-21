@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>IntroToRails</title>
+  <title>Help.me</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -11,7 +11,19 @@
   <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
 </head>
 <body>
+
+<div class="header">
+<h1>The
+</div>
+
+<div class="body">
 <%= yield %>
+</div>
+
+<div class="footer">
+  <p>Made with love by the Help.Me team</p>
+  <p><a href="http://twitter.com/jonathanpeterwu">@jonathanpeterwu</a>, <a href="http://twitter.com/HWhelchel">@harrywhelchel</a>, <a href="http://twitter.com/darrendahl">@darrandahl</a>, <a href="http://twitter.com/philipavargas">@philipavargas</a>, <a href="http://twitter.com/MathildeMouw">@mathildemouw</a></p>
+</div>
 
 </body>
 </html>
