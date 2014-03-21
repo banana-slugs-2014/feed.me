@@ -24,20 +24,32 @@ HelpMe.Controller.prototype = {
     };
 
     placesService.nearbySearch(opts, function(response){
-      debugger
-      response = response[1];
 
-      var restaurantSuggestion = {
-        name: response.name,
-        address: response.vicinity,
-        types: response.types,
-        openNow: response.opening_hours.open_now
+      var places = []
+      for(var i=0; i < response.length; i++){
+        places.push({
+          name: response[i].name,
+          address: response[i].vicinity,
+          types: response[i].types,
+        })
       }
+
+
+      debugger
+
+      // response = response[1];
+
+      // var restaurantSuggestion = {
+      //   name: response.name,
+      //   address: response.vicinity,
+      //   types: response.types,
+      //   openNow: response.opening_hours.open_now
+      // }
 
       $.ajax({
         url: '/create',
         type: 'POST',
-        data: restaurantSuggestion,
+        data: {places: JSON.stringify(places)}
       }).done(function(){
         console.log('you did a thing!')
       }).fail(function(){

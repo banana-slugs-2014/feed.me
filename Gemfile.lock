@@ -204,6 +204,7 @@ DEPENDENCIES
   faker
   jasmine
   jquery-rails
+  json
   omniauth
   omniauth-facebook
   pg

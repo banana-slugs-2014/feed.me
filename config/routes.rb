@@ -3,8 +3,8 @@ HelpMe::Application.routes.draw do
 
 
 
-  root :to => 'restaurants#index'
-  post '/create' => 'restaurants#create'
+  root :to => 'places#index'
+  post '/create' => 'places#create'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

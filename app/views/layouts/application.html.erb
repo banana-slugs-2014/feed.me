@@ -6,7 +6,7 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD68icKf9bzhJpG6SZHjIi3_DRRvmWVeFc&sensor=false">
+      src="https://maps.googleapis.com/maps/api/js?key=<%="#{ENV['GOOGLE_KEY']}"%>&sensor=false">
     </script>
   <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
 </head>

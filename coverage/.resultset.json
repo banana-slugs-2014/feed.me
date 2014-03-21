@@ -1,0 +1,46 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/apprentice/Desktop/help.me/app/controllers/application_controller.rb": [
+        null,
+        1,
+        1,
+        null
+      ],
+      "/Users/apprentice/Desktop/help.me/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/apprentice/Desktop/help.me/app/controllers/places_controller.rb": [
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null
+      ],
+      "/Users/apprentice/Desktop/help.me/app/models/place.rb": [
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/apprentice/Desktop/help.me/app/models/user_place.rb": [
+        1,
+        1,
+        1,
+        null
+      ]
+    },
+    "timestamp": 1395436529
+  }
+}
