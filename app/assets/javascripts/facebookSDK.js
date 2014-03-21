@@ -9,11 +9,11 @@
   // THIS WILL LOG A USER OUT BEWARE - SHOULD REDIRECT
   $(".logout").on("click", function(){
     FB.logout(function(response) {
-        // Person is now logged out
     });
   })
+
   // THIS WILL ALLOW USER POSTS TO FACEBOOK!
-  $(".facebookPost").on("click", function(event){
+  $(".facebookLogin").on("click", function(event){
     event.preventDefault();
       FB.login(function(response){
       $.ajax({
@@ -26,6 +26,7 @@
     },{scope: 'user_likes,user_checkins'}); // logins a user to your APP if they're logged in
   })
 
+
   FB.Event.subscribe('auth.authResponseChange', function(response) {
     if (response.status === 'connected') {
       testAPI(); // test response
@@ -33,7 +34,6 @@
     FB.login(function(response){console.log(response)},{scope: 'user_likes,user_checkins'}); // logins a user to your APP if they're logged in
     } else {
     FB.login(function(response){console.log(response)},{scope: 'user_likes,user_checkins'}); // logins a user to your APP if they're logged in
-
     };
   });
   };
