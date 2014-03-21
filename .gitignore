@@ -16,3 +16,4 @@
 config/database.yml
 config/facebook.yml
 Gemfile.lock
+coverage/
