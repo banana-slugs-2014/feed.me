@@ -1,3 +1,4 @@
+$(document).on('ready', function(){
   window.fbAsyncInit = function() {
   FB.init({
     appId      : '702219983134648',
@@ -6,26 +7,8 @@
     xfbml      : true  // parse XFBML
   });
 
-  // THIS WILL LOG A USER OUT BEWARE - SHOULD REDIRECT
-  $(".logout").on("click", function(){
-    FB.logout(function(response) {
-    });
-  })
-
-  // THIS WILL ALLOW USER POSTS TO FACEBOOK!
-  $(".facebookLogin").on("click", function(event){
-    event.preventDefault();
-      FB.login(function(response){
-      $.ajax({
-        type: "POST",
-        url: 'users/login',
-        data: response
-      }).done(function(data){
-        console.log(data);
-      });
-    },{scope: 'user_likes,user_checkins'}); // logins a user to your APP if they're logged in
-  })
-
+App.controller = new App.Controller(FB);
+new App.Binder(App.controller).bind()
 
   FB.Event.subscribe('auth.authResponseChange', function(response) {
     if (response.status === 'connected') {
@@ -57,3 +40,4 @@
 
     }
 
+})
