@@ -11,7 +11,7 @@ HelpMe.Binder.prototype = {
   },
 
   bindFindLocationOnDocReady: function(){
-   this.controller.findUserLocation()
+   this.controller.findUserLocation();
   },
 
   bindfindPlaceButton: function(){

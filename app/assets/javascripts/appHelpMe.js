@@ -1,4 +1,4 @@
-var HelpMe = {}
+var HelpMe = {};
 
 
 $(document).ready(function(){
