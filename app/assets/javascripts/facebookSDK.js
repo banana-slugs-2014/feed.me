@@ -13,41 +13,28 @@
     });
   })
   // THIS WILL ALLOW USER POSTS TO FACEBOOK!
-  $(".facebookPost").on("click", function(){
-    FB.ui(
-      {
-        method: 'feed'
-      }
-    ),
-    FB.ui(
-        {
-         method: 'feed',
-         name: 'Help.Me App',
-         caption: 'Test Post',
-         description: (
-            'AWESOMEE'
-         ),
-         link: 'helpme.com',
-         picture: 'http://www.fbrell.com/public/f8.jpg'
-        },
-        function(response) {
-          if (response && response.post_id) {
-            alert('Post was published.');
-          } else {
-            alert('Post was not published.');
-          }
-        }
-    );
+  $(".facebookPost").on("click", function(event){
+    event.preventDefault();
+      FB.login(function(response){
+      $.ajax({
+        type: "POST",
+        url: 'users/login',
+        data: response
+      }).done(function(data){
+        console.log(data);
+      });
+    },{scope: 'user_likes,user_checkins'}); // logins a user to your APP if they're logged in
   })
 
   FB.Event.subscribe('auth.authResponseChange', function(response) {
     if (response.status === 'connected') {
       testAPI(); // test response
     } else if (response.status === 'not_authorized') {
-      FB.login(); // logins a user to your APP if they're logged in
+    FB.login(function(response){console.log(response)},{scope: 'user_likes,user_checkins'}); // logins a user to your APP if they're logged in
     } else {
-      FB.login(); // logins a user to your APP and FACEBOOK
-    }
+    FB.login(function(response){console.log(response)},{scope: 'user_likes,user_checkins'}); // logins a user to your APP if they're logged in
+
+    };
   });
   };
 
@@ -64,27 +51,9 @@
   // This testAPI() function is only called in those cases.
   function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', function(response) {
-      console.log('Good to see you, ' + response.name + '.');
+    FB.api('/me/permissions', function(response) {
+      console.log(response.data[0]);
     });
 
-    FB.api("/me/likes", function(response){
-      if(response && !response.error){
-      var red = getCategories(response.data)
-      console.log(red)
-      console.log(CATS)
-      return red
-      }
-    })
-  }
+    }
 
-  function getCategories(likes){
-
-  var catagories = []
-  for(var i = 0; i < likes.length; i++){
-  if (likes[i].category === "Food/beverages" || this[i].category === "Restaurant/cafe"){
-    catagories.push(likes[i]);
-  }
-}
-return CATS = catagories
-}
