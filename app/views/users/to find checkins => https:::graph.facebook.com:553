@@ -1,0 +1,13 @@
+to find checkins => https://graph.facebook.com/553728766/checkins
+                                                user_id
+
+to find activites => https://graph.facebook.com/553728766/activities
+
+
+to find user feed => https://graph.facebook.com/553728766/feed
+
+to find user friends => https://graph.facebook.com/553728766/friends
+
+to find user statuses => https://graph.facebook.com/553728766/statuses
+
+to find user profile picture => https://graph.facebook.com/553728766/picture?type=large
