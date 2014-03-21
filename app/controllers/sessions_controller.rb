@@ -1,15 +1,5 @@
 class SessionsController < ApplicationController
 
-
-   # if user is found by token && userid
-  # set session = userid
-
-  #??
-
-  # logout
-  # button facebook - delete session key
-
-
   def create
     user = User.find_by_uid(params[:authResponse][:userID])
     unless user
@@ -17,7 +7,10 @@ class SessionsController < ApplicationController
       user.uid = params[:authResponse][:userID]
       user.oauth_token = params[:authResponse][:accessToken]
       user.save
+      login_user(user.uid)
+      # api call more info <- json "api call"
     end
+    login_user(user.uid)
     redirect_to root_path
   end
 

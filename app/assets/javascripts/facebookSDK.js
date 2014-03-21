@@ -7,8 +7,8 @@ $(document).on('ready', function(){
     xfbml      : true  // parse XFBML
   });
 
-App.controller = new App.Controller(FB);
-new App.Binder(App.controller).bind()
+  App.controller = new App.Controller(FB);
+  new App.Binder(App.controller).bind()
 
   FB.Event.subscribe('auth.authResponseChange', function(response) {
     if (response.status === 'connected') {
