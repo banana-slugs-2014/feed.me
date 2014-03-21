@@ -6,6 +6,9 @@
 
 #[Link to Trello!](https://trello.com/b/YaWsIABY/help-me)
 
+[](http://i.imgur.com/Tc0nJRe.png)
+
+
 
 ![](http://emilymeixin.files.wordpress.com/2013/09/ios7_icon_redesign_by_ida_swarczewskaja.png)
 
