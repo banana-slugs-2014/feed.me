@@ -7,8 +7,14 @@ App.Controller = function(facebook){
 App.Controller.prototype = {
   logOut: function(){
     this.facebook.logout(function(response){
-      //ajax req
+      $.ajax({
+        type: "DELETE",
+        url: '/logout',
+      }).done(function(response){
       console.log('logging out')
+      //this.view.doSomething
+      })
+
     });
   },
 
