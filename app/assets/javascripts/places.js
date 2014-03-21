@@ -1,19 +1,28 @@
 $(document).ready(function(){
   var myUser = new User();
   myUser.getPos();
-
-  $('input').on('click', function(e){
-    e.preventDefault();
-    // $.ajax({
-
-    //   context: this,
-    //   data: {position: myUser.position},
-
-    // })
-    HelpMe.showNearbyRestaurants(myUser.position);
-  })
+  var bindings = new Binder();
+  bindings.bindRestaurant();
 
 });
+
+
+// THIS MAY BE BROKEN!?
+Binder = {}
+
+Binder.prototype = {
+  bindings: function(){
+
+  },
+  bindRestaurant: function(){
+    debugger;
+    $('input').on('click', function(e){
+      e.preventDefault();
+      // $.ajax - create ajax here
+      HelpMe.showNearbyRestaurants(myUser.position);
+    })
+  }
+}
 
 
 var User = function(){
