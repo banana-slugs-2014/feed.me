@@ -36,18 +36,6 @@ HelpMe.Controller.prototype = {
         })
       }
 
-
-      debugger
-
-      // response = response[1];
-
-      // var restaurantSuggestion = {
-      //   name: response.name,
-      //   address: response.vicinity,
-      //   types: response.types,
-      //   openNow: response.opening_hours.open_now
-      // }
-
       $.ajax({
         url: '/create',
         type: 'POST',
