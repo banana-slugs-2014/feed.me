@@ -13,7 +13,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
-
+coverage/*
 config/database.yml
 config/facebook.yml
 config/google_keys.yml
