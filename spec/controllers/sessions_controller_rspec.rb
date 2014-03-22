@@ -14,9 +14,7 @@ describe SessionsController do
           expect(User.count).to eq 1
         end
 
-        it "should set the session hash" do
-          expect(session[:user_id]).to eq attribs[:userID]
-        end
+        it {should set_session(:user_id).to eq attribs[:userID]}
       end
 
       context "with invalid params" do
@@ -27,9 +25,7 @@ describe SessionsController do
           expect(User.count).to eq 0
         end
 
-        it "should set the session hash" do
-          expect(session[:user_id]).to be_nil
-        end
+        it {should set_session(:user_id).to nil}
       end
     end
 
@@ -52,7 +48,7 @@ describe SessionsController do
 
         it "should set the session hash" do
           post :create, authResponse: {userID: myuser.uid, accessToken: myuser.oauth_token}
-          expect(session[:user_id]).to eq myuser.uid
+          expect(set_session(:user_id).to eq myuser.uid)
         end
       end
     end
