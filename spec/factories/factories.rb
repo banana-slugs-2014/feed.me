@@ -1,11 +1,13 @@
 FactoryGirl.define do
   factory :user do
-    provider "facebook"
-    uid "12345"
-    name "Johnny Wu"
-    # what do these need to be??
-    # oauth_token
-    # oauth_expires_at
+    uid {Faker::Number.number(10)}
+    name {Faker::Lorem.word}
+    oauth_token "1234567890asdfghjkl"
+  end
+
+  factory :user_attribs, class: User do
+    userID {Faker::Number.number(10)}
+    accessToken "1234567890asdfghjkl"
   end
 
   factory :place do

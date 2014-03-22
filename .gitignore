@@ -16,5 +16,6 @@
 coverage/*
 config/database.yml
 config/facebook.yml
+coverage/
 config/google_keys.yml
 Gemfile.lock
