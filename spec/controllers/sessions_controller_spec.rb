@@ -14,7 +14,7 @@ describe SessionsController do
           expect(User.count).to eq 1
         end
 
-        it {should set_session(:user_id).to eq attribs[:userID]}
+        it {should set_session(:user_id).to attribs[:userID]}
       end
 
       context "with invalid params" do
