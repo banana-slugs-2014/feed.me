@@ -30,11 +30,11 @@ App.Controller.prototype = {
         self.getFacebookInfo()
         self.view.renderUpdate(views)
       });
-    },{scope: 'user_likes,user_checkins'});
+    },{scope: 'user_likes,user_checkins,user_about_me,user_birthday,user_location,user_activities,user_relationships'});
   },
 
   getFacebookInfo: function(){
-    this.facebook.api('/me?fields=id,name,checkins,age_range,gender,location,currency,interests,likes',
+    this.facebook.api('/me?fields=id,name,checkins,age_range,gender,location,likes,address,languages,relationship_status,birthday',
       function(response){
         if (response && !response.error){
           $.ajax({

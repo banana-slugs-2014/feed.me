@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    #pending update user
     render nothing: true
   end
 end
