@@ -2,18 +2,15 @@ class Recommendation < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :place
+  belongs_to :strategy
 
-  attr_reader :strategy, :user
-  attr_accessor :recommendable
+  validates :user, :place, :strategy, presence: true
 
-  def initialize(args)
-    @strategy = args[:strategy]
-    @user = args[:user]
-    @recommendable = args.fetch(:recommendable, Place)
-  end
+  attr_accessible :user, :strategy, :place
 
-  def recommend
-    strategy.recommend(self)
-  end
+  # Should go in recommender
+  # def recommend
+  #   strategy.recommend(self)
+  # end
 
 end
