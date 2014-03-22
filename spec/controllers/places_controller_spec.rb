@@ -11,7 +11,7 @@ describe PlacesController do
   describe '#create' do
     let!(:place){ create :place }
 
-    it 'initializes place count' do
+    it 'initializes places without creating new ones' do
       expect{
         post :create, :places => [attributes_for(:place)].to_json
         expect(response).to be_redirect
