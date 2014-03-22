@@ -24,9 +24,8 @@ App.Controller.prototype = {
         type: "POST",
         url: '/login',
         data: response
-      }).done(function(data){
-        //this.view.doSomething
-        console.log("logging in");
+      }).done(function(views){
+        $('body').html(views)
       });
     },{scope: 'user_likes,user_checkins'});
   },

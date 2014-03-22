@@ -7,10 +7,9 @@ class SessionsController < ApplicationController
       user.uid = params[:authResponse][:userID]
       user.oauth_token = params[:authResponse][:accessToken]
       user.save
-      # api call more info <- json "api call"
     end
     session[:user_id] = user.uid
-    redirect_to root_path
+    render partial: "places/index", locals: { user: session[:user_id]}
   end
 
   def destroy
