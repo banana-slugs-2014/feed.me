@@ -10,7 +10,7 @@ describe User do
 
   context "relations" do
     it { should have_many :places}
-    it { should have_many :user_places}
-    it { should have_many(:places).through(:user_places)}
+    it { should have_many :recommendations}
+    it { should have_many(:places).through(:recommendations)}
   end
 end
