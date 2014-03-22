@@ -40,7 +40,6 @@ describe SessionsController do
 
         it "should not increase the User count" do
           myuser
-
           expect{
           post :create, authResponse: {userID: myuser.uid, accessToken: myuser.oauth_token}
           }.to_not change{User.count}
