@@ -1,17 +1,16 @@
 require 'spec_helper'
 
 describe PlacesController do
-  describe "#index" do
-    it {expect(get :index).to be_ok}
-  end
-
   describe '#create' do
     let!(:place){ create :place }
 
+    it "should render a partial" do
+        post :create, :places => [attributes_for(:place)].to_json
+        response.should render_template(partial: "places/_show")
+    end
     it 'initializes places without creating new ones' do
       expect{
         post :create, :places => [attributes_for(:place)].to_json
-        expect(response).to be_redirect
       }.to_not change{ Place.count }
     end
 

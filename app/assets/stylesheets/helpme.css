@@ -1,7 +1,17 @@
-body {
-  text-align: center;/*background-image: url('http://www.hdwallpapers.in/walls/ios_7_galaxy-wide.jpg');*/
+html {
+  /*background-color: black;*/
+  background-image: url('http://imgur.com/fun4Z8W.jpg');
+  background-size: 1950px auto;
 }
 
+
+#body {
+  /*text-align: center;*/
+}
+/*http://imgur.com/J5AvSW4.jpg*/
+/*http://imgur.com/MWY0kuL.jpg*/
+/*http://imgur.com/U1PHgKa.jpg*/
+/*http://imgur.com/fun4Z8W.jpg*/
 /*===============================*/
             /*USER LOGIN*/
 /*===============================*/
@@ -11,16 +21,20 @@ body {
   height: 80px;
   width: 300px;
   border-radius: 2px;
-  position: fixed;
-  left: 20%;
-  top: 20%;
+  left: 50%;
+  top: 10%;
+  margin: 0 auto;
+  margin-top: -50px;
+  margin-left: -100px;
   border: 0;
+  position: fixed;
   /*text style*/
   text-align: center;
   font-size: 6.2em;
   margin-top: 1px;
   color: white;
   font-weight: 900;
+s
 }
 
 .facebookLogin:hover {
@@ -33,8 +47,11 @@ body {
   width: 300px;
   border-radius: 2px;
   position: fixed;
-  left: 20%;
-  top: 70%;
+  left: 50%;
+  top: 30%;
+  margin: 0 auto;
+  margin-top: -50px;
+  margin-left: -100px;
   border: 0;
   /*text style*/
   text-align: center;
@@ -65,12 +82,13 @@ body {
   width: 300px;
   border-radius: 2px;
   position: fixed;
-  left: 20%;
+  left: 50%;
   top: 20%;
-  text-align: center;
+  margin: 0 auto;
+  margin-top: -50px;
+  margin-left: -100px;
   border: 0;
   /*text styling*/
-  text-align: center;
   font-size: 2.0em;
   margin-top: 20px;
   color: white;
@@ -157,8 +175,12 @@ li a {
 
 #result {
   position: fixed;
-  left: 20%;
+  left: 50%;
   top: 50%;
+  margin: 0 auto;
+  margin-top: -50px;
+  margin-left: -100px;
+  border: 0;
   font-size: 2.0em;
 }
 
@@ -175,7 +197,8 @@ li a {
 
 #result p {
   text-align: center;
-  font-size: 1.5em;
+  line-height: 2;
+  font-size: 1.2em;
   margin-top: 35px;
   color: white;
   font-weight: bold;
@@ -199,12 +222,16 @@ li a {
 
 .now {
   background-color: #27ae60;
+  position: fixed;
+  left: 50%;
+  top: 70%;
+  margin: 0 auto;
+  margin-top: -50px;
+  margin-left: -100px;
+  border: 0;
   height: 70px;
   width: 150px;
   border-radius: 2px;
-  position: fixed;
-  left: 90px;
-  top: 75%;
 }
 
 .now p {

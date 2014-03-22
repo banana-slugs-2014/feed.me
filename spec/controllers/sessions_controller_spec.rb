@@ -8,7 +8,7 @@ describe SessionsController do
     context 'with a new user' do
       context "with valid params" do
         before(:each){post :create, authResponse: attribs}
-        it {expect(response).to be_redirect}
+        it {expect(response).should render_template(partial: "places/_index")}
 
         it "should increase the User count" do
           expect(User.count).to eq 1
@@ -19,8 +19,9 @@ describe SessionsController do
 
       context "with invalid params" do
         before(:each){post :create, authResponse: invalid_attribs}
-        it {expect(response).to be_redirect}
-
+        it  "should render template partial places/_index" do
+          response.should render_template(partial: "places/_index")
+        end
         it "should increase the User count" do
           expect(User.count).to eq 0
         end
@@ -32,10 +33,9 @@ describe SessionsController do
     context 'with a previous user' do
       context 'with valid params' do
 
-        it "should be redirect" do
-        expect(
+        it "should be a render template places/_index" do
           post :create, authResponse: {userID: myuser.uid, accessToken: myuser.oauth_token}
-          ).to be_redirect
+          expect(response).should render_template(partial: "places/_index")
         end
 
         it "should not increase the User count" do
