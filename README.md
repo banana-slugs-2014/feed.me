@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/banana-slugs-2014/help.me.png?branch=master)](https://travis-ci.org/banana-slugs-2014/help.me)
 #Help.me
 
+![asd](http://www.bestgifever.com/data/images/2014/01/idaorhemnpepg.gif)
 ## A path to the simpler choices in life.
 #### Let us make the dinner choice for you
 
