@@ -7,6 +7,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'places'
 gem 'json'
+gem 'oauth'
 
 group :assets do
   gem 'uglifier', '>= 1.0.3'

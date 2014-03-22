@@ -10,6 +10,6 @@ User.prototype = {
       user.setPos(position)});
   },
   setPos: function(geolocation){
-    this.position = new google.maps.LatLng( geolocation.coords.latitude, geolocation.coords.longitude);
+    this.position = new google.maps.LatLng(geolocation.coords.latitude, geolocation.coords.longitude);
   }
 }

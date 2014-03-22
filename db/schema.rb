@@ -26,9 +26,9 @@ ActiveRecord::Schema.define(:version => 20140321185521) do
   create_table "user_places", :force => true do |t|
     t.integer  "user_id"
     t.integer  "place_id"
-    t.integer  "times_clicked"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.boolean  "like"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
