@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       user.save
       # api call more info <- json "api call"
     end
-    login_user(user.uid)
+    session[:user_id] = user.uid
     redirect_to root_path
   end
 
