@@ -9,4 +9,12 @@ FactoryGirl.define do
     userID {Faker::Number.number(10)}
     accessToken "1234567890asdfghjkl"
   end
+
+  factory :place do
+    name "Something"
+    address "Somewhere"
+    types ["food", "otherfood"]
+    latitude 123
+    longitude 122
+  end
 end
