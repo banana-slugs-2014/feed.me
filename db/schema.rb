@@ -11,11 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140321185521) do
+ActiveRecord::Schema.define(:version => 20140322191024) do
 
   create_table "places", :force => true do |t|
-    t.string   "name"
-    t.string   "address"
+    t.string   "name",       :null => false
+    t.string   "address",    :null => false
     t.string   "types"
     t.integer  "latitude"
     t.integer  "longitude"
@@ -23,20 +23,29 @@ ActiveRecord::Schema.define(:version => 20140321185521) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "user_places", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "place_id"
-    t.integer  "times_clicked"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+  create_table "recommendations", :force => true do |t|
+    t.integer  "user_id",     :null => false
+    t.integer  "place_id",    :null => false
+    t.boolean  "like"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "strategy_id", :null => false
+  end
+
+  create_table "restaurants", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
+    t.string   "provider"
+    t.string   "uid"
     t.string   "name"
-    t.string   "uid",         :null => false
-    t.string   "oauth_token", :null => false
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.string   "oauth_token"
+    t.datetime "oauth_expires_at"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
 end

@@ -12,16 +12,16 @@ APP_NAME = APP_ROOT.basename.to_s
 
 
 
-unless Rails.env.test?
-  env_config = YAML.load_file(APP_ROOT.join('config', 'facebook.yml'))
-  env_config.each do |key,value|
-    ENV[key] = value
-  end
+# unless Rails.env.test?
+#   env_config = YAML.load_file(APP_ROOT.join('config', 'facebook.yml'))
+#   env_config.each do |key,value|
+#     ENV[key] = value
+#   end
 
 
-  config_google = YAML.load_file(APP_ROOT.join('config', 'google_keys.yml'))
+#   config_google = YAML.load_file(APP_ROOT.join('config', 'google_keys.yml'))
 
-  config_google.each do |key,value|
-    ENV[key] = value
-  end
-end
+#   config_google.each do |key,value|
+#     ENV[key] = value
+#   end
+# end
