@@ -48,9 +48,19 @@ describe SessionsController do
 
         it "should set the session hash" do
           post :create, authResponse: {userID: myuser.uid, accessToken: myuser.oauth_token}
-          expect(set_session(:user_id).to eq myuser.uid)
+          should set_session(:user_id).to myuser.uid
         end
       end
     end
+  end
+
+  context '#destroy' do
+    before(:each) do
+      session[:user_id] = myuser.uid
+      delete :destroy, id: myuser.uid
+    end
+
+    it {expect(response).to be_redirect}
+    it {should set_session(:user_id).to nil}
   end
 end
