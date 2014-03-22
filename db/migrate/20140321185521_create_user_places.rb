@@ -3,7 +3,7 @@ class CreateUserPlaces < ActiveRecord::Migration
     create_table :user_places do |t|
       t.belongs_to :user
       t.belongs_to :place
-      t.integer :times_clicked
+      t.boolean :like
 
       t.timestamps
     end

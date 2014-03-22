@@ -9,15 +9,18 @@ describe PlacesController do
   end
 
   describe '#create' do
-    let(:place){ places: {name: "Jar", address: "123", types: ["red", "green"], latitude: 1, longitude: 2 }
-    it 'is okay' do
-      get :create, :place
-      expect(response).to be_redirect
+    let!(:place){ create :place }
+
+    it 'initializes place count' do
+      expect{
+        post :create, :places => [attributes_for(:place)].to_json
+        expect(response).to be_redirect
+      }.to_not change{ Place.count }
     end
 
-    it 'assigns the places var' do
-      get :create, :place
-      expect(assigns(:place)).to be_a_new Place
+    it 'assigns the @places var' do
+      post :create, :places => [attributes_for(:place)].to_json
+      expect(assigns(:places)[0]).to be_a_new Place
     end
   end
 end
