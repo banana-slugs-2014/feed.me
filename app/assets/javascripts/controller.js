@@ -12,7 +12,6 @@ HelpMe.Controller.prototype = {
   findNearbyRestaurants: function(){
     var position = this.user.position;
     var view = this.view;
-
     //instantiate new google places service
     var placesService = new google.maps.places.PlacesService(document.getElementById('result'));
 
@@ -23,6 +22,8 @@ HelpMe.Controller.prototype = {
       rankBy: google.maps.places.RankBy.DISTANCE
     };
 
+    debugger;
+    // NEED TO CHECK THIS FOR IF IT WORKS!
     placesService.nearbySearch(opts, function(response){
 
       var places = []
@@ -35,9 +36,8 @@ HelpMe.Controller.prototype = {
           longitude: response[0].geometry.location.A
         })
       }
-
       $.ajax({
-        url: '/create',
+        url: '/places',
         type: 'POST',
         data: {places: JSON.stringify(places)}
       }).done(function(){
