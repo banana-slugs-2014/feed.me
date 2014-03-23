@@ -29,5 +29,11 @@ unless Rails.env.test?
     ENV[key] = value
   end
 
+  config_foursquare = YAML.load_file(APP_ROOT.join('config', 'foursquare.yml'))
+
+  config_foursquare.each do |key,value|
+    ENV[key] = value
+  end
+
 
 end

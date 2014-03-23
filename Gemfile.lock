@@ -203,6 +203,7 @@ DEPENDENCIES
   debugger
   factory_girl_rails
   faker
+  httparty
   jasmine
   jquery-rails
   json
