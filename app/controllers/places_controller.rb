@@ -6,10 +6,14 @@ require 'oauth'
 class PlacesController < ApplicationController
 
   def index
+
+  end
+
+  def show
+
   end
 
   def create
-
     @user_location = JSON.parse(params[:userLocation])
 
     places = get_places_from_foursquare(@user_location["latitude"], @user_location["longitude"])
@@ -22,8 +26,6 @@ class PlacesController < ApplicationController
     places = HTTParty.get("https://api.foursquare.com/v2/venues/search?client_id=#{ENV['FOURSQUARE_ID']}&client_secret=#{ENV['FOURSQUARE_SECRET']}&v=20130815&ll=#{lat},#{long}&categoryId=4d4b7105d754a06374d81259")
   end
 
-
-
   def get_places_from_yelp(lat, long)
     api_host = 'api.yelp.com'
     consumer = OAuth::Consumer.new(ENV['YELP_KEY'], ENV['YELP_SECRET'], {:site => "http://#{api_host}"})
@@ -34,3 +36,7 @@ class PlacesController < ApplicationController
   end
 
 end
+
+
+  # render partial: "places/index", locals: { user: session[:user_id]}
+

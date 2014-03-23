@@ -16,7 +16,7 @@ HelpMe.Binder.prototype = {
 
   bindfindPlaceButton: function(){
     var controller = this.controller;
-    $(this.sel.helpMeButtonSelector).on('click', function(e){
+    $('body').on('click', ".helpMeButton" ,function(e){
       e.preventDefault();
       controller.findNearbyRestaurants();
     });

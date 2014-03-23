@@ -1,0 +1,252 @@
+html {
+  /*background-color: black;*/
+  background-image: url('http://imgur.com/fun4Z8W.jpg');
+  background-size: 1950px auto;
+}
+
+
+#body {
+  /*text-align: center;*/
+}
+/*http://imgur.com/J5AvSW4.jpg*/
+/*http://imgur.com/MWY0kuL.jpg*/
+/*http://imgur.com/U1PHgKa.jpg*/
+/*http://imgur.com/fun4Z8W.jpg*/
+/*===============================*/
+            /*USER LOGIN*/
+/*===============================*/
+
+.facebookLogin{
+  background-color: #4c66a3;
+  height: 80px;
+  width: 300px;
+  border-radius: 2px;
+  left: 50%;
+  top: 10%;
+  margin: 0 auto;
+  margin-top: -50px;
+  margin-left: -100px;
+  border: 0;
+  position: fixed;
+  /*text style*/
+  text-align: center;
+  font-size: 6.2em;
+  margin-top: 1px;
+  color: white;
+  font-weight: 900;
+s
+}
+
+.facebookLogin:hover {
+  background-color: #738ABE;
+}
+
+.logout{
+  background-color: #4c66a3;
+  height: 80px;
+  width: 300px;
+  border-radius: 2px;
+  position: fixed;
+  left: 50%;
+  top: 30%;
+  margin: 0 auto;
+  margin-top: -50px;
+  margin-left: -100px;
+  border: 0;
+  /*text style*/
+  text-align: center;
+  font-size: 3.0em;
+  margin-top: 1px;
+  color: white;
+  font-weight: 900;
+}
+
+.logout:hover {
+  background-color: #738ABE;
+}
+
+#fb-root {
+  color: #4c66a3;
+}
+
+
+
+/*===============================*/
+            /*Me So Hungry*/
+/*===============================*/
+
+.hungry button {
+  /*button styling*/
+  background-color: #c0392b;
+  height: 80px;
+  width: 300px;
+  border-radius: 2px;
+  position: fixed;
+  left: 50%;
+  top: 20%;
+  margin: 0 auto;
+  margin-top: -50px;
+  margin-left: -100px;
+  border: 0;
+  /*text styling*/
+  font-size: 2.0em;
+  margin-top: 20px;
+  color: white;
+  font-weight: bold;
+}
+
+.hungry:hover {
+  background-color: #DE7367;
+}
+
+/*===============================*/
+            /*NAVBAR*/
+/*===============================*/
+
+.wootstrap-navbar{
+  height: 55px;
+  width: 100%;
+  background-color: #3d4f63; /*#2c3e50*/
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-bottom: 5%;
+}
+
+ul .wootstrap-home-icon{
+  text-align: left;
+  color: #e67e22;
+  width: 10%;
+}
+
+li .wootstrap-home-icon{
+  text-align: right;
+}
+
+nav {
+  height: 55px;
+  width: 100%;
+  background-color: #2c3e50; /*#2c3e50*/
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-bottom: 5%;
+}
+ul {
+  text-align: left;
+  padding-left: 30px;
+  padding-top: 10px;
+  height: 55px;
+  width: 100%;
+  top: 0;
+  left: 0;
+  margin: 0;
+}
+
+li {
+  color: #34495e;
+  list-style: none;
+  display: inline;
+  margin: 0;
+  height: 65px;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-top: 25px;
+  padding-bottom: 21px;
+  font-size: 1.3em;
+}
+
+nav li:hover{
+  background-color: #2980b9;
+}
+
+li a {
+  color: #ecf0f1;
+  text-decoration: none;
+}
+
+.wootstrap-active {
+  background-color: #ed6454;
+}
+
+/*===============================*/
+            /*RESULT*/
+/*===============================*/
+
+#result {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  margin: 0 auto;
+  margin-top: -50px;
+  margin-left: -100px;
+  border: 0;
+  font-size: 2.0em;
+}
+
+
+
+#result {
+  background-color: #f39c12;
+  height: 250px;
+  width: 300px;
+  border-radius: 2px;
+  position: fixed;
+  top: 35%;
+}
+
+#result p {
+  text-align: center;
+  line-height: 2;
+  font-size: 1.2em;
+  margin-top: 35px;
+  color: white;
+  font-weight: bold;
+}
+
+#result p a {
+  text-align: center;
+  font-size: 1.0em;
+  color: white;
+  font-weight: bold;
+  font-style: italic;
+}
+
+#result:hover {
+  background-color: #F2BD69;
+}
+
+/*===============================*/
+            /*NOW LOGIN*/
+/*===============================*/
+
+.now {
+  background-color: #27ae60;
+  position: fixed;
+  left: 50%;
+  top: 70%;
+  margin: 0 auto;
+  margin-top: -50px;
+  margin-left: -100px;
+  border: 0;
+  height: 70px;
+  width: 150px;
+  border-radius: 2px;
+}
+
+.now p {
+  text-align: center;
+  font-size: 2.0em;
+  margin-top: 20px;
+  color: white;
+  font-weight: bold;
+}
+
+.now:hover {
+  background-color: #64DC97;
+}
+
+.footer {
+  position: relative;
+  bottom: 90%;
+}
