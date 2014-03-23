@@ -2,9 +2,9 @@ class Recommender
 
   attr_reader :strategy, :user
 
-  def initialize(args)
-    @strategy = args[:strategy]
-    @user = args[:user]
+  def initialize(user, opts)
+    @user = user
+    @strategy = (opts[:strategy] || SimpleGooglePlaces).create
   end
 
 

@@ -9,10 +9,7 @@ class PlacesController < ApplicationController
   end
 
   def show
-    args = {}
-    args[:user] = current_user
-    args[:strategy] = SimpleGooglePlaces.create
-    @recommendation = Recommender.new(args).recommend
+    @recommendation = Recommender.new(current_user).recommend
     # render partial: "places/show", locals: { places: @recommendation }
   end
 
