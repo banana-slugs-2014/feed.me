@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Strategy do
+describe RecommendationStrategy do
 
   context 'associations' do
     it {should have_many :recommendations}

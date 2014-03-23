@@ -31,12 +31,12 @@ ActiveRecord::Schema.define(:version => 20140323202329) do
   end
 
   create_table "recommendations", :force => true do |t|
-    t.integer  "user_id",     :null => false
-    t.integer  "place_id",    :null => false
+    t.integer  "user_id",                    :null => false
+    t.integer  "place_id",                   :null => false
     t.boolean  "like"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.integer  "strategy_id", :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+    t.integer  "recommendation_strategy_id", :null => false
   end
 
   create_table "user_places", :force => true do |t|

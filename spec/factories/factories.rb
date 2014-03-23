@@ -18,13 +18,9 @@ FactoryGirl.define do
     longitude 122
   end
 
-  factory :strategy do
+  factory :recommendation_strategy do
     name 'test strategy'
     type 'test'
   end
 
-  factory :recommender do
-    association :user, factory: :user
-    association :strategy, factory: :strategy
-  end
 end
