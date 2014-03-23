@@ -1,6 +1,6 @@
 class SimpleQuirkyPlaces < RecommendationStrategy
 
-  def recommend(data)
+  def recommend
     off_the_beaten_path
   end
 
@@ -11,11 +11,11 @@ class SimpleQuirkyPlaces < RecommendationStrategy
   end
 
   def likes_per_place
-    @likes_per_place =|| Recommendation.group(:place).count(:like)
+    @likes_per_place ||= Recommendation.group(:place).count(:like)
   end
 
   def avg_likes_per_place(likes_per_place)
-    likes.values.inject(&:+) / likes.length
+    likes_per_place.values.inject(&:+) / likes_per_place.length
   end
 
   def less_than_avg
@@ -24,5 +24,6 @@ class SimpleQuirkyPlaces < RecommendationStrategy
     likes_per_place.each_pair do |place, likes|
       less << place if likes < avg
     end
+    less.empty? ? [Place.first] : less
   end
 end

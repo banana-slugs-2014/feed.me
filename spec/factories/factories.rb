@@ -18,9 +18,26 @@ FactoryGirl.define do
     longitude 122
   end
 
+  factory :recommendation_place, class: Place do
+    name "Test"
+    address "123 Fake Avenue"
+    types ["food", "otherfood"]
+    latitude 123
+    longitude 122
+  end
+
+  factory :recommendation do
+    association :place, factory: :recommendation_place
+    user
+    recommendation_strategy
+  end
+
   factory :recommendation_strategy do
     name 'test strategy'
     type 'test'
+  end
+
+  factory :quirky, class: SimpleQuirkyPlaces do
   end
 
 end
