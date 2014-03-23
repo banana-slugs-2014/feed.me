@@ -7,7 +7,7 @@ class SimpleGooglePlaces < RecommendationStrategy
   private
 
   def a_close_restaurant
-    Place.last(10).take
+    Place.last(10).sample
   end
 
 end
