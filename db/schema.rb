@@ -11,32 +11,45 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140321185521) do
+ActiveRecord::Schema.define(:version => 20140323052209) do
 
   create_table "places", :force => true do |t|
-    t.string   "name"
-    t.string   "address"
+    t.string   "name",                                      :null => false
+    t.string   "address",                                   :null => false
     t.string   "types"
-    t.integer  "latitude"
-    t.integer  "longitude"
+    t.decimal  "latitude",   :precision => 10, :scale => 6
+    t.decimal  "longitude",  :precision => 10, :scale => 6
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
+  end
+
+  create_table "recommendations", :force => true do |t|
+    t.integer  "user_id",       :null => false
+    t.integer  "place_id",      :null => false
+    t.integer  "times_clicked"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "strategy_id",   :null => false
+  end
+
+  create_table "strategies", :force => true do |t|
+    t.string   "name"
+    t.string   "type"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  create_table "user_places", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "place_id"
-    t.integer  "times_clicked"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
   create_table "users", :force => true do |t|
     t.string   "name"
-    t.string   "uid",         :null => false
-    t.string   "oauth_token", :null => false
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.string   "uid",                                             :null => false
+    t.string   "oauth_token",                                     :null => false
+    t.datetime "created_at",                                      :null => false
+    t.datetime "updated_at",                                      :null => false
+    t.decimal  "recent_latitude",  :precision => 10, :scale => 6
+    t.decimal  "recent_longitude", :precision => 10, :scale => 6
+    t.integer  "age_range"
+    t.string   "location"
+    t.string   "gender"
   end
 
 end
