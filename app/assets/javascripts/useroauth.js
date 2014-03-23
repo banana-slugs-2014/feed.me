@@ -1,7 +1,8 @@
 var App = {}
 
-App.Controller = function(facebook){
+App.Controller = function(facebook, view){
   this.facebook = facebook
+  this.view = view
 };
 
 App.Controller.prototype = {
@@ -11,30 +12,53 @@ App.Controller.prototype = {
         type: "DELETE",
         url: '/logout',
       }).done(function(response){
-      console.log('logging out')
-      //this.view.doSomething
+        console.log('logging out')
       })
-
     });
   },
 
   logIn: function(){
+    var self = this
     this.facebook.login(function(response){
       $.ajax({
         type: "POST",
         url: '/login',
         data: response
-      }).done(function(views){
-        $('body').html(views)
+      }).done(function(data){
+        console.log('logged in')
+        if (data.id){
+          self.getFacebookInfo(data.id)
+        } else {
+          self.view.renderUpdate(data)
+        }
       });
-    },{scope: 'user_likes,user_checkins'});
+    },{scope: 'user_likes,user_checkins,user_about_me,user_birthday,user_location,user_activities,user_relationships'});
   },
+
+  getFacebookInfo: function(userId){
+    var self = this
+    this.facebook.api('/me?fields=id,name,checkins,age_range,gender,location,likes,address,languages,relationship_status,birthday',
+      function(response){
+        if (response && !response.error){
+          $.ajax({
+            type: "PUT",
+            url: '/users/'+userId,
+            data: response
+          }).done(function(data){
+            console.log('All your base are belong to us!')
+            self.view.renderUpdate(data)
+          })
+        }
+      })
+  }
 }
 
 App.View = function(){}
 
 App.View.prototype = {
-
+  renderUpdate: function(data){
+    $('body').html(data)
+  }
 }
 
 App.Binder = function(controller){
