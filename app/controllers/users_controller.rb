@@ -21,23 +21,30 @@ class UsersController < ApplicationController
   def update
     #pending update user
     user = User.find(params[:id])
-    user.update_attribute(name: params["name"], age_range: params["age_range"]["min"], location: params["location"]["name"], gender: params["gender"])
+    user.update_attributes(name: params[:name], gender: params[:gender])
+    user.age_range = params[:age_range][:min] if params[:age_range]
+    user.location = params[:location][:name] if params[:location]
+    user.save
 
-    params["checkins"]["data"].each do |x, y|
-      user.checkins.create(message: y["message"], city: y["place"]["location"]["city"], country: y["place"]["location"]["country"], latitude: y["place"]["location"]["latitude"], longitude: y["place"]["location"]["longitude"])
-    end
-
-    params["likes"]["data"].each do |x, y|
-      if y["category"] == "Restaurant/cafe"
-        user.user_likes.create(category: y["category"] , name: y["name"] )
-      elsif y["category"] == "Food/beverage"
-        user.user_likes.create(category: y["category"] , name: y["name"] )
+    if params[:checkins]
+      params[:checkins][:data].each_value do |value|
+        if value[:place][:location][:country] == "United States"
+          user.checkins.create(name: value[:place][:name], city: value[:place][:location][:city], country: value[:place][:location][:country], latitude: value[:place][:location][:latitude], longitude: value[:place][:location][:longitude])
+        end
       end
     end
-    binding.pry
-    p user.user_likes
-    p user.checkins
 
-    # render partial: "places/index", locals: { user_id: session[:user_id]}
+    if params[:likes]
+      params[:likes][:data].each_value do |value|
+        if value[:category] == "Restaurant/cafe"
+          user.user_likes.create(category: value[:category] , name: value[:name] )
+        elsif value[:category] == "Food/beverage"
+          user.user_likes.create(category: value[:category] , name: value[:name] )
+        end
+      end
+    end
+
+
+    render partial: "places/index", locals: { user_id: session[:user_id]}
   end
 end

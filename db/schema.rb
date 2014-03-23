@@ -11,17 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140323054255) do
+ActiveRecord::Schema.define(:version => 20140323230711) do
 
   create_table "checkins", :force => true do |t|
     t.integer  "user_id"
-    t.string   "message"
     t.string   "city"
     t.string   "country"
     t.string   "longitude"
     t.string   "latitude"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "name"
   end
 
   create_table "places", :force => true do |t|
