@@ -1,4 +1,4 @@
-class Strategy < ActiveRecord::Base
+class RecommendationStrategy < ActiveRecord::Base
   has_many :recommendations
 
   def recommend(data)
