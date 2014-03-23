@@ -3,7 +3,6 @@ require 'open-uri'
 
 
 class PlacesController < ApplicationController
-  before_filter :update_user_position, only: :create
 
   def index
 

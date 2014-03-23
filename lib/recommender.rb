@@ -1,5 +1,7 @@
 class Recommender
 
+  attr_reader :strategy, :user
+
   def initialize(args)
     @strategy = args[:strategy]
     @user = args[:user]
