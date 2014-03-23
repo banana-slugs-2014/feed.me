@@ -10,7 +10,7 @@ class Recommender
 
   def recommend
     place = strategy.recommend(self)
-    Recommendation.create(place: place, strategy: strategy, user: user)
+    Recommendation.create(place: place, recommendation_strategy: strategy, user: user)
   end
 
 end
