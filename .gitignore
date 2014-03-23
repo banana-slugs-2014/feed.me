@@ -19,3 +19,4 @@ config/facebook.yml
 coverage/
 config/google_keys.yml
 Gemfile.lock
+db/schema.rb
