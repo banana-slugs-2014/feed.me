@@ -39,14 +39,6 @@ ActiveRecord::Schema.define(:version => 20140323202329) do
     t.integer  "recommendation_strategy_id", :null => false
   end
 
-  create_table "user_places", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "place_id"
-    t.integer  "times_clicked"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "uid",         :null => false
