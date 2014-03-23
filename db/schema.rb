@@ -17,10 +17,14 @@ ActiveRecord::Schema.define(:version => 20140321185521) do
     t.string   "name"
     t.string   "address"
     t.string   "types"
+    t.string   "phone_num"
+    t.string   "company_url"
+    t.string   "menu_url"
+    t.integer  "postal_code"
     t.integer  "latitude"
     t.integer  "longitude"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "user_places", :force => true do |t|

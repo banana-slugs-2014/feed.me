@@ -1,12 +1,10 @@
 var HelpMe = {}
 
-
 $(document).ready(function(){
-
   var myUser = new User();
 
   var Selectors = {
-    resultContainerSelector: '#result',
+    resultContainerSelector: '.hidden',
     helpMeButtonSelector: '.helpMeButton'
   }
 

@@ -12,13 +12,11 @@ HelpMe.Controller.prototype = {
   findNearbyRestaurants: function(){
     var position = this.user.position;
     var opts = {
-      url: '/create',
+      url: '/places',
       type: 'post',
       data: {userLocation: JSON.stringify(position)}
     };
-
     this.ajaxCaller(opts);
-
   },
 
   ajaxCaller: function(opts){
