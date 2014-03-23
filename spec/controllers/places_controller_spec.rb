@@ -8,10 +8,10 @@ describe PlacesController do
         post :create, places: [attribs].to_json
         response.should render_template(partial: "places/_show")
     end
-    it 'initializes places without creating new ones' do
+    it 'creates places' do
       expect{
         post :create, places: [attribs].to_json
-      }.to_not change{ Place.count }
+      }.to change{ Place.count }.by(1)
     end
   end
 end

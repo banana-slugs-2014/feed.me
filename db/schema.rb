@@ -34,20 +34,20 @@ ActiveRecord::Schema.define(:version => 20140323230711) do
     t.datetime "updated_at",                                :null => false
   end
 
-  create_table "recommendations", :force => true do |t|
-    t.integer  "user_id",       :null => false
-    t.integer  "place_id",      :null => false
-    t.integer  "times_clicked"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-    t.integer  "strategy_id",   :null => false
-  end
-
-  create_table "strategies", :force => true do |t|
+  create_table "recommendation_strategies", :force => true do |t|
     t.string   "name"
     t.string   "type"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "recommendations", :force => true do |t|
+    t.integer  "user_id",                    :null => false
+    t.integer  "place_id",                   :null => false
+    t.integer  "times_clicked"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+    t.integer  "recommendation_strategy_id", :null => false
   end
 
   create_table "user_likes", :force => true do |t|
