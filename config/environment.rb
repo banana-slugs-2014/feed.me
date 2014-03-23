@@ -18,10 +18,22 @@ unless Rails.env.test?
     ENV[key] = value
   end
 
+  config_yelp = YAML.load_file(APP_ROOT.join('config', 'yelp.yml'))
+  config_yelp.each do |key,value|
+    ENV[key] = value
+  end
 
   config_google = YAML.load_file(APP_ROOT.join('config', 'google_keys.yml'))
 
   config_google.each do |key,value|
     ENV[key] = value
   end
+
+  config_foursquare = YAML.load_file(APP_ROOT.join('config', 'foursquare.yml'))
+
+  config_foursquare.each do |key,value|
+    ENV[key] = value
+  end
+
+
 end
