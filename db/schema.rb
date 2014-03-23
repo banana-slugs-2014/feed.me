@@ -11,16 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140322192841) do
+ActiveRecord::Schema.define(:version => 20140322231610) do
 
   create_table "places", :force => true do |t|
-    t.string   "name",       :null => false
-    t.string   "address",    :null => false
+    t.string   "name",                                      :null => false
+    t.string   "address",                                   :null => false
     t.string   "types"
-    t.integer  "latitude"
-    t.integer  "longitude"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.decimal  "latitude",   :precision => 10, :scale => 6
+    t.decimal  "longitude",  :precision => 10, :scale => 6
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
   end
 
   create_table "recommendations", :force => true do |t|
@@ -32,12 +32,6 @@ ActiveRecord::Schema.define(:version => 20140322192841) do
     t.integer  "strategy_id", :null => false
   end
 
-  create_table "restaurants", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "strategies", :force => true do |t|
     t.string   "name"
     t.string   "type"
@@ -46,13 +40,13 @@ ActiveRecord::Schema.define(:version => 20140322192841) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "provider"
-    t.string   "uid"
     t.string   "name"
-    t.string   "oauth_token"
-    t.datetime "oauth_expires_at"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.string   "uid",                                             :null => false
+    t.string   "oauth_token",                                     :null => false
+    t.datetime "created_at",                                      :null => false
+    t.datetime "updated_at",                                      :null => false
+    t.decimal  "recent_latitude",  :precision => 10, :scale => 6
+    t.decimal  "recent_longitude", :precision => 10, :scale => 6
   end
 
 end

@@ -8,9 +8,4 @@ class Recommendation < ActiveRecord::Base
 
   attr_accessible :user, :strategy, :place
 
-  # Should go in recommender
-  # def recommend
-  #   strategy.recommend(self)
-  # end
-
 end

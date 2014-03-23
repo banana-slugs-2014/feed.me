@@ -18,4 +18,16 @@ describe Place do
     it {should allow_mass_assignment_of :latitude}
     it {should allow_mass_assignment_of :longitude}
   end
+
+  context "validations" do
+    it 'validates uniqueness of name' do
+      Place.new(name: 'test', address: 'somewhere').save!(validate: false)
+      should validate_uniqueness_of :name
+    end
+
+    it 'validates uniqueness of address' do
+      Place.new(name: 'test', address: 'somewhere').save!(validate: false)
+      should validate_uniqueness_of :address
+    end
+  end
  end

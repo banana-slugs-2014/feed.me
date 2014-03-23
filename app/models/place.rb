@@ -3,4 +3,6 @@ class Place < ActiveRecord::Base
   serialize :types
   has_many :recommendations
   has_many :users, through: :recommendations
+
+  validates :name, :address, uniqueness: true
 end
