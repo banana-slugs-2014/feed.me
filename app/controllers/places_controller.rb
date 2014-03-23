@@ -16,12 +16,12 @@ class PlacesController < ApplicationController
     @user_location = JSON.parse(params[:userLocation])
 
     places = get_places_from_foursquare(@user_location["latitude"], @user_location["longitude"])
+
     #initialize new places in the database
-
     @places = places.map do |place|
-
+      #find categories
       categories = get_foursquare_categories_names(place["categories"])
-
+      #find_menu if exists
       menu_url = find_foursquare_menu_url(place)
 
       Place.new(name: place["name"],
@@ -33,9 +33,6 @@ class PlacesController < ApplicationController
         types: categories,
         menu_url: menu_url, company_url: place["url"])
     end
-
-    p @places
-
 
     redirect_to '/'
   end
