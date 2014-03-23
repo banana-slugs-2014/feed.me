@@ -11,7 +11,6 @@ class PlacesController < ApplicationController
   def create
 
     @user_location = JSON.parse(params[:userLocation])
-    p @user_location
 
     places = get_places_from_foursquare(@user_location["latitude"], @user_location["longitude"])
 
@@ -20,7 +19,6 @@ class PlacesController < ApplicationController
 
 
   def get_places_from_foursquare(lat, long)
-
     places = HTTParty.get("https://api.foursquare.com/v2/venues/search?client_id=#{ENV['FOURSQUARE_ID']}&client_secret=#{ENV['FOURSQUARE_SECRET']}&v=20130815&ll=#{lat},#{long}&categoryId=4d4b7105d754a06374d81259")
   end
 
@@ -33,7 +31,6 @@ class PlacesController < ApplicationController
 
     path = "/v2/search?term=food&ll=#{lat},#{long}"
     info = access_token.get(path).body
-    pp JSON.parse(info)
   end
 
 end
