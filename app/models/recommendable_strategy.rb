@@ -1,7 +1,8 @@
 class RecommendableStrategy < RecommendationStrategy
 
-  def recommend
-    current_user.recommended_places.sample
+  def recommend(data)
+    debugger
+    data.user.recommended_places.sample
   end
 
 end

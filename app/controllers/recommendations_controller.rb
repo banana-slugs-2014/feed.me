@@ -12,7 +12,7 @@ class RecommendationsController < ApplicationController
   private
 
   def update_recommendable_redis
-    RecommendableWorker.perform_async(current_user, recommendation.place)
+    current_user.like recommendation.place
   end
 
 end

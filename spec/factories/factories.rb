@@ -1,10 +1,10 @@
 FactoryGirl.define do
   factory :user do
     uid {Faker::Number.number(10)}
-    name nil
-    age_range nil
-    location nil
-    gender nil
+    # name nil
+    # age_range nil
+    # location nil
+    # gender nil
     oauth_token "1234567890asdfghjkl"
   end
 
@@ -41,6 +41,19 @@ FactoryGirl.define do
   end
 
   factory :quirky, class: SimpleQuirkyPlaces do
+  end
+
+  factory :recommender do
+    ignore do
+      user
+    end
+
+    initialize_with do
+      new(user)
+    end
+  end
+
+  factory :recommendable_strategy, class: RecommendableStrategy do
   end
 
 end

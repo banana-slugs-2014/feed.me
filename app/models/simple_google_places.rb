@@ -1,6 +1,6 @@
 class SimpleGooglePlaces < RecommendationStrategy
 
-  def recommend
+  def recommend(data)
     a_close_restaurant
   end
 
