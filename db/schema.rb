@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140324063744) do
+ActiveRecord::Schema.define(:version => 20140323230711) do
 
   create_table "checkins", :force => true do |t|
     t.integer  "user_id"
@@ -25,17 +25,17 @@ ActiveRecord::Schema.define(:version => 20140324063744) do
   end
 
   create_table "places", :force => true do |t|
-    t.string   "name"
-    t.string   "address"
+    t.string   "name",                                       :null => false
+    t.string   "address",                                    :null => false
     t.string   "types"
     t.string   "phone_num"
     t.string   "company_url"
     t.string   "menu_url"
     t.integer  "postal_code"
-    t.decimal  "latitude"
-    t.decimal  "longitude"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.decimal  "latitude",    :precision => 10, :scale => 6
+    t.decimal  "longitude",   :precision => 10, :scale => 6
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
   end
 
   create_table "recommendation_strategies", :force => true do |t|
@@ -64,10 +64,12 @@ ActiveRecord::Schema.define(:version => 20140324063744) do
 
   create_table "users", :force => true do |t|
     t.string   "name"
-    t.string   "uid",         :null => false
-    t.string   "oauth_token", :null => false
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.string   "uid",                                             :null => false
+    t.string   "oauth_token",                                     :null => false
+    t.datetime "created_at",                                      :null => false
+    t.datetime "updated_at",                                      :null => false
+    t.decimal  "recent_latitude",  :precision => 10, :scale => 6
+    t.decimal  "recent_longitude", :precision => 10, :scale => 6
     t.integer  "age_range"
     t.string   "location"
     t.string   "gender"
