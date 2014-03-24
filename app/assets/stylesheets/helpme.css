@@ -206,7 +206,7 @@ li a {
   margin-top: -100px;
   margin-left: -100px;
   border: 0;
-  font-size: 2.0em;
+  font-size: 1.0em;
 }
 
 
@@ -222,7 +222,7 @@ li a {
 
 #result p {
   text-align: center;
-  line-height: 2;
+  line-height: 1;
   font-size: 1.2em;
   margin-top: 20px;
   color: white;

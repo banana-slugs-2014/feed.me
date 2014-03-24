@@ -44,6 +44,11 @@
     <p id="restName"><%= rest.name %> Restaurant</p>
   <p style="visibility: hidden;" id="latitude"><%=  rest.latitude %></p>
   <p style="visibility: hidden;" id="longitude"><%=  rest.longitude %></p>
+  <%= radio_button_tag(:like, "true") %>
+  <%= label_tag(:like_true, "Here we go!") %>
+  <%= radio_button_tag(:like, "false") %>
+
+  <p>Mathilde wants the above button to show </p>
 </div>
 
 
