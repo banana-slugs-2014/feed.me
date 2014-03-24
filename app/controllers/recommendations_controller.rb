@@ -5,10 +5,19 @@ class RecommendationsController < ApplicationController
   # for the core user experience instead of places actions.
 
   def update
-    @recommendation = Recommendation.find(params[:id])
-    @recommendation.like_recommendation
+    like_true
 
     redirect_to root_path
+  end
+
+  def like_true
+    @liked = Recommendation.where(params[:id]).first
+    @liked.update_attributes(like: true)
+  end
+
+  def like_false
+    @disliked = Recommendation.where(params[:id]).first
+    @disliked.update_attributes(like: false)
   end
 
   private

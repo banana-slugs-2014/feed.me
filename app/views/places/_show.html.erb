@@ -39,16 +39,18 @@
 <div id="map-canvas"></div>
 
 <div id='result'>
-    <h3>Your only choice:</h3>
-    <% rest = places.sample %>
-    <p id="restName"><%= rest.name %> Restaurant</p>
+  <h3>Your only choice:</h3>
+  <% rest = places.sample %>
+  <p id="restName"><%= rest.name %> Restaurant</p>
   <p style="visibility: hidden;" id="latitude"><%=  rest.latitude %></p>
   <p style="visibility: hidden;" id="longitude"><%=  rest.longitude %></p>
-  <%= radio_button_tag(:like, "true") %>
-  <%= label_tag(:like_true, "Here we go!") %>
-  <%= radio_button_tag(:like, "false") %>
-
-  <p>Mathilde wants the above button to show </p>
+  <%= form_tag ({controller: "recommendations",  action: "like_true"}, method: "post") %>
+  <%= submit_tag("Yes!") %>
+  <% end %>
+  <%#= form_for @recommendation, url: {action: "update", id: rest.id} do |like| %>
+  <%#= like.submit "No!" %>
+  <%# end %>
+  <%# I want this form to know about the correct recommendation, though. %>
 </div>
 
 
