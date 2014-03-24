@@ -43,4 +43,7 @@ FactoryGirl.define do
   factory :quirky, class: SimpleQuirkyPlaces do
   end
 
+  # think about sequences and whether they have a place.  You can use that to
+  # auto increment a field (like email1, email2, email3)
+
 end

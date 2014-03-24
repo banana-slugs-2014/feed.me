@@ -1,3 +1,5 @@
+# I would delete this file.  You dont' back your Strategies with AR, do you?
+#
 class CreateStrategyTable < ActiveRecord::Migration
   def up
     create_table :strategies do |t|

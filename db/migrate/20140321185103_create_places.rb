@@ -1,4 +1,5 @@
 class CreatePlaces < ActiveRecord::Migration
+  # Really?  No defaults?  All are legit to be NULL?
   def up
     create_table :places do |t|
       t.string :name
