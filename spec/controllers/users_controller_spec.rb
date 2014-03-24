@@ -6,7 +6,7 @@ describe UsersController do
   let(:invalid_attribs){FactoryGirl.attributes_for :user}
   let(:facebook_input){
 {"id"=>"#{myuser.id}",
-"name"=>"Johnny Wu",
+"name"=>"Bill Murray",
 "age_range"=>{"min"=>"21"},
 "gender"=>"male",
 "location"=>{"id"=>"109352265750998",
@@ -97,6 +97,8 @@ Massachusetts"},
     context 'with full params (checkins, likes, age_range, location, gender, name)' do
       before(:each){myuser}
 
+      it {expect(put :update, facebook_input).to be_ok}
+      it {expect(put :update, facebook_input).to render_template partial: 'places/_index'}
       it "should increase the checkins count" do
         expect{put :update, facebook_input}.to change{Checkin.count}
       end
@@ -116,8 +118,43 @@ Massachusetts"},
       it "should change user.location" do
         expect{put :update, facebook_input}.to change{myuser.reload.location}.to facebook_input["location"]["name"]
       end
+
+      it "should change user.name" do
+        expect{put :update, facebook_input}.to change{myuser.reload.name}.to facebook_input["name"]
+      end
     end
 
+    context 'with minimal params (name)' do
+      before(:each){myuser}
+      let(:min_attribs){{"id"=>"#{myuser.id}","name"=>"Bill Murray"}}
+
+      it {expect(put :update, min_attribs).to be_ok}
+      it {expect(put :update, min_attribs).to render_template partial: 'places/_index'}
+
+      it "should change user.name" do
+        expect{put :update, min_attribs}.to change{myuser.reload.name}.to min_attribs["name"]
+      end
+
+      it "should not increase the checkins count" do
+        expect{put :update, min_attribs}.to_not change{Checkin.count}
+      end
+
+      it "should not increase the likes count" do
+        expect{put :update, min_attribs}.to_not change{UserLike.count}
+      end
+
+      it "should not change user.age_range" do
+        expect{put :update, min_attribs}.to_not change{myuser.reload.age_range}
+      end
+
+      it "should not change user.gender" do
+        expect{put :update, min_attribs}.to_not change{myuser.reload.gender}
+      end
+
+      it "should not change user.location" do
+        expect{put :update, min_attribs}.to_not change{myuser.reload.location}
+      end
+    end
 
   end
 end
