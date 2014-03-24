@@ -3,8 +3,8 @@ require 'spec_helper'
 describe Place do
   context "relations" do
     it {should have_many :users}
-    it {should have_many :user_places}
-    it {should have_many(:users).through :user_places}
+    it {should have_many :recommendations}
+    it {should have_many(:users).through :recommendations}
   end
 
   context "serialize" do
@@ -21,5 +21,17 @@ describe Place do
     it {should allow_mass_assignment_of :company_url}
     it {should allow_mass_assignment_of :latitude}
     it {should allow_mass_assignment_of :longitude}
+  end
+
+  context "validations" do
+    it 'validates uniqueness of name' do
+      Place.new(name: 'test', address: 'somewhere').save!(validate: false)
+      should validate_uniqueness_of :name
+    end
+
+    it 'validates uniqueness of address' do
+      Place.new(name: 'test', address: 'somewhere').save!(validate: false)
+      should validate_uniqueness_of :address
+    end
   end
  end

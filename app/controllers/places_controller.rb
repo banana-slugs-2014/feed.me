@@ -52,6 +52,16 @@ class PlacesController < ApplicationController
     else
       return "no menu url"
     end
+    @recommendation = Recommender.new(current_user).recommend
+  end
+
+  def create
+    places = JSON.parse(params[:places]).map do |place|
+      Place.create(name: place["name"], address: place["address"], types: place["types"], latitude: place["latitude"], longitude: place["longitude"])
+    end
+
+    # redirect_to :show
+    render partial: "places/show", locals: { places: places }
   end
 
   def get_places_from_yelp(lat, long)
@@ -64,5 +74,3 @@ class PlacesController < ApplicationController
   end
 
 end
-
-

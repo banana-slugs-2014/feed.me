@@ -26,7 +26,10 @@ describe PlacesController do
         post :create, userLocation: {latitude: 12, longitude: 33}.to_json
         expect(assigns(:places)[0]).to be_a_new Place
       }.to_not change{ Place.count }
+    it 'creates places' do
+      expect{
+        post :create, places: [attribs].to_json
+      }.to change{ Place.count }.by(1)
     end
-
   end
 end

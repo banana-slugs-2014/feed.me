@@ -17,4 +17,10 @@ FactoryGirl.define do
     latitude 123
     longitude 122
   end
+
+  factory :recommendation_strategy do
+    name 'test strategy'
+    type 'test'
+  end
+
 end

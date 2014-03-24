@@ -6,8 +6,8 @@ $(document).on('ready', function(){
     cookie     : true, // enable cookies to allow the server to access the session
     xfbml      : true  // parse XFBML
   });
-
-  App.controller = new App.Controller(FB);
+  App.view = new App.View()
+  App.controller = new App.Controller(FB, App.view);
   new App.Binder(App.controller).bind()
 
   FB.Event.subscribe('auth.authResponseChange', function(response) {
