@@ -14,8 +14,8 @@ FactoryGirl.define do
   end
 
   factory :place do
-    name "Something"
-    address "Somewhere"
+    name {Faker::Name.name}
+    address {Faker::Address.city}
     types ["food", "otherfood"]
     latitude 123
     longitude 122

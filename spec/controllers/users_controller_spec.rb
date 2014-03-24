@@ -41,7 +41,7 @@ describe UsersController do
 
         it "should be a render template places/_index" do
           post :create, authResponse: {userID: myuser.uid, accessToken: myuser.oauth_token}
-          expect(response).should render_template(partial: "places/_index")
+          expect(response).to render_template(partial: "places/_index")
         end
 
         it "should not increase the User count" do
