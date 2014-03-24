@@ -15,7 +15,6 @@ gem 'places'
 gem 'json'
 gem 'oauth'
 gem 'httparty'
-gem 'redis'
 
 
 
