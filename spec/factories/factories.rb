@@ -36,7 +36,7 @@ FactoryGirl.define do
   end
 
   factory :recommendation_strategy do
-    type 'test'
+    type 'RecommendableStrategy'
   end
 
   factory :quirky, class: SimpleQuirkyPlaces do

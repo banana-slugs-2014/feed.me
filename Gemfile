@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 # Collaborative Filtering Strategy
 gem 'redis'
+gem 'sidekiq'
+gem 'sidekiq-middleware'
 gem 'recommendable'
 
 gem 'rails', '3.2.13'
