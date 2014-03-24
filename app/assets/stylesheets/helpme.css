@@ -1,12 +1,16 @@
 html {
-  /*background-color: black;*/
   background-image: url('http://imgur.com/fun4Z8W.jpg');
   background-size: 1950px auto;
 }
 
+html, body, #map-canvas {
+  height: 100%;
+  margin: 0px;
+  padding: 0px
+}
 
 #body {
-  /*text-align: center;*/
+  margin: auto 0;
 }
 /*http://imgur.com/J5AvSW4.jpg*/
 /*http://imgur.com/MWY0kuL.jpg*/
@@ -70,6 +74,27 @@ s
 }
 
 
+/*===============================*/
+            /*Donations*/
+/*===============================*/
+
+.donate{
+  /*background-color: #e67e22;*/
+  height: 40px;
+  width: 120px;
+  border-radius: 2px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  margin: 0 auto;
+  border: 0;
+  /*text style*/
+  text-align: center;
+  font-size: 3.0em;
+  margin-top: 1px;
+  color: white;
+  font-weight: 900;
+}
 
 /*===============================*/
             /*Me So Hungry*/
