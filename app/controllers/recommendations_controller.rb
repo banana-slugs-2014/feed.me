@@ -4,6 +4,7 @@ class RecommendationsController < ApplicationController
   # for the core user experience instead of places actions.
 
   def update
+    RecommendableWorker.perform_async(current_user, Place.find(params[:id]))
   end
 
 
