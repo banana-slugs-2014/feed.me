@@ -36,7 +36,6 @@ FactoryGirl.define do
   end
 
   factory :recommendation_strategy do
-    name 'test strategy'
     type 'test'
   end
 
