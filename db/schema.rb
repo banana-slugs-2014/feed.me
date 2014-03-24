@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140323230807) do
+ActiveRecord::Schema.define(:version => 20140324063744) do
 
   create_table "checkins", :force => true do |t|
     t.integer  "user_id"
@@ -58,14 +58,6 @@ ActiveRecord::Schema.define(:version => 20140323230807) do
     t.integer  "user_id"
     t.string   "category"
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "user_places", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "place_id"
-    t.boolean  "like"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
