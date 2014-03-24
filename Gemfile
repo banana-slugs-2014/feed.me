@@ -1,5 +1,11 @@
 source 'https://rubygems.org'
 
+# Collaborative Filtering Strategy
+gem 'redis'
+gem 'sidekiq'
+gem 'sidekiq-middleware'
+gem 'recommendable'
+
 gem 'rails', '3.2.13'
 gem 'pg'
 gem 'bcrypt-ruby', '~> 3.0.0 '
@@ -9,6 +15,8 @@ gem 'places'
 gem 'json'
 gem 'oauth'
 gem 'httparty'
+
+
 
 group :assets do
   gem 'uglifier', '>= 1.0.3'
