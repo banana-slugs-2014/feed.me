@@ -13,6 +13,13 @@ describe PlacesController do
         response.should render_template(partial: "places/_show")
     end
 
+    it "assigns userLocation var" do
+       controller.stub(:get_places_from_foursquare){FSQ_STUB}
+      location = {"latitude" => 12, "longitude" => 33}
+       post :create, userLocation: {latitude: 12, longitude: 33}.to_json
+      expect(assigns(:user_location)).to eq(location)
+    end
+
     it 'initializes places without creating new ones' do
        controller.stub(:get_places_from_foursquare){FSQ_STUB}
       expect{
@@ -21,11 +28,5 @@ describe PlacesController do
       }.to_not change{ Place.count }
     end
 
-    it "assigns userLocation var" do
-       controller.stub(:get_places_from_foursquare){FSQ_STUB}
-      location = {"latitude" => 12, "longitude" => 33}
-       post :create, userLocation: {latitude: 12, longitude: 33}.to_json
-      expect(assigns(:user_location)).to eq(location)
-    end
   end
 end
