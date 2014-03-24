@@ -10,6 +10,7 @@ class Recommendation < ActiveRecord::Base
 
   def like_recommendation
     update_attributes(like: true)
+    self.save
   end
 
 end
