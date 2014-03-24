@@ -9,7 +9,6 @@ class PlacesController < ApplicationController
   end
 
   def show
-
   end
 
   def create
@@ -66,6 +65,4 @@ class PlacesController < ApplicationController
 
 end
 
-
-  # render partial: "places/index", locals: { user: session[:user_id]}
 
