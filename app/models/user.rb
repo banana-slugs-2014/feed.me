@@ -9,4 +9,5 @@ class User < ActiveRecord::Base
   has_many :checkins
   has_many :user_likes
   has_many :recommendations
+  recommends :places
 end
