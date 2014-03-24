@@ -14,10 +14,13 @@
 /log/*.log
 /tmp
 coverage/*
+coverage/
+
 config/database.yml
 config/facebook.yml
-coverage/
-config/google_keys.yml
 config/yelp.yml
 config/foursquare.yml
+config/google_keys.yml
+
 Gemfile.lock
+db/schema.rb

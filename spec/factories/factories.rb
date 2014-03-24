@@ -1,7 +1,10 @@
 FactoryGirl.define do
   factory :user do
     uid {Faker::Number.number(10)}
-    name {Faker::Lorem.word}
+    name nil
+    age_range nil
+    location nil
+    gender nil
     oauth_token "1234567890asdfghjkl"
   end
 
