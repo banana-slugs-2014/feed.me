@@ -12,7 +12,6 @@ class PlacesController < ApplicationController
   end
 
   def create
-
     @user_location = JSON.parse(params[:userLocation])
     places = get_places_from_foursquare(@user_location["latitude"], @user_location["longitude"])
       #initialize new places in the database

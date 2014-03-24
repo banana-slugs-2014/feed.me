@@ -4,6 +4,6 @@ HelpMe.View = function(sel){
 
 HelpMe.View.prototype = {
   renderPlace: function(place){
-    $('body').html(place);
+    $('.hungry').replaceWith(place);
   }
 }
