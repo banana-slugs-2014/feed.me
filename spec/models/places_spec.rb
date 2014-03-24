@@ -15,6 +15,10 @@ describe Place do
     it {should allow_mass_assignment_of :name}
     it {should allow_mass_assignment_of :address}
     it {should allow_mass_assignment_of :types}
+    it {should allow_mass_assignment_of :phone_num}
+    it {should allow_mass_assignment_of :postal_code}
+    it {should allow_mass_assignment_of :menu_url}
+    it {should allow_mass_assignment_of :company_url}
     it {should allow_mass_assignment_of :latitude}
     it {should allow_mass_assignment_of :longitude}
   end

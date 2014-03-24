@@ -17,10 +17,14 @@ ActiveRecord::Schema.define(:version => 20140323202329) do
     t.string   "name"
     t.string   "address"
     t.string   "types"
-    t.integer  "latitude"
-    t.integer  "longitude"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "phone_num"
+    t.string   "company_url"
+    t.string   "menu_url"
+    t.integer  "postal_code"
+    t.decimal  "latitude"
+    t.decimal  "longitude"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "recommendation_strategies", :force => true do |t|
@@ -42,9 +46,9 @@ ActiveRecord::Schema.define(:version => 20140323202329) do
   create_table "user_places", :force => true do |t|
     t.integer  "user_id"
     t.integer  "place_id"
-    t.integer  "times_clicked"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.boolean  "like"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
