@@ -15,6 +15,7 @@ gem 'places'
 gem 'json'
 gem 'oauth'
 gem 'httparty'
+gem 'split'
 
 
 group :assets do
