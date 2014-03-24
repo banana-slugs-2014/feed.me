@@ -55,4 +55,19 @@ describe UsersController do
       end
     end
   end
+
+  context '#update' do
+    context 'with full params (checkins, likes, age_range, location, gender, name)' do
+      before(:each){myuser}
+
+      xit "should increase the checkins count" do
+        expect{put :update, facebook_scrap}.to change{Checkin.count}
+      end
+
+      xit "should increase the likes count" do
+        expect{put :update, facebook_scrap}.to change{UserLike.count}
+      end
+
+    end
+  end
 end

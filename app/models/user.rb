@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :name, :recent_latitude, :recent_logitude, :age_range, :location, :gender
+  attr_accessible :name, :recent_latitude, :recent_longitude, :age_range, :location, :gender
   validates :uid, presence: true, uniqueness: true
   validates :oauth_token, presence: true
   has_many :user_places
