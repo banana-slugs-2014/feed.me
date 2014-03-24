@@ -4,6 +4,9 @@ HelpMe.View = function(sel){
 
 HelpMe.View.prototype = {
   renderPlace: function(place){
-    $(this.sel.resultContainerSelector).append(place);
+
+    google.maps.event.addDomListener(window, 'load', getLocation);
+
+    $('.hungry').replaceWith(place);
   }
 }
