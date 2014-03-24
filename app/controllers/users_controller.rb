@@ -37,9 +37,9 @@ class UsersController < ApplicationController
     if params[:likes]
       params[:likes][:data].each_value do |value|
         if value[:category] == "Restaurant/cafe"
-          user.user_likes.create(category: value[:category] , name: value[:name] )
+          user.user_likes.create(category: value[:category], name: value[:name] )
         elsif value[:category] == "Food/beverage"
-          user.user_likes.create(category: value[:category] , name: value[:name] )
+          user.user_likes.create(category: value[:category], name: value[:name] )
         end
       end
     end

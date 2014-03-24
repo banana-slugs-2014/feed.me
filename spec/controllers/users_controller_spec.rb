@@ -4,6 +4,43 @@ describe UsersController do
   let (:myuser){ FactoryGirl.create :user }
   let(:attribs){FactoryGirl.attributes_for :user_attribs}
   let(:invalid_attribs){FactoryGirl.attributes_for :user}
+  let(:facebook_input){
+{"id"=>"#{myuser.id}",
+"name"=>"Johnny Wu",
+"age_range"=>{"min"=>"21"},
+"gender"=>"male",
+"location"=>{"id"=>"109352265750998",
+"name"=>"Medford,
+Massachusetts"},
+"likes"=>{"data"=>{"0"=>{"category"=>"Restaurant/cafe",
+"category_list"=>{"0"=>{"id"=>"273819889375819",
+"name"=>"Restaurant"}},
+"name"=>"Pasilla Mexican Grill",
+"created_time"=>"2014-03-21T02:50:44+0000",
+"id"=>"550968254956947"},
+"1"=>{"category"=>"Radio station",
+"name"=>"THE VIBE GUIDE",
+"created_time"=>"2014-03-18T08:22:10+0000",
+"id"=>"112432268910463"}}},
+"checkins"=>{"data"=>{"0"=>{"id"=>"10101453339452944",
+"from"=>{"name"=>"Justin Wu",
+"id"=>"6316063"},
+"message"=>"Lunch with the cousins",
+"place"=>{"id"=>"210074912348149",
+"name"=>"Tasty Station",
+"location"=>{"street"=>"19035 Colima Road",
+"city"=>"Rowland Heights",
+"state"=>"CA",
+"country"=>"United States",
+"zip"=>"91748",
+"latitude"=>"33.987997151621",
+"longitude"=>"-117.8879432865"}}}}},
+"application"=>{"name"=>"Facebook for Windows Phone",
+"id"=>"135892916448833"},
+"created_time"=>"2012-08-12T19:19:46+0000",
+"tags"=>{"data"=>{},
+"paging"=>{"next"=>"https://graph.facebook.com/10101453339452944/tags?access_token=CAAJZBqlSmH7gBAN6C2JNGcZBCkBMjaPlGCJCEqPVPPeHrtcZCME0jsiwgDavP5XIJRX4K0QxZCjDANOIzdFtbZA2ZAZBPMSv1uUpKXXT2jZBZAdBIt6rtYLMZANvHZC3sPuENutqzlO3gW0ZCNwRaOuWtv5NJiMaXkMLxM8c963cUf8RKnWrubmiZCyqZAXT9k1XWWn1Azrim57bFzXQZDZD&limit=25&offset=25&__after_id=553728766"}}}
+}
   context '#create' do
     context 'with a new user' do
       context "with valid params" do
@@ -60,14 +97,27 @@ describe UsersController do
     context 'with full params (checkins, likes, age_range, location, gender, name)' do
       before(:each){myuser}
 
-      xit "should increase the checkins count" do
-        expect{put :update, facebook_scrap}.to change{Checkin.count}
+      it "should increase the checkins count" do
+        expect{put :update, facebook_input}.to change{Checkin.count}
       end
 
-      xit "should increase the likes count" do
-        expect{put :update, facebook_scrap}.to change{UserLike.count}
+      it "should increase the likes count" do
+        expect{put :update, facebook_input}.to change{UserLike.count}
       end
 
+      it "should change user.age_range" do
+        expect{put :update, facebook_input}.to change{myuser.reload.age_range}.to facebook_input["age_range"]["min"].to_i
+      end
+
+      it "should change user.gender" do
+        expect{put :update, facebook_input}.to change{myuser.reload.gender}.to facebook_input["gender"]
+      end
+
+      it "should change user.location" do
+        expect{put :update, facebook_input}.to change{myuser.reload.location}.to facebook_input["location"]["name"]
+      end
     end
+
+
   end
 end
