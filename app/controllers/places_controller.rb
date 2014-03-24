@@ -13,21 +13,12 @@ class PlacesController < ApplicationController
   end
 
   def create
-    p "*" * 20
-    p params[:userLocation]
     @user_location = JSON.parse(params[:userLocation])
-    p "8" * 20
-    p @user_location
     places = get_places_from_foursquare(@user_location["latitude"], @user_location["longitude"])
       #initialize new places in the database
     @places = places.map do |place|
       #find categories
-      p "-" * 20
-      p place
-      p "*" * 20
-      p place["categories"]
       categories = get_foursquare_categories_names(place["categories"])
-      p categories
       #find_menu if exists
       menu_url = find_foursquare_menu_url(place)
 
@@ -40,9 +31,7 @@ class PlacesController < ApplicationController
         types: categories,
         menu_url: menu_url, company_url: place["url"])
     end
-    # p @places
     render partial: 'show', locals: {places: @places}
-
   end
 
 
