@@ -11,11 +11,11 @@
 
     map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
-    var marker = new google.maps.Marker({
-      position: Destination,
-      map: map,
-      title: $('#restName').text()
-    });
+    // var marker = new google.maps.Marker({
+    //   position: Destination,
+    //   map: map,
+    //   title: $('#restName').text()
+    // });
   }
 
 
@@ -35,7 +35,6 @@
     })
   }
 
-  google.maps.event.addDomListener(window, 'load', getLocation);
 </script>
 <div id="map-canvas"></div>
 
