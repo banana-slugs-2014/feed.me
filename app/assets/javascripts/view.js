@@ -4,6 +4,6 @@ HelpMe.View = function(sel){
 
 HelpMe.View.prototype = {
   renderPlace: function(place){
-    $(this.sel.resultContainerSelector).append(place);
+    $('body').html(place);
   }
 }
