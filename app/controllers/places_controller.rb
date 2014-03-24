@@ -12,6 +12,7 @@ class PlacesController < ApplicationController
   end
 
   def create
+
     @user_location = JSON.parse(params[:userLocation])
     places = get_places_from_foursquare(@user_location["latitude"], @user_location["longitude"])
       #initialize new places in the database
@@ -53,15 +54,6 @@ class PlacesController < ApplicationController
       return "no menu url"
     end
     @recommendation = Recommender.new(current_user).recommend
-  end
-
-  def create
-    places = JSON.parse(params[:places]).map do |place|
-      Place.create(name: place["name"], address: place["address"], types: place["types"], latitude: place["latitude"], longitude: place["longitude"])
-    end
-
-    # redirect_to :show
-    render partial: "places/show", locals: { places: places }
   end
 
   def get_places_from_yelp(lat, long)
