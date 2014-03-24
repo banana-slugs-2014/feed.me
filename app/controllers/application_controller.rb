@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
 
     def current_user
       @user ||= User.find_by_uid(session[:user_id]) if session[:user_id]
+      #                                                ^^^^^^^^^^
+      # why is this necessary?  you're going to get nil either way?
     end
 
     def logged_in?
