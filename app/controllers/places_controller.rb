@@ -13,7 +13,12 @@ class PlacesController < ApplicationController
 
   def create
     @user_location = JSON.parse(params[:userLocation])
+
+    current_user.update_attributes(recent_latitude: @user_location["latitude"],
+      recent_longitude: @user_location["longitude"])
+
     places = get_places_from_foursquare(@user_location["latitude"], @user_location["longitude"])
+
       #initialize new places in the database
     @places = places.map do |place|
       #find categories
@@ -35,9 +40,8 @@ class PlacesController < ApplicationController
 
 
   def get_places_from_foursquare(lat, long)
-     response = HTTParty.get("https://api.foursquare.com/v2/venues/search?client_id=#{ENV['FOURSQUARE_ID']}&client_secret=#{ENV['FOURSQUARE_SECRET']}&v=20130815&ll=#{lat},#{long}&categoryId=4d4b7105d754a06374d81259")
-
-     response["response"]["venues"]
+    response = HTTParty.get("https://api.foursquare.com/v2/venues/search?client_id=#{ENV['FOURSQUARE_ID']}&client_secret=#{ENV['FOURSQUARE_SECRET']}&v=20130815&ll=#{lat},#{long}&categoryId=4d4b7105d754a06374d81259")
+    response["response"]["venues"]
   end
 
   def get_foursquare_categories_names(cat_array)
