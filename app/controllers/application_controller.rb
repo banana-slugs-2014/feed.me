@@ -1,4 +1,5 @@
 
+#^^^^^^^^^^^^^^^^^^^ what is the sound of one empty line being added:  GONG
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
