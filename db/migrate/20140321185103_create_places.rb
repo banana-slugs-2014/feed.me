@@ -8,9 +8,8 @@ class CreatePlaces < ActiveRecord::Migration
       t.string :company_url
       t.string :menu_url
       t.integer :postal_code
-      t.integer :latitude
-      t.integer :longitude
-
+      t.decimal :latitude
+      t.decimal :longitude
       t.timestamps
     end
   end

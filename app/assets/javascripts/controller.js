@@ -14,6 +14,7 @@ HelpMe.Controller.prototype = {
     var opts = {
       url: '/places',
       type: 'post',
+      context: this,
       data: {userLocation: JSON.stringify(position)}
     };
     this.ajaxCaller(opts);
@@ -21,8 +22,8 @@ HelpMe.Controller.prototype = {
 
   ajaxCaller: function(opts){
     $.ajax(opts)
-    .done(function(){
-      console.log("you did a thing!")
+    .done(function(response){
+      this.view.renderPlace(response)
     })
     .fail(function(){
       console.log('ajax request to create a new restaurant failed')

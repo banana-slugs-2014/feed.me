@@ -4,7 +4,7 @@ $(document).ready(function(){
   var myUser = new User();
 
   var Selectors = {
-    resultContainerSelector: '.hidden',
+    resultContainerSelector: '#hidden',
     helpMeButtonSelector: '.helpMeButton'
   }
 
