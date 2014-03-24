@@ -30,8 +30,8 @@ HelpMe.Controller.prototype = {
           name: response[i].name,
           address: response[i].vicinity,
           types: response[i].types,
-          latitude: response[0].geometry.location.k,
-          longitude: response[0].geometry.location.A
+          latitude: response[i].geometry.location.k,
+          longitude: response[i].geometry.location.A
         })
       }
      $.ajax({
