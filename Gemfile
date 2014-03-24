@@ -9,6 +9,7 @@ gem 'places'
 gem 'json'
 gem 'oauth'
 gem 'httparty'
+gem 'redis'
 
 group :assets do
   gem 'uglifier', '>= 1.0.3'
