@@ -1,3 +1,8 @@
+/*
+ *
+ * I thought your top-level namespace was HelpMe?  What's this, extra code?
+ *
+ */
 var App = {}
 
 App.Controller = function(facebook, view){

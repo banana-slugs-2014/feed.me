@@ -16,6 +16,8 @@ HelpMe.Binder.prototype = {
 
   bindfindPlaceButton: function(){
     var controller = this.controller;
+    // Protip:  Inject these selectors as part of an options object you pass in
+    // during new HelpMe.Binder(...);  DEPENDENCY INJECTION
     $('body').on('click', ".helpMeButton" ,function(e){
       e.preventDefault();
       controller.findNearbyRestaurants();
