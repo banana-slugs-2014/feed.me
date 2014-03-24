@@ -6,5 +6,8 @@ class UpdateUsersCreate < ActiveRecord::Migration
   end
 
   def down
+    remove_column :users, :age_range
+    remove_column :users, :location
+    remove_column :users, :gender
   end
 end

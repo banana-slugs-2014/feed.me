@@ -4,5 +4,6 @@ class CheckinsdropcolumnMessage < ActiveRecord::Migration
   end
 
   def down
+    add_column :checkings, :message, :string
   end
 end

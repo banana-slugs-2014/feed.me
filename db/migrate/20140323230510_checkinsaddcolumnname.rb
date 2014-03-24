@@ -4,5 +4,6 @@ class Checkinsaddcolumnname < ActiveRecord::Migration
   end
 
   def down
+    remove_column :checkins, :name
   end
 end
