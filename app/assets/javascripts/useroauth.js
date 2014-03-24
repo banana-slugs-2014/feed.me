@@ -32,7 +32,7 @@ App.Controller.prototype = {
           self.view.renderUpdate(data)
         }
       });
-    },{scope: 'user_likes,user_checkins,user_about_me,user_birthday,user_location,user_activities,user_relationships'});
+    },{scope: 'user_likes,user_checkins,user_about_me,user_location,user_activities,user_relationships'});
   },
 
   getFacebookInfo: function(userId){

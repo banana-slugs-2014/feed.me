@@ -6,7 +6,7 @@ HelpMe::Application.routes.draw do
   root to: "users#index"
   resources :places, only: [:index, :create, :show]
 
-  post '/login', to: 'sessions#create', as: :login
+  post '/login', to: 'users#create', as: :login
   delete '/logout', to: 'sessions#destroy', as: :logout
   resources :users, only: [:update]
 end
