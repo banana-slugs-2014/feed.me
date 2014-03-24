@@ -6,6 +6,10 @@ class Recommendation < ActiveRecord::Base
 
   validates :user, :place, :recommendation_strategy, presence: true
 
-  attr_accessible :user, :recommendation_strategy, :place
+  attr_accessible :user, :recommendation_strategy, :place, :like
+
+  def like_recommendation
+    update_attributes(like: true)
+  end
 
 end
