@@ -39,7 +39,6 @@ ActiveRecord::Schema.define(:version => 20140324232217) do
   end
 
   create_table "recommendation_strategies", :force => true do |t|
-    t.string   "name"
     t.string   "type"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
