@@ -50,14 +50,16 @@
   <p style="visibility: hidden;" id="latitude"><%=  rest.latitude %></p>
   <p style="visibility: hidden;" id="longitude"><%=  rest.longitude %></p>
 
-  <%= form_tag recommendation_path(recommendation), action: "update", method: "put" , :html => { :'data-yes' => "yes"} do %>
-  <%= submit_tag"Yes!", class: "yes", :"data-id" => recommendation.id %>
-  <% end %>
 
-  <%= form_tag recommendation_path(recommendation), action: "update", method: "put" , :html => {  :'data-no' => "no" } do %>
-  <%= submit_tag "No!", class: "no", :"data-id" => recommendation.id %>
-  <% end %>
+  <div class="user-preference">
+    <%= form_tag recommendation_path(recommendation), action: "update", method: "put" , :html => { :'data-yes' => "yes"} do %>
+    <%= button_tag "Yes!", class: "yes", :"data-id" => recommendation.id %>
+    <% end %>
 
+    <%= form_tag recommendation_path(recommendation), action: "update", method: "put" , :html => {  :'data-no' => "no" } do %>
+    <%= button_tag "No!", class: "no", :"data-id" => recommendation.id %>
+    <% end %>
+  </div>
 </div>
 
 
