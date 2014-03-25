@@ -8,7 +8,7 @@ class FacebookWeighted < RecommendationStrategy
 
   def weighted_random(data)
     weighted_initial = Hash[data.places.map{ |place| [place, 3] }]
-    weighted_elements = update_weights_for_age(data.user.age_range, weighted_initial)
+    weighted_elements = update_weights_for_age(data.user, weighted_initial)
 
     weight_sum = weighted_elements.values.inject(:+)
     rand = Random.new.rand(weight_sum)
@@ -18,13 +18,12 @@ class FacebookWeighted < RecommendationStrategy
       rand -= weight
       rand <= 0
     end
-
     selected_element.first
   end
 
-  def update_weights_for_age(age, normalized_data)
-    if age == 21
-      update_weights = normalized_data.each_pair.map do |place, weight|
+  def update_weights_for_age(user, normalized_data)
+    update_weights = normalized_data.each_pair.map do |place, weight|
+      if user.age_range == 21
         case place.types.first
         when 'Brewery' then [place, weight += 2]
         when 'Irish Pub' then [place, weight += 2]
@@ -38,7 +37,13 @@ class FacebookWeighted < RecommendationStrategy
         else [place,weight]
         end
       end
+    
+      (weight += 3) if user.user_likes.pluck(:name).include?(place.name)
+      (weight += 3) if user.checkins.pluck(:name).include?(place.name)
+        
+      [place, weight]
     end
+
     !!update_weights ? Hash[update_weights] : normalized_data
   end
 
