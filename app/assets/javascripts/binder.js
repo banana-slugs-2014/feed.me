@@ -10,6 +10,7 @@ HelpMe.Binder.prototype = {
     this.bindfindPlaceButton();
     this.bindYesButton();
     this.bindNoButton();
+    this.bindToggleInfo();
   },
 
   bindFindLocationOnDocReady: function(){
@@ -40,4 +41,5 @@ HelpMe.Binder.prototype = {
       controller.noAction(id);
     });
   }
+
 }
