@@ -1,8 +1,7 @@
 module StrategyTester
 
   def self.strategies
-    RecommendationStrategy.all
-    RecommendationStrategy.subclasses.map(&:to_s)
+    ["SimpleFourSquare","FacebookWeighted","RecommendableStrategy","SimpleQuirkyPlaces"]
   end
 
 end
