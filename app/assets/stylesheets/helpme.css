@@ -10,7 +10,17 @@ html, body, #map-canvas {
   padding-top: 30px;
 }
 
-#results-canvas{
+button {
+  margin: 2px 0 2px 0;
+  height: 40px;
+  width: 80px;
+  background-color: #27ae60;
+  border-radius: 3px;
+  border: none;
+  font-size: 0.9em;
+}
+
+#results-canvas, #newresults-canvas {
   height: 100%;
   margin: 0px;
   padding-top: 0;
@@ -18,6 +28,27 @@ html, body, #map-canvas {
 
 #body {
   margin: auto 0;
+}
+
+#result .user-preference {
+  text-align: center;
+}
+
+#result .user-preference form {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  width: 100px;
+}
+
+#result .user-preference .yes {
+  text-align: center;
+  background-color: #2980b9;
+}
+
+#result .user-preference .no {
+  text-align: center;
+  background-color: #c0392b;
 }
 /*http://imgur.com/J5AvSW4.jpg*/
 /*http://imgur.com/MWY0kuL.jpg*/
@@ -175,17 +206,10 @@ li {
   font-size: 2.5em;
 }
 
-nav li:hover{
-  background-color: #c35a54;
-}
-
 li a {
   text-decoration: none;
 }
 
-/*.wootstrap-active {
-  background-color: #ed6454;
-}*/
 
 /*===============================*/
             /*RESULT*/
@@ -213,11 +237,15 @@ li a {
 
 #result p {
   text-align: center;
-  line-height: 2;
+  line-height: 1;
   font-size: 1.2em;
   margin-top: 20px;
   color: white;
   font-weight: bold;
+}
+
+#result h3 {
+  text-align: center;
 }
 
 #result p a {
@@ -228,8 +256,48 @@ li a {
   font-style: italic;
 }
 
-#result:hover {
-  background-color: #F2BD69;
+
+/*===============================*/
+            /*SELECTIon*/
+/*===============================*/
+
+#selection {
+  position: fixed;
+  left: 50%;
+  top: 80%;
+  margin: 0 auto;
+  margin-top: -100px;
+  margin-left: -100px;
+  border: 0;
+  font-size: 1.3em;
+}
+
+#selection {
+  opacity:0.9;
+  background-color: #4CA378;
+  height: 300px;
+  width: 450px;
+  border-radius: 2px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+}
+
+#selection p {
+  text-align: center;
+  line-height: 1;
+  font-size: 0.9em;
+  margin-top: 10px;
+  color: white;
+  font-weight: bold;
+}
+
+#selection p a {
+  text-align: center;
+  font-size: 0.8em;
+  color: white;
+  font-weight: bold;
+  font-style: italic;
 }
 
 /*===============================*/
