@@ -35,7 +35,12 @@ class PlacesController < ApplicationController
           longitude: place["location"]["lng"],
           types: categories,
           menu_url: menu_url, company_url: place["url"])
+<<<<<<< HEAD
       new_place.valid? ? new_place : Place.find_by_name(place["name"])
+=======
+        return Place.find_by_name(place["name"]) unless new_place.valid?
+       new_place
+>>>>>>> adds user age range to specs so tests pass in accordance to awesome
     end
     trial = ab_test('Recommendation Strategy', *StrategyTester.strategies).constantize
     recommendation = Recommender.new(current_user, places, strategy: trial).recommend
@@ -71,5 +76,4 @@ class PlacesController < ApplicationController
     path = "/v2/search?term=food&ll=#{lat},#{long}"
     info = access_token.get(path).body
   end
-
 end
