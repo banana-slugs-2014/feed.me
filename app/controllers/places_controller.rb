@@ -26,7 +26,6 @@ class PlacesController < ApplicationController
       categories = get_foursquare_categories_names(place["categories"])
       #find_menu if exists
       menu_url = find_foursquare_menu_url(place)
-
       new_place = Place.create(name: place["name"],
           phone_num: place["contact"]["phone"],
           address: place["location"]["address"],
@@ -35,10 +34,9 @@ class PlacesController < ApplicationController
           longitude: place["location"]["lng"],
           types: categories,
           menu_url: menu_url, company_url: place["url"])
-        return Place.find_by_name(place["name"]) unless new_place.valid?
-       new_place
-    end
 
+      new_place.valid? ? new_place : Place.find_by_name(place["name"])
+    end
     trial = ab_test('Recommendation Strategy', *StrategyTester.strategies).constantize
     recommendation = Recommender.new(current_user, places, strategy: trial).recommend
 
