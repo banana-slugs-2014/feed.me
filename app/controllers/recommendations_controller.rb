@@ -6,11 +6,12 @@ class RecommendationsController < ApplicationController
 
   def update
     like_true
-
-    redirect_to root_path
+     redirect_to root_path
   end
 
   def like_true
+    p "*" * 100
+    p params
     @liked = Recommendation.where(params[:id]).first
     @liked.update_attributes(like: true)
   end
