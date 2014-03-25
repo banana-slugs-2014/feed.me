@@ -57,7 +57,7 @@ App.View = function(){}
 
 App.View.prototype = {
   renderUpdate: function(data){
-    $('body').html(data)
+    $('#body').html(data)
   }
 }
 

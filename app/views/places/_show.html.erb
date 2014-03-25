@@ -9,13 +9,13 @@
         center: Destination
     };
 
-    map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    map = new google.maps.Map(document.getElementById('results-canvas'), mapOptions);
 
-    // var marker = new google.maps.Marker({
-    //   position: Destination,
-    //   map: map,
-    //   title: $('#restName').text()
-    // });
+    var marker = new google.maps.Marker({
+      position: Destination,
+      map: map,
+      title: $('#restName').text()
+    });
   }
 
 
@@ -36,7 +36,7 @@
   }
 
 </script>
-<div id="map-canvas"></div>
+<div id="results-canvas"></div>
 
 <div id='result'>
     <h3>Your only choice:</h3>

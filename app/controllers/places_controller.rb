@@ -20,7 +20,6 @@ class PlacesController < ApplicationController
       categories = get_foursquare_categories_names(place["categories"])
       #find_menu if exists
       menu_url = find_foursquare_menu_url(place)
-
       Place.new(name: place["name"],
         phone_num: place["contact"]["phone"],
         address: place["location"]["address"],
@@ -28,7 +27,8 @@ class PlacesController < ApplicationController
         latitude: place["location"]["lat"],
         longitude: place["location"]["lng"],
         types: categories,
-        menu_url: menu_url, company_url: place["url"])
+        menu_url: menu_url,
+        company_url: place["url"])
     end
     render partial: 'show', locals: {places: @places}
   end
