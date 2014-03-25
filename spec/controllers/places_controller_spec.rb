@@ -9,7 +9,9 @@ describe PlacesController do
     before(:each) do
       controller.stub(:get_places_from_foursquare){FSQ_STUB}
       controller.stub(:current_user){ my_user }
+      controller.stub(:get_places_from_foursquare){FSQ_STUB}
     end
+
     it "should render a partial" do
         post :create, userLocation: {latitude: 37.78, longitude: 122.4167}.to_json
         expect(response).to render_template(partial: "places/_show")
@@ -20,6 +22,5 @@ describe PlacesController do
         post :create, userLocation: {latitude: 12, longitude: 33}.to_json
       }.to change{ Place.count }
     end
-
   end
 end

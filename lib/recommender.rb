@@ -5,7 +5,7 @@ class Recommender
   def initialize(user, places, opts = {})
     @user = user
     @places = places
-    @strategy = (opts[:strategy] || SimpleFourSquare).create
+    @strategy = (opts[:strategy] || WeirdFacebook).create
   end
 
 

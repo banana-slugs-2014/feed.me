@@ -39,7 +39,7 @@ class PlacesController < ApplicationController
     end
     trial = ab_test('Recommendation Strategy', *StrategyTester.strategies).constantize
     recommendation = Recommender.new(current_user, places, strategy: trial).recommend
-    render partial: 'show', locals: { recommendation: recommendation }
+    render partial: 'show', locals: {place: recommendation.place }
   end
 
   private
