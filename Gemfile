@@ -15,6 +15,9 @@ gem 'places'
 gem 'json'
 gem 'oauth'
 gem 'httparty'
+gem 'split', :require => 'split/dashboard'
+
+
 
 
 group :assets do

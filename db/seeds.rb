@@ -34,6 +34,17 @@ end
 # end
 
 # places_id = [*1..1000]
+
+1000.times do
+  puts Place.create(name: Faker::Lorem.characters(40), address: Faker::Lorem.characters(40))
+end
+
+places_id = [*1..1000]
+users_id = [*1..10]
+100.times do
+  Recommendation.create(place: Place.find(places_id.sample), user: User.find(users_id.sample), recommendation_strategy: SimpleGooglePlaces.create )
+end
+
 # 10.times do |time|
 #   2500.times do
 #     puts User.find(time+1).like(Place.find(places_id.sample))
