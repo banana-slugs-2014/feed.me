@@ -37,6 +37,7 @@ class PlacesController < ApplicationController
       Place.find_by_name(place["name"]) unless new_place.valid?
     end
 
+
     recommendation = Recommender.new(current_user, places).recommend
 
     render partial: 'show', locals: {place: recommendation.place }

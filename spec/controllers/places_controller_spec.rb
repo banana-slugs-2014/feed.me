@@ -4,7 +4,13 @@ require_relative 'fsq_stub'
 describe PlacesController do
   describe '#create' do
     let(:attribs) {FactoryGirl.attributes_for :place}
-    before(:each){controller.stub(:get_places_from_foursquare){FSQ_STUB}}
+    let(:myuser){FactoryGirl.create :user}
+
+    before(:each) do
+      controller.stub(:get_places_from_foursquare){FSQ_STUB}
+      controller.stub(:current_user){myuser}
+    end
+
     it "should render a partial" do
         post :create, userLocation: {latitude: 37.78, longitude:  122.4167}.to_json
         response.should render_template(partial: "places/_show")
