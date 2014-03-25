@@ -12,25 +12,29 @@ class PlacesController < ApplicationController
   end
 
   def create
-    @user_location = JSON.parse(params[:userLocation])
-    places = get_places_from_foursquare(@user_location["latitude"], @user_location["longitude"])
+    user_location = JSON.parse(params[:userLocation])
+    places = get_places_from_foursquare(user_location["latitude"],user_location["longitude"])
       #initialize new places in the database
-    @places = places.map do |place|
+    places = places.map do |place|
       #find categories
       categories = get_foursquare_categories_names(place["categories"])
       #find_menu if exists
       menu_url = find_foursquare_menu_url(place)
-      Place.new(name: place["name"],
-        phone_num: place["contact"]["phone"],
-        address: place["location"]["address"],
-        postal_code: place["location"]["postalCode"],
-        latitude: place["location"]["lat"],
-        longitude: place["location"]["lng"],
-        types: categories,
-        menu_url: menu_url,
-        company_url: place["url"])
+
+      new_place = Place.create(name: place["name"],
+          phone_num: place["contact"]["phone"],
+          address: place["location"]["address"],
+          postal_code: place["location"]["postalCode"],
+          latitude: place["location"]["lat"],
+          longitude: place["location"]["lng"],
+          types: categories,
+          menu_url: menu_url, company_url: place["url"])
+      Place.find_by_name(place["name"]) unless new_place.valid?
     end
-    render partial: 'show', locals: {places: @places}
+
+    recommendation = Recommender.new(current_user, places).recommend
+
+    render partial: 'show', locals: {place: recommendation.place }
   end
 
 
