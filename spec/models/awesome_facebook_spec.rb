@@ -3,7 +3,7 @@ require 'spec_helper'
 describe AwesomeFacebook do
   let(:my_facebook){ create(:awesome_facebook) }
   let(:my_places) { [create(:place)] }
-  let(:my_user) { create(:user) }
+  let(:my_user) { create(:user, age_range: 21) }
   let(:my_recommender){ Recommender.new(my_user,my_places) }
 
   context '#recommend' do
