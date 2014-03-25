@@ -11,7 +11,7 @@ describe PlacesController do
       controller.stub(:current_user){ my_user }
     end
     it "should render a partial" do
-        post :create, userLocation: {latitude: 37.78, longitude:  122.4167}.to_json
+        post :create, userLocation: {latitude: 37.78, longitude: 122.4167}.to_json
         expect(response).to render_template(partial: "places/_show")
     end
 
