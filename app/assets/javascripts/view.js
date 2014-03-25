@@ -8,7 +8,6 @@ HelpMe.View.prototype = {
   },
   showYes: function(partial){
     $('body').html(partial);
-    console.log('it got here')
   },
   showNo: function(partial){
     $('body').html(partial);
