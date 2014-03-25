@@ -34,7 +34,7 @@ class PlacesController < ApplicationController
 
     recommendation = Recommender.new(current_user, places).recommend
 
-    render partial: 'show', locals: {place: recommendation.place, recommendation: recommendation }
+    render partial: 'show', locals: { recommendation: recommendation }
   end
 
   private
