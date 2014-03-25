@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/banana-slugs-2014/help.me.png?branch=master)](https://travis-ci.org/banana-slugs-2014/help.me)
+[![Build Status](https://travis-ci.org/banana-slugs-2014/feed.me.png?branch=master)](https://travis-ci.org/banana-slugs-2014/feed.me)
 #Help.me
 
 ![asd](http://www.bestgifever.com/data/images/2014/01/idaorhemnpepg.gif)

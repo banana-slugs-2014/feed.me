@@ -40,9 +40,10 @@ class PlacesController < ApplicationController
 
     recommendation = Recommender.new(current_user, places).recommend
 
-    render partial: 'show', locals: {place: recommendation.place }
+    render partial: 'show', locals: { recommendation: recommendation }
   end
 
+  private
 
   def get_places_from_foursquare(lat, long)
     response = HTTParty.get("https://api.foursquare.com/v2/venues/search?client_id=#{ENV['FOURSQUARE_ID']}&client_secret=#{ENV['FOURSQUARE_SECRET']}&v=20130815&ll=#{lat},#{long}&categoryId=4d4b7105d754a06374d81259")
@@ -61,7 +62,6 @@ class PlacesController < ApplicationController
     else
       return "no menu url"
     end
-    @recommendation = Recommender.new(current_user).recommend
   end
 
   def get_places_from_yelp(lat, long)

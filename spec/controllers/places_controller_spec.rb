@@ -13,7 +13,7 @@ describe PlacesController do
 
     it "should render a partial" do
         post :create, userLocation: {latitude: 37.78, longitude:  122.4167}.to_json
-        response.should render_template(partial: "places/_show")
+        expect(response).to render_template(partial: "places/_show")
     end
 
     it 'creates places' do
