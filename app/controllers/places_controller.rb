@@ -4,6 +4,7 @@ require 'oauth'
 
 
 class PlacesController < ApplicationController
+  include StrategyTester
 
   def index
   end
@@ -38,8 +39,8 @@ class PlacesController < ApplicationController
        new_place
     end
 
-
-    recommendation = Recommender.new(current_user, places).recommend
+    trial = ab_test('Recommendation Strategy', *StrategyTester.strategies).constantize
+    recommendation = Recommender.new(current_user, places, strategy: trial).recommend
 
     render partial: 'show', locals: { recommendation: recommendation }
   end

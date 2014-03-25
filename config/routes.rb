@@ -10,4 +10,5 @@ HelpMe::Application.routes.draw do
   post '/login', to: 'users#create', as: :login
   delete '/logout', to: 'sessions#destroy', as: :logout
   resources :users, only: [:update]
+  mount Split::Dashboard, :at => 'split'
 end
