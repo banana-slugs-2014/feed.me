@@ -1,3 +1,5 @@
+
+
 <script>
  showPosition();
   function showPosition(){
@@ -6,9 +8,8 @@
         zoom: 19,
         center: Destination
     };
-    map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    map = new google.maps.Map(document.getElementById('newresults-canvas'), mapOptions);
   }
-
 
   var position = navigator.geolocation.getCurrentPosition(showDirections)
 
@@ -27,17 +28,28 @@
   }
 </script>
 
+<div id="newresults-canvas"></div>
 
-<div id="results-canvas"></div>
+    <div id="header">
+      <nav class="wootstrap-navbar">
+          <ul>
+            <li class="wootstrap-home-icon">Feed Me</li>
+          </ul>
+          <li style="padding-left:60%;"><img src="https://playfoursquare.s3.amazonaws.com/press/logo/poweredByFoursquare_gray.png" width=40% ></img></li>
+      </nav>
+    </div>
+
+
 
 <div id='result'>
 
   <h3>Your only choice:</h3>
-  <% rest = place %>
+  <% rest = places.sample %>
   <p id="restName"><%= rest.name %> Restaurant</p>
 
   <p style="visibility: hidden;" id="latitude"><%=  rest.latitude %></p>
   <p style="visibility: hidden;" id="longitude"><%=  rest.longitude %></p>
+
 
   <div class="user-preference">
     <%= form_tag recommendation_path(recommendation), action: "update", method: "put" , :html => { :'data-yes' => "yes"} do %>
@@ -46,9 +58,9 @@
 
     <%= form_tag recommendation_path(recommendation), action: "update", method: "put" , :html => {  :'data-no' => "no" } do %>
     <%= button_tag "No!", class: "no", :"data-id" => recommendation.id %>
+    <% end %>
   </div>
-
-  <% end %>
-
 </div>
+
+
 

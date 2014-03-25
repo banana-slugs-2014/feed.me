@@ -12,11 +12,4 @@ function showPosition(position){
 
   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
-  // COOL STRETCH GOAL - ADD MARKER FOR POS
-  // var marker = new google.maps.Marker({
-  //   map: map,
-  //   position: google.maps.LatLng(position.coords.latitude, position.coords.longitude)
-  // });
-
-  // marker.setMap(map);
 }
