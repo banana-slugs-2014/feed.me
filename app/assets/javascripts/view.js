@@ -8,5 +8,10 @@ HelpMe.View.prototype = {
     google.maps.event.addDomListener(window, 'load', getLocation);
 
     $('.hungry').replaceWith(place);
+  },
+  showSuccess: function(partial){
+    $('body').html(partial);
+    console.log('it got here')
   }
+
 }

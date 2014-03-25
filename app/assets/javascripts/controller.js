@@ -17,17 +17,36 @@ HelpMe.Controller.prototype = {
       context: this,
       data: {userLocation: JSON.stringify(position)}
     };
-    this.ajaxCaller(opts);
+    this.ajaxCaller(opts, this.view.renderPlace);
   },
 
-  ajaxCaller: function(opts){
+  yesAction: function(id){
+    var opts = {
+      url: '/recommendations/' + id ,
+      type: 'put',
+      context: this,
+      data: {yes: "yes"}
+    };
+    this.ajaxCaller(opts, this.view.showSuccess);
+  },
+
+  noAction: function(id){
+    var opts = {
+      url: '/recommendations/' + id ,
+      type: 'put',
+      context: this,
+      data: {no: "no"}
+    };
+    this.ajaxCaller(opts, this.view.showSuccess );
+  },
+
+  ajaxCaller: function(opts, callback){
     $.ajax(opts)
     .done(function(response){
-      this.view.renderPlace(response)
+      callback(response)
     })
     .fail(function(){
       console.log('ajax request to create a new restaurant failed')
-
     });
   }
 }
