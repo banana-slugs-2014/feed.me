@@ -17,6 +17,21 @@ FactoryGirl.define do
     longitude 122
   end
 
+  factory :checkin do
+    city {Faker::Address.city}
+    country "United States"
+    longitude "-118.27486969698"
+    latitude "34.075289113061"
+    name {Faker::Name.name}
+    user
+  end
+
+  factory :user_like do
+    category {Faker::Address.name}
+    name {Faker::Name.name}
+    user
+  end
+
   factory :recommendation_place, class: Place do
     name "Test"
     address "123 Fake Avenue"
@@ -37,6 +52,9 @@ FactoryGirl.define do
   end
 
   factory :quirky, class: SimpleQuirkyPlaces do
+  end
+
+  factory :facebook_weighted, class: FacebookWeighted do
   end
 
   factory :foursquare, class: SimpleFourSquare do
