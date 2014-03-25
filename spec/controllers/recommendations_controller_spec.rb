@@ -18,10 +18,6 @@ describe RecommendationsController do
         expect(my_recommendation.reload.like).to be_true
       end
 
-      it 'passes #like message to current user for recommendable' do
-        expect(controller.current_user).to receive(:like).with(my_recommendation.place)
-        controller.send(:update_recommendable_redis, my_recommendation)
-      end
     end
 
     context 'user dislikes a recommendation' do
