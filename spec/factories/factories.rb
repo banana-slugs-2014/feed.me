@@ -34,7 +34,7 @@ FactoryGirl.define do
   end
 
   factory :recommendation_place, class: Place do
-    name "Test"
+    name "Tezst"
     address "123 Fake Avenue"
     types ["food", "otherfood"]
     latitude 123
