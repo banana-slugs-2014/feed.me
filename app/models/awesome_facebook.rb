@@ -1,4 +1,4 @@
-class WeirdFacebook < RecommendationStrategy
+class AwesomeFacebook < RecommendationStrategy
 
   def recommend(data)
     @user = data.user
