@@ -4,7 +4,7 @@ require_relative 'fsq_stub'
 describe PlacesController do
   describe '#create' do
     let(:attribs) {FactoryGirl.attributes_for :place}
-    let(:myuser){FactoryGirl.create :user}
+    let(:myuser){FactoryGirl.create :user, age_range: 21}
 
     before(:each) do
       controller.stub(:get_places_from_foursquare){FSQ_STUB}

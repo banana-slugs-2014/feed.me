@@ -34,7 +34,8 @@ class PlacesController < ApplicationController
           longitude: place["location"]["lng"],
           types: categories,
           menu_url: menu_url, company_url: place["url"])
-      Place.find_by_name(place["name"]) unless new_place.valid?
+        return Place.find_by_name(place["name"]) unless new_place.valid?
+       new_place
     end
 
 
@@ -72,5 +73,4 @@ class PlacesController < ApplicationController
     path = "/v2/search?term=food&ll=#{lat},#{long}"
     info = access_token.get(path).body
   end
-
 end
