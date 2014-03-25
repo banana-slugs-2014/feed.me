@@ -38,6 +38,9 @@ FactoryGirl.define do
   factory :quirky, class: SimpleQuirkyPlaces do
   end
 
+  factory :facebook_weighted, class: FacebookWeighted do
+  end
+
   factory :foursquare, class: SimpleFourSquare do
   end
 
