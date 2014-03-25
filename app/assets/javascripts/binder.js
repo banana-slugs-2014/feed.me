@@ -8,6 +8,7 @@ HelpMe.Binder.prototype = {
   bind: function(){
     this.bindFindLocationOnDocReady();
     this.bindfindPlaceButton();
+    this.bindToggleInfo();
   },
 
   bindFindLocationOnDocReady: function(){
@@ -20,5 +21,12 @@ HelpMe.Binder.prototype = {
       e.preventDefault();
       controller.findNearbyRestaurants();
     });
+  },
+
+  bindToggleInfo: function(){
+    $('body').on('click', '#result', function(){
+      $('#placeInfo').toggle();
+    });
   }
+
 }

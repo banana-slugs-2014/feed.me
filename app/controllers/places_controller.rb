@@ -54,7 +54,7 @@ class PlacesController < ApplicationController
     if place["menu"]
       return menu_url = place["menu"]["url"]
     else
-      return "#"
+      return "no menu url"
     end
     @recommendation = Recommender.new(current_user).recommend
   end

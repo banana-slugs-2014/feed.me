@@ -2,7 +2,7 @@
  showPosition();
 
   function showPosition(){
-     Destination = new google.maps.LatLng($('#latitude').text(), $('#longitude').text())
+    Destination = new google.maps.LatLng($('#latitude').text(), $('#longitude').text())
 
     var mapOptions = {
         zoom: 19,
@@ -11,11 +11,6 @@
 
     map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
-    // var marker = new google.maps.Marker({
-    //   position: Destination,
-    //   map: map,
-    //   title: $('#restName').text()
-    // });
   }
 
 
@@ -25,7 +20,7 @@
     var request = {
       origin: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
       destination: Destination,
-      travelMode: google.maps.TravelMode.WALKING
+      travelMode: google.maps.TravelMode.DRIVING
     }
     var directionsDisplay = new google.maps.DirectionsRenderer();
     var directionsServce = new google.maps.DirectionsService();
@@ -35,12 +30,8 @@
     })
   }
 
-  $('#result').on('click', function(){
-    $('#placeInfo').toggle();
-  })
-
-
 </script>
+
 <div id="map-canvas"></div>
 
 <div id='result'>
@@ -52,6 +43,7 @@
 
 
 </div>
+
 <div id="placeInfo">
   <p id="phoneNum">Phone Number: <%= rest.phone_num %></p>
   <p id="address">Address: <%= rest.address %></p>

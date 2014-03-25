@@ -27,7 +27,6 @@ HelpMe.Controller.prototype = {
     })
     .fail(function(){
       console.log('ajax request to create a new restaurant failed')
-
     });
   }
 }
