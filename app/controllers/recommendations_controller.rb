@@ -22,6 +22,7 @@ class RecommendationsController < ApplicationController
     recommendation = Recommendation.where(id: params[:id]).first
     recommendation.update_attributes(like: true)
     current_user.like recommendation.place
+    finished('Recommendation Strategy')
   end
 
   def like_false!

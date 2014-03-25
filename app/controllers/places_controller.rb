@@ -4,6 +4,7 @@ require 'oauth'
 
 
 class PlacesController < ApplicationController
+  include StrategyTester
 
   def index
   end
@@ -15,27 +16,25 @@ class PlacesController < ApplicationController
     user_location = JSON.parse(params[:userLocation])
     places = get_places_from_foursquare(user_location["latitude"],user_location["longitude"])
       #initialize new places in the database
-    begin
-      places = places.map do |place|
-        #find categories
-        categories = get_foursquare_categories_names(place["categories"])
-        #find_menu if exists
-        menu_url = find_foursquare_menu_url(place)
+    places = places.map do |place|
+      #find categories
+      categories = get_foursquare_categories_names(place["categories"])
+      #find_menu if exists
+      menu_url = find_foursquare_menu_url(place)
 
-        new_place = Place.create(name: place["name"],
-            phone_num: place["contact"]["phone"],
-            address: place["location"]["address"],
-            postal_code: place["location"]["postalCode"],
-            latitude: place["location"]["lat"],
-            longitude: place["location"]["lng"],
-            types: categories,
-            menu_url: menu_url, company_url: place["url"])
-        Place.find_by_name(place["name"]) unless new_place.valid?
-      end
-  rescue
-    p "Mcgellan!" * 100
-  end
-    recommendation = Recommender.new(current_user, places).recommend
+      new_place = Place.create(name: place["name"],
+          phone_num: place["contact"]["phone"],
+          address: place["location"]["address"],
+          postal_code: place["location"]["postalCode"],
+          latitude: place["location"]["lat"],
+          longitude: place["location"]["lng"],
+          types: categories,
+          menu_url: menu_url, company_url: place["url"])
+      Place.find_by_name(place["name"]) unless new_place.valid?
+    end
+
+    trial = ab_test('Recommendation Strategy', *StrategyTester.strategies).constantize
+    recommendation = Recommender.new(current_user, places, strategy: trial).recommend
 
     render partial: 'show', locals: { recommendation: recommendation }
   end
