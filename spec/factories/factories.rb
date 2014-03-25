@@ -2,7 +2,6 @@ FactoryGirl.define do
   factory :user do
     uid {Faker::Number.number(10)}
     oauth_token "1234567890asdfghjkl"
-    age_range 23
   end
 
   factory :user_attribs, class: User do
