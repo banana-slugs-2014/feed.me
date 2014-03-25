@@ -44,7 +44,8 @@
   <p id="restName"><%= rest.name %> Restaurant</p>
   <p style="visibility: hidden;" id="latitude"><%=  rest.latitude %></p>
   <p style="visibility: hidden;" id="longitude"><%=  rest.longitude %></p>
-  <%= form_tag ({controller: "recommendations",  action: "like_true"}, method: "post") %>
+
+  <%= form_tag ( {controller: "recommendations/#{recommendation.id}", action: "update", method: "put" }) do %>
   <%= submit_tag("Yes!") %>
   <% end %>
   <%#= form_for @recommendation, url: {action: "update", id: rest.id} do |like| %>

@@ -15,24 +15,29 @@ class PlacesController < ApplicationController
     @user_location = JSON.parse(params[:userLocation])
     places = get_places_from_foursquare(@user_location["latitude"], @user_location["longitude"])
       #initialize new places in the database
-    @places = places.map do |place|
-      #find categories
-      categories = get_foursquare_categories_names(place["categories"])
-      #find_menu if exists
-      menu_url = find_foursquare_menu_url(place)
+        @places = places.map do |place|
+          #find categories
+          categories = get_foursquare_categories_names(place["categories"])
+          #find_menu if exists
+          menu_url = find_foursquare_menu_url(place)
 
-      Place.new(name: place["name"],
-        phone_num: place["contact"]["phone"],
-        address: place["location"]["address"],
-        postal_code: place["location"]["postalCode"],
-        latitude: place["location"]["lat"],
-        longitude: place["location"]["lng"],
-        types: categories,
-        menu_url: menu_url, company_url: place["url"])
-    end
-    render partial: 'show', locals: {places: @places}
+          Place.new(name: place["name"],
+            phone_num: place["contact"]["phone"],
+            address: place["location"]["address"],
+            postal_code: place["location"]["postalCode"],
+            latitude: place["location"]["lat"],
+            longitude: place["location"]["lng"],
+            types: categories,
+            menu_url: menu_url, company_url: place["url"])
+        end
+    p "*" * 100
+    @recommendation = Recommender.new(current_user).recommend
+    @recommendation.save
+    p @recommendation
+    render partial: 'show', locals: {places: @places, recommendation: @recommendation}
   end
 
+  private
 
   def get_places_from_foursquare(lat, long)
      response = HTTParty.get("https://api.foursquare.com/v2/venues/search?client_id=#{ENV['FOURSQUARE_ID']}&client_secret=#{ENV['FOURSQUARE_SECRET']}&v=20130815&ll=#{lat},#{long}&categoryId=4d4b7105d754a06374d81259")
@@ -52,7 +57,6 @@ class PlacesController < ApplicationController
     else
       return "no menu url"
     end
-    @recommendation = Recommender.new(current_user).recommend
   end
 
   def get_places_from_yelp(lat, long)
