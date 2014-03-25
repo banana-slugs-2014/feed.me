@@ -8,7 +8,7 @@ describe PlacesController do
     it "should render a partial" do
       controller.stub(:get_places_from_foursquare){FSQ_STUB}
         post :create, userLocation: {latitude: 37.78, longitude:  122.4167}.to_json
-        response.should render_template(partial: "places/_show")
+        response.to render_template(partial: "places/_show")
     end
 
     it "assigns userLocation var" do

@@ -18,14 +18,14 @@ class RecommendationsController < ApplicationController
 
   # METHODS
   def like_true!
-    @liked = Recommendation.where(id: params[:id]).first
-    @liked.update_attributes(like: true)
-    update_recommendable_redis @liked
+    liked = Recommendation.where(id: params[:id]).first
+    liked.update_attributes(like: true)
+    update_recommendable_redis liked
   end
 
   def like_false!
-    @disliked = Recommendation.where(id: params[:id]).first
-    @disliked.update_attributes(like: false)
+    disliked = Recommendation.where(id: params[:id]).first
+    disliked.update_attributes(like: false)
   end
 
   private
