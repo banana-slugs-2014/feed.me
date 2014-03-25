@@ -25,14 +25,17 @@
       directionsDisplay.setMap(map);
     })
   }
-
 </script>
+
+
 <div id="results-canvas"></div>
 
 <div id='result'>
-    <h3>Your only choice:</h3>
-    <% rest = place %>
-    <p id="restName"><%= rest.name %> Restaurant</p>
+
+  <h3>Your only choice:</h3>
+  <% rest = place %>
+  <p id="restName"><%= rest.name %> Restaurant</p>
+
   <p style="visibility: hidden;" id="latitude"><%=  rest.latitude %></p>
   <p style="visibility: hidden;" id="longitude"><%=  rest.longitude %></p>
 

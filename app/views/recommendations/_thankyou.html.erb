@@ -1,1 +1,57 @@
-<h1>THANK YOU!</h1>
+<script>
+ showPosition();
+  function showPosition(){
+     Destination = new google.maps.LatLng($('#latitude').text(), $('#longitude').text())
+    var mapOptions = {
+        zoom: 19,
+        center: Destination
+    };
+    map = new google.maps.Map(document.getElementById('newresults-canvas'), mapOptions);
+  }
+
+
+  var position = navigator.geolocation.getCurrentPosition(showDirections)
+
+  function showDirections(position){
+    var request = {
+      origin: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
+      destination: Destination,
+      travelMode: google.maps.TravelMode.WALKING
+    }
+    var directionsDisplay = new google.maps.DirectionsRenderer();
+    var directionsServce = new google.maps.DirectionsService();
+    directionsServce.route(request, function(result,status){
+      directionsDisplay.setDirections(result)
+      directionsDisplay.setMap(map);
+    })
+  }
+</script>
+
+<div id="newresults-canvas"></div>
+
+    <div id="header">
+      <nav class="wootstrap-navbar">
+          <ul>
+            <li class="wootstrap-home-icon">Feed Me</li>
+          </ul>
+          <li style="padding-left:60%;"><img src="https://playfoursquare.s3.amazonaws.com/press/logo/poweredByFoursquare_gray.png" width=40% ></img></li>
+      </nav>
+    </div>
+
+
+<div id='selection'>
+
+  <% rest = place %>
+  <p id="restName"><%= rest.name %> Restaurant</p>
+  <p style="visibility: hidden;" id="latitude"><%=  rest.latitude %></p>
+  <p style="visibility: hidden;" id="longitude"><%=  rest.longitude %></p>
+  <p id="phoneNum">Phone Number: <%= rest.phone_num %></p>
+  <p id="address">Address: <%= rest.address %></p>
+  <p id="companyUrl"><a href='<%="#{rest.company_url}"%>'>Company Website <%=rest.company_url%></a></p>
+  <p id="menuUrl"><a href=<%"#{rest.menu_url}"%>>See Menu: <%= rest.menu_url %></a></p>
+
+  <p style="visibility: hidden;" id="latitude"><%=  rest.latitude %></p>
+  <p style="visibility: hidden;" id="longitude"><%=  rest.longitude %></p>
+
+</div>
+

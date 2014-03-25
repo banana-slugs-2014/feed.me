@@ -10,7 +10,7 @@ html, body, #map-canvas {
   padding-top: 30px;
 }
 
-#results-canvas{
+#results-canvas, #newresults-canvas {
   height: 100%;
   margin: 0px;
   padding-top: 0;
@@ -175,17 +175,10 @@ li {
   font-size: 2.5em;
 }
 
-nav li:hover{
-  background-color: #c35a54;
-}
-
 li a {
   text-decoration: none;
 }
 
-/*.wootstrap-active {
-  background-color: #ed6454;
-}*/
 
 /*===============================*/
             /*RESULT*/
@@ -230,6 +223,46 @@ li a {
 
 #result:hover {
   background-color: #F2BD69;
+}
+/*===============================*/
+            /*SELECTIon*/
+/*===============================*/
+
+#selection {
+  position: fixed;
+  left: 50%;
+  top: 90%;
+  margin: 0 auto;
+  margin-top: -0px;
+  margin-left: -100px;
+  border: 0;
+  font-size: 1.3em;
+}
+
+#selection {
+  background-color: #4CA378;
+  height: 350px;
+  width: 500px;
+  border-radius: 2px;
+  position: fixed;
+  top: 35%;
+}
+
+#selection p {
+  text-align: center;
+  line-height: 1;
+  font-size: 0.8em;
+  margin-top: 10px;
+  color: white;
+  font-weight: bold;
+}
+
+#selection p a {
+  text-align: center;
+  font-size: 0.8em;
+  color: white;
+  font-weight: bold;
+  font-style: italic;
 }
 
 /*===============================*/

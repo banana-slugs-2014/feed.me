@@ -7,12 +7,13 @@ class RecommendationsController < ApplicationController
   def update
     if params[:yes]
       like_true!
-      render partial: 'recommendations/thankyou'
+      recommendation = Recommendation.last
+      render partial: 'recommendations/thankyou', locals: {place: recommendation.place }
     elsif params[:no]
       like_false!
-      @places = Place.last(10)
-      @recommendation = Recommendation.last(2).first
-      render partial: 'places/show', locals: {places: @places, recommendation: @recommendation}
+      places = Place.last(10)
+      recommendation = Recommendation.last(2).first
+      render partial: 'newplace', locals: {places: places, recommendation: recommendation}
     end
   end
 

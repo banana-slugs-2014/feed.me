@@ -27,7 +27,7 @@ HelpMe.Controller.prototype = {
       context: this,
       data: {yes: "yes"}
     };
-    this.ajaxCaller(opts, this.view.showSuccess);
+    this.ajaxCaller(opts, this.view.showYes);
   },
 
   noAction: function(id){
@@ -37,7 +37,7 @@ HelpMe.Controller.prototype = {
       context: this,
       data: {no: "no"}
     };
-    this.ajaxCaller(opts, this.view.showSuccess );
+    this.ajaxCaller(opts, this.view.showNo );
   },
 
   ajaxCaller: function(opts, callback){
