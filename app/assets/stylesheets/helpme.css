@@ -1,6 +1,6 @@
 html {
   /*background-image: url('http://imgur.com/fun4Z8W.jpg');*/
-  /*background-size: 100%;*/
+  background-size: 100%;
   font-family: verdana, arial, helvetica, sans-serif;
 }
 
@@ -20,8 +20,6 @@ button {
   border: none;
   font-size: 0.9em;
 }
-
-
 
 #map-canvas{
    height: 93%;
