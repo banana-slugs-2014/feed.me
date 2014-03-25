@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def create
+
     user = User.find_by_uid(params[:authResponse][:userID])
     if user.blank?
       user = User.new
@@ -24,6 +25,7 @@ class UsersController < ApplicationController
     user.update_attributes(name: params[:name], gender: params[:gender])
     user.age_range = params[:age_range][:min] if params[:age_range]
     user.location = params[:location][:name] if params[:location]
+    user.relationship_status = params[:relationship_status] if params[:relationship_status]
     user.save
 
     if params[:checkins]
