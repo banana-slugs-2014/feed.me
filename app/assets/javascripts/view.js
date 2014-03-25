@@ -4,14 +4,14 @@ HelpMe.View = function(sel){
 
 HelpMe.View.prototype = {
   renderPlace: function(place){
-
     google.maps.event.addDomListener(window, 'load', getLocation);
-
     $('.hungry').replaceWith(place);
   },
-  showSuccess: function(partial){
+  showYes: function(partial){
     $('body').html(partial);
     console.log('it got here')
+  },
+  showNo: function(partial){
+    $('body').html(partial);
   }
-
 }
