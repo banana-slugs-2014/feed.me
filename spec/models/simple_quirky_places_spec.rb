@@ -6,7 +6,7 @@ describe SimpleQuirkyPlaces do
   context '#recommend' do
     it 'returns one place' do
       recommendation.like_recommendation
-      expect(quirky.recommend).to be_a_kind_of Place
+      expect(quirky.recommend).to be_an_instance_of Place
     end
   end
 end

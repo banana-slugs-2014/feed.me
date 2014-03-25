@@ -10,17 +10,10 @@ describe PlacesController do
         response.should render_template(partial: "places/_show")
     end
 
-    it "assigns userLocation var" do
-      location = {"latitude"=> 12, "longitude"=> 33}
-       post :create, userLocation: {latitude: 12, longitude: 33}.to_json
-      expect(assigns(:user_location)).to eq(location)
-    end
-
-    it 'initializes places without creating new ones' do
+    it 'creates places' do
       expect{
         post :create, userLocation: {latitude: 12, longitude: 33}.to_json
-        expect(assigns(:places)[0]).to be_a_new Place
-      }.to_not change{ Place.count }
+      }.to change{ Place.count }
     end
 
   end
