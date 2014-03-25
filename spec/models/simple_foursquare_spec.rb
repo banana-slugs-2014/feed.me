@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe SimpleFourSquare do
-  let(:my_foursquare){ create(:foursquare) }
+  let(:my_foursquare){ create(:simple_four_square) }
   let(:my_places) { [create(:place)] }
   let(:my_user) { create(:user) }
   let(:my_recommender){ Recommender.new(my_user,my_places) }
