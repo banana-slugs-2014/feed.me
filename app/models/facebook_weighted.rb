@@ -39,7 +39,7 @@ class FacebookWeighted < RecommendationStrategy
         end
       end
     end
-    Hash[update_weights]
+    !!update_weights ? Hash[update_weights] : normalized_data
   end
 
 end
