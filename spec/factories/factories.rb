@@ -29,6 +29,7 @@ FactoryGirl.define do
     association :place, factory: :recommendation_place
     user
     recommendation_strategy
+    like true
   end
 
   factory :recommendation_strategy do

@@ -1,6 +1,6 @@
 class SimpleQuirkyPlaces < RecommendationStrategy
 
-  def recommend
+  def recommend(data)
     off_the_beaten_path
   end
 
@@ -15,7 +15,7 @@ class SimpleQuirkyPlaces < RecommendationStrategy
   end
 
   def avg_likes_per_place(likes_per_place)
-    likes_per_place.values.inject(&:+) / likes_per_place.length
+    likes_per_place.values.inject(&:+) / likes_per_place.length.to_f
   end
 
   def less_than_avg

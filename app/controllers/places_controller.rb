@@ -4,6 +4,7 @@ require 'oauth'
 
 
 class PlacesController < ApplicationController
+  include StrategyTester
 
   def index
   end
@@ -32,8 +33,8 @@ class PlacesController < ApplicationController
       Place.find_by_name(place["name"]) unless new_place.valid?
     end
 
-    recommendation = Recommender.new(current_user, places).recommend
-
+    trial = ab_test('Recommendation Strategy', *StrategyTester.strategies).constantize
+    @recommendation = Recommender.new(current_user, places, strategy: trial).recommend
     render partial: 'show', locals: { recommendation: recommendation }
   end
 
