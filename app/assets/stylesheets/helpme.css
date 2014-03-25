@@ -4,13 +4,12 @@ html {
   font-family: verdana, arial, helvetica, sans-serif;
 }
 
-html, body, #map-canvas {
+html, body  {
   height: 100%;
+  widght: 100%;
   margin: 0px;
 
 }
-
-
 
 button {
   margin: 2px 0 2px 0;
@@ -21,6 +20,8 @@ button {
   border: none;
   font-size: 0.9em;
 }
+
+
 
 #map-canvas{
    height: 93%;
@@ -67,6 +68,7 @@ button {
 /*===============================*/
             /*USER LOGIN*/
 /*===============================*/
+
 
 .facebookLogin{
   background-color: #4CA378; /*#4c66a3 */
@@ -161,6 +163,7 @@ button {
   margin-left: -100px;
   border: 0;
   /*text styling*/
+
   font-size: 2.0em;
   margin-top: 20px;
   color: white;
@@ -346,7 +349,7 @@ li a {
 }
 
 #footer {
-  height: 65px;
+  height: 75px;
   width: 100%;
   background-color: #4CA378; /*#4c66a3 #4CA378*/
   position: absolute;
@@ -357,11 +360,104 @@ li a {
 #footer p a {
   color: white;
   font-size: 0.9em;
-  line-height: 1;
+  line-height: 0.5;
 }
 
 #footer p {
   color: white;
   font-size: 1.0em;
-  line-height: 1;
+  line-height: 0.5;
+}
+/*===============================*/
+            /* MEDIA QUERIES */
+/*===============================*/
+
+@media (max-width: 640px) and (max-height: 1136px) {
+  body {
+    height: 100%;
+  }
+  .facebookLogin {
+    width: 200px;
+    height: 60px;
+    font-size: 4.1em;
+  }
+  .logout {
+    width: 200px;
+    height: 60px;
+    font-size: 2.0em;
+  }
+  #footer {
+    padding-left: 10px;
+    margin-top: -4%;
+    height: 55px;
+  }
+  nav {
+    height:50px;
+  }
+  ul {
+    height: 50px;
+    padding-top: 10px;
+  }
+  li {
+    font-size: 2.0em;
+  }
+  #footer p {
+    font-size: 0.9em;
+    line-height: 0.5;
+  }
+  #footer p a {
+    font-size:  0.9em;
+    line-height:  0.5;
+  }
+  .hungry button {
+  width: 200px;
+  height: 70px;
+  font-size: 1.5em;
+  }
+
+}
+
+
+@media (max-width: 640px) and (max-height: 960px) {
+  body {
+    height: 100%;
+  }
+  .facebookLogin {
+    width: 180px;
+    height: 50px;
+    font-size: 3.9em;
+  }
+  .logout {
+    width: 180px;
+    height: 50px;
+    font-size: 1.8em;
+  }
+  #footer {
+    padding-left: 10px;
+    margin-top: -4%;
+    height: 55px;
+  }
+  nav {
+    height:50px;
+  }
+  ul {
+    height: 50px;
+    padding-top: 10px;
+  }
+  li {
+    font-size: 2.0em;
+  }
+  #footer p {
+    font-size: 0.9em;
+    line-height: 0.5;
+  }
+  #footer p a {
+    font-size:  0.9em;
+    line-height:  0.5;
+  }
+  .hungry button {
+  width: 200px;
+  height: 70px;
+  font-size: 1.5em;
+  }
 }
