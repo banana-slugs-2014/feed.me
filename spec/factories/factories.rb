@@ -1,10 +1,6 @@
 FactoryGirl.define do
   factory :user do
     uid {Faker::Number.number(10)}
-    # name nil
-    # age_range nil
-    # location nil
-    # gender nil
     oauth_token "1234567890asdfghjkl"
   end
 
@@ -14,8 +10,8 @@ FactoryGirl.define do
   end
 
   factory :place do
-    name "Something"
-    address "Somewhere"
+    name {Faker::Name.name}
+    address {Faker::Address.city}
     types ["food", "otherfood"]
     latitude 123
     longitude 122
@@ -42,14 +38,7 @@ FactoryGirl.define do
   factory :quirky, class: SimpleQuirkyPlaces do
   end
 
-  factory :recommender do
-    ignore do
-      user
-    end
-
-    initialize_with do
-      new(user)
-    end
+  factory :foursquare, class: SimpleFourSquare do
   end
 
   factory :recommendable_strategy, class: RecommendableStrategy do

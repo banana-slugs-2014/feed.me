@@ -1,10 +1,11 @@
 class Recommender
 
-  attr_reader :strategy, :user
+  attr_reader :strategy, :user, :places
 
-  def initialize(user, opts = {})
+  def initialize(user, places, opts = {})
     @user = user
-    @strategy = (opts[:strategy] || SimpleGooglePlaces).create
+    @places = places
+    @strategy = (opts[:strategy] || SimpleFourSquare).create
   end
 
 
