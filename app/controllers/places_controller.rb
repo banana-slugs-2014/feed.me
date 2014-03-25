@@ -29,10 +29,8 @@ class PlacesController < ApplicationController
           longitude: place["location"]["lng"],
           types: categories,
           menu_url: menu_url, company_url: place["url"])
-      return Place.find_by_name(place["name"]) unless new_place.valid?
-      new_place
+      new_place.valid? ? new_place : Place.find_by_name(place["name"])
     end
-
     trial = ab_test('Recommendation Strategy', *StrategyTester.strategies).constantize
     recommendation = Recommender.new(current_user, places, strategy: trial).recommend
     render partial: 'show', locals: { recommendation: recommendation }
