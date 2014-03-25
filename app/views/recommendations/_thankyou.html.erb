@@ -6,7 +6,7 @@
         zoom: 19,
         center: Destination
     };
-    map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    map = new google.maps.Map(document.getElementById('newresults-canvas'), mapOptions);
   }
 
 
@@ -27,28 +27,31 @@
   }
 </script>
 
+<div id="newresults-canvas"></div>
 
-<div id="results-canvas"></div>
+<div id="header">
+  <nav class="wootstrap-navbar">
+      <ul>
+        <li class="wootstrap-home-icon">Feed Me</li>
+      </ul>
+      <li style="padding-left:60%;"><img src="https://playfoursquare.s3.amazonaws.com/press/logo/poweredByFoursquare_gray.png" width=40% ></img></li>
+  </nav>
+</div>
 
-<div id='result'>
 
-  <h3>Your only choice:</h3>
-  <% rest = recommendation.place %>
+<div id='selection'>
+
+  <% rest = place.place %>
   <p id="restName"><%= rest.name %> Restaurant</p>
+  <p style="visibility: hidden;" id="latitude"><%=  rest.latitude %></p>
+  <p style="visibility: hidden;" id="longitude"><%=  rest.longitude %></p>
+  <p id="phoneNum">Phone Number: <%= rest.phone_num %></p>
+  <p id="address">Address: <%= rest.address %></p>
+  <p id="companyUrl"><a href=<%=rest.company_url%>>Company Website</a></p>
+  <p id="menuUrl"><a href=<%=rest.menu_url%>>See Menu</a></p>
 
   <p style="visibility: hidden;" id="latitude"><%=  rest.latitude %></p>
   <p style="visibility: hidden;" id="longitude"><%=  rest.longitude %></p>
-
-  <div class="user-preference">
-    <%= form_tag recommendation_path(recommendation), action: "update", method: "put" , :html => { :'data-yes' => "yes"} do %>
-    <%= button_tag "Yes!", class: "yes", :"data-id" => recommendation.id %>
-    <% end %>
-
-    <%= form_tag recommendation_path(recommendation), action: "update", method: "put" , :html => {  :'data-no' => "no" } do %>
-    <%= button_tag "No!", class: "no", :"data-id" => recommendation.id %>
-  </div>
-
-  <% end %>
 
 </div>
 

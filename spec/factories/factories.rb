@@ -42,6 +42,11 @@ FactoryGirl.define do
   end
 
   factory :recommendable_strategy, class: RecommendableStrategy do
+
+  end
+
+  factory :simple_four_square do
+
   end
 
 end
