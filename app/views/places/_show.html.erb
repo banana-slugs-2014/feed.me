@@ -1,21 +1,12 @@
 <script>
  showPosition();
-
   function showPosition(){
      Destination = new google.maps.LatLng($('#latitude').text(), $('#longitude').text())
-
     var mapOptions = {
         zoom: 19,
         center: Destination
     };
-
-    map = new google.maps.Map(document.getElementById('results-canvas'), mapOptions);
-
-    var marker = new google.maps.Marker({
-      position: Destination,
-      map: map,
-      title: $('#restName').text()
-    });
+    map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
   }
 
 
@@ -45,13 +36,14 @@
   <p style="visibility: hidden;" id="latitude"><%=  rest.latitude %></p>
   <p style="visibility: hidden;" id="longitude"><%=  rest.longitude %></p>
 
-  <%= form_tag ( {controller: "recommendations/#{recommendation.id}", action: "update", method: "put" }) do %>
-  <%= submit_tag("Yes!") %>
+  <%= form_tag recommendation_path(recommendation), action: "update", method: "put" , :html => { :'data-yes' => "yes"} do %>
+  <%= submit_tag"Yes!", class: "yes", :"data-id" => recommendation.id %>
   <% end %>
-  <%#= form_for @recommendation, url: {action: "update", id: rest.id} do |like| %>
-  <%#= like.submit "No!" %>
-  <%# end %>
-  <%# I want this form to know about the correct recommendation, though. %>
+
+  <%= form_tag recommendation_path(recommendation), action: "update", method: "put" , :html => {  :'data-no' => "no" } do %>
+  <%= submit_tag "No!", class: "no", :"data-id" => recommendation.id %>
+  <% end %>
+
 </div>
 
 
