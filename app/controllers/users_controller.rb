@@ -2,13 +2,10 @@ class UsersController < ApplicationController
   def create #user/session create hybrid due to facebook login
     user = User.find_by_uid(params[:authResponse][:userID])
     if user.blank?
-      #helper method?
-      ###########
       user = User.new
       user.uid = params[:authResponse][:userID]
       user.oauth_token = params[:authResponse][:accessToken]
       user.save
-      ##########
       session[:user_id] = user.uid
       render json: {id: user.id}
     else
@@ -20,17 +17,12 @@ class UsersController < ApplicationController
   def update
     user = User.find(params[:id])
 
-    #helper method?
-    #########
     user.update_attributes(name: params[:name], gender: params[:gender])
     user.age_range = params[:age_range][:min] if params[:age_range]
     user.location = params[:location][:name] if params[:location]
     user.relationship_status = params[:relationship_status] if params[:relationship_status]
     user.save
-    #########
 
-    #helper method?
-    #########
     if params[:checkins]
       params[:checkins][:data].each_value do |value|
         if value[:place][:location][:country] == "United States"
@@ -46,7 +38,6 @@ class UsersController < ApplicationController
         end
       end
     end
-    #########
     
     render partial: "places/index", locals: { user_id: session[:user_id]}
   end
