@@ -1,18 +1,13 @@
-html {
-  font-family: verdana, arial, helvetica, sans-serif;
-}
-
 html, body  {
+  font-family: verdana, arial, helvetica, sans-serif;
   height: 100%;
   width: 100%;
   margin: 0px;
-
 }
 
 button {
-  margin: 2px 0 2px 0;
-  height: 40px;
-  width: 80px;
+  height: 50px;
+  width: 85px;
   background-color: #27ae60;
   border-radius: 3px;
   border: none;
@@ -41,6 +36,7 @@ button {
 }
 
 #result .user-preference form {
+  display: inline-block;
   text-align: center;
   margin: 0;
   padding: 0;
@@ -50,22 +46,25 @@ button {
 #result .user-preference .yes {
   border-radius: 0px;
   text-align: center;
-  background-color: #2980b9;
+  background-color: #4CA378;
+}
+
+h3 {
+  color: white;
 }
 
 #result .user-preference .no {
   border-radius: 0px;
   text-align: center;
-  background-color: #c0392b;
+  background-color: #4CA378;
 }
 
 #result .user-preference .no:hover {
-  background-color: #4CA378;
+  background-color: #369264;
 }
 
 #result .user-preference .yes:hover {
-  background-color: #4CA378;
-
+  background-color: #369264;
 }
 
 
@@ -81,7 +80,7 @@ button {
   width: 300px;
   border-radius: 2px;
   left: 50%;
-  top: 30%;
+  top: 40%;
   margin: 0 auto;
   margin-top: -50px;
   margin-left: -100px;
@@ -96,29 +95,6 @@ button {
 }
 
 .facebookLogin:hover {
-  background-color: #738ABE;
-}
-
-.logout{
-  background-color: #4CA378; /*#4c66a3 #4CA378*/
-  height: 80px;
-  width: 300px;
-  border-radius: 2px;
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  margin: 0 auto;
-  margin-top: -50px;
-  margin-left: -100px;
-  border: 0;
-  text-align: center;
-  font-size: 3.0em;
-  margin-top: 1px;
-  color: white;
-  font-weight: 900;
-}
-
-.logout:hover {
   background-color: #738ABE;
 }
 
@@ -179,61 +155,96 @@ button {
 /*===============================*/
 
 nav {
-  height: 65px;
+  height: 75px;
   width: 100%;
   background-color: #4CA378;
   position: absolute;
   top: 0;
-  left: 0;
-  margin-bottom: 5%;
-  padding: 0;
 }
 
 ul .wootstrap-home-icon{
-  text-align: left;
   font-weight: bold;
-  color: #ecf0f1;
 }
 
-li .wootstrap-home-icon{
-  text-align: right;
-  font-weight: bold;
-  line-height: 1;
+.left {
+  display: inline-block;
+  margin-top: 11px;
 }
 
-li .wootstrap-home-icon a {
-  color: white;
+.right {
+  display: inline-block;
+  float: right;
+  margin-right: 10px;
 }
 
 ul {
   text-align: left;
-  padding-left: 30px;
-  padding-top: 10px;
-  height: 55px;
+  padding-left: 10px;
   top: 0;
   left: 0;
   margin: 0;
+  padding: 0;
 }
 
 li {
+  text-align: right;
+  font-weight: bold;
+  line-height: 1;
+  padding: 0;
   list-style: none;
   display: inline;
   margin: 0;
   padding-left: 10px;
   font-size: 2.5em;
+  height: 75px;
+  width: 120px;
+}
+
+li a {
+  margin: 2px 0 2px 0;
+  height: 40px;
+  width: 80px;
+  border-radius: 3px;
+  border: none;
+  font-size: 0.9em;
+}
+
+
+.logout{
+  background-color: #4CA378; /*#4c66a3 #4CA378*/
+  height: 75px;
+  width: 120px;
+  border-radius: 2px;
+  margin: 0 auto;
+  border: 0;
+  text-align: center;
+  font-size: 0.7em;
+  color: white;
+  font-weight: 900;
+}
+
+.logout:hover {
+  background-color: #369264;
+  height: 75px;
+  box-shadow: inset 0px 0px 10px rgba(0,0,0,0.1);
 }
 
 li a {
   text-decoration: none;
   color: white;
+  height: 75px;
 }
 
+li a:hover {
+  box-shadow: inset 0px 0px 10px rgba(0,0,0,0.1);
+}
 
 /*===============================*/
             /*RESULT*/
 /*===============================*/
 
 #result {
+  opacity: 0.8;
   position: fixed;
   left: 50%;
   top: 90%;
@@ -245,7 +256,7 @@ li a {
 }
 
 #result {
-  background-color: #4CA378;
+  background-color: #34495e;
   height: 250px;
   width: 300px;
   border-radius: 2px;
@@ -284,17 +295,17 @@ li a {
   left: 50%;
   top: 80%;
   margin: 0 auto;
-  margin-top: -100px;
-  margin-left: -100px;
+  margin-top: -150px;
+  margin-left: -150px;
   border: 0;
   font-size: 1.3em;
 }
 
 #selection {
   opacity:0.9;
-  background-color: #4CA378;
-  height: 300px;
-  width: 450px;
+  background-color: #34495e;
+  height: 225px;
+  width: 400px;
   border-radius: 2px;
   position: fixed;
   top: 50%;
@@ -312,7 +323,7 @@ li a {
 
 #selection p a {
   text-align: center;
-  font-size: 0.8em;
+  font-size: 1.2 em;
   color: white;
   font-weight: bold;
   font-style: italic;
@@ -391,11 +402,6 @@ li a {
     height: 50px;
     font-size: 4.1em;
   }
-  .logout {
-    width: 150px;
-    height: 50px;
-    font-size: 2.0em;
-  }
   #footer {
     margin-top: -4%;
     height: 55px;
@@ -462,12 +468,6 @@ li a {
     width: 180px;
     height: 50px;
     font-size: 3.6em;
-    border-radius: 0px;
-  }
-  .logout {
-    width: 180px;
-    height: 40px;
-    font-size: 1.6em;
     border-radius: 0px;
   }
   #footer {
