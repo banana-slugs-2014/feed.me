@@ -21,6 +21,7 @@ config/facebook.yml
 config/yelp.yml
 config/foursquare.yml
 config/google_keys.yml
+config/split.yml
 
 Gemfile.lock
 db/schema.rb
