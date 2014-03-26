@@ -50,11 +50,13 @@ button {
 }
 
 #result .user-preference .yes {
+  border-radius: 0px;
   text-align: center;
   background-color: #2980b9;
 }
 
 #result .user-preference .no {
+  border-radius: 0px;
   text-align: center;
   background-color: #c0392b;
 }
@@ -212,6 +214,10 @@ li .wootstrap-home-icon{
   text-align: right;
   font-weight: bold;
   line-height: 1;
+}
+
+li .wootstrap-home-icon a {
+  color: white;
 }
 
 ul {
