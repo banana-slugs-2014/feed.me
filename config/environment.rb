@@ -17,6 +17,11 @@ unless Rails.env.test?
     ENV[key] = value
   end
 
+  env_config_split = YAML.load_file(APP_ROOT.join('config','split.yml'))
+  env_config_split.each do |key, value|
+    ENV[key] = value
+  end
+
   config_yelp = YAML.load_file(APP_ROOT.join('config', 'yelp.yml'))
   config_yelp.each do |key,value|
     ENV[key] = value

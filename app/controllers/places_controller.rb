@@ -13,9 +13,15 @@ class PlacesController < ApplicationController
   end
 
   def create
-    user_location = JSON.parse(params[:userLocation])
-    places = get_places_from_foursquare(user_location["latitude"],user_location["longitude"])
+    @user_location = JSON.parse(params[:userLocation])
+
+    current_user.update_attributes(recent_latitude: @user_location["latitude"],
+      recent_longitude: @user_location["longitude"])
+
+    places = get_places_from_foursquare(@user_location["latitude"], @user_location["longitude"])
+
       #initialize new places in the database
+
     places = places.map do |place|
       #find categories
       categories = get_foursquare_categories_names(place["categories"])
@@ -29,19 +35,20 @@ class PlacesController < ApplicationController
           longitude: place["location"]["lng"],
           types: categories,
           menu_url: menu_url, company_url: place["url"])
+
       new_place.valid? ? new_place : Place.find_by_name(place["name"])
     end
+
     trial = ab_test('Recommendation Strategy', *StrategyTester.strategies).constantize
-    recommendation = Recommender.new(current_user, places, strategy: trial).recommend
+    recommendation = Recommender.new(current_user, places, {strategy: trial}).recommend
     render partial: 'show', locals: { recommendation: recommendation }
   end
 
   private
 
   def get_places_from_foursquare(lat, long)
-     response = HTTParty.get("https://api.foursquare.com/v2/venues/search?client_id=#{ENV['FOURSQUARE_ID']}&client_secret=#{ENV['FOURSQUARE_SECRET']}&v=20130815&ll=#{lat},#{long}&categoryId=4d4b7105d754a06374d81259")
-
-     response["response"]["venues"]
+    response = HTTParty.get("https://api.foursquare.com/v2/venues/search?client_id=#{ENV['FOURSQUARE_ID']}&client_secret=#{ENV['FOURSQUARE_SECRET']}&v=20130815&ll=#{lat},#{long}&categoryId=4d4b7105d754a06374d81259")
+    response["response"]["venues"]
   end
 
   def get_foursquare_categories_names(cat_array)
@@ -66,5 +73,4 @@ class PlacesController < ApplicationController
     path = "/v2/search?term=food&ll=#{lat},#{long}"
     info = access_token.get(path).body
   end
-
 end

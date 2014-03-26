@@ -1,5 +1,43 @@
 [![Build Status](https://travis-ci.org/banana-slugs-2014/feed.me.png?branch=master)](https://travis-ci.org/banana-slugs-2014/feed.me)
-#Help.me
+#Feed.me Documentation
+
+DBC Banana Slugs 2014. Johnny Wu, Phil Vargas, Mathilde Mouw, Darren Dahl, and Harry Whelchel.  
+
+***link to site here
+
+#Description
+
+Indecision when you are hungry hurts. Use Feed.me to save yourself from analysis paralysis. Feed.me
+learns about you and your preferences and recommends a restaurant in the local area. Sign up using Facebook.
+
+##Major Features
+
+- As a user I can login, click 'Me So Hungry', and see a tailored local restaurant recommendation.
+- As a user I can reject the recommendation and see a new recommendation.
+
+###Software Design
+
+- We used Rails/Postgres for our core application backend.
+- We used custom CSS and custom MVC Javascript on the frontend.
+- We used the strategy design pattern to flexibly test a variety of recommendation algorithms given our
+limited data and insight into user preferences. We used the [split gem](https://github.com/andrew/split) 
+to facilitate the A/B testing of our strategies. In light of our team having a variety of ideas for the recommendation algorithm, the strategy pattern allowed for modular extension of the application facilitating individual team member creativity and ingenuity.
+
+###Fun Recommendation Strategies
+
+
+###User Inteface
+
+
+###Application Testing
+
+
+####License
+
+Feed.me is released under the MIT license:
+
+[](http://opensource.org/licenses/MIT)
+
 
 ![asd](http://www.bestgifever.com/data/images/2014/01/idaorhemnpepg.gif)
 ## A path to the simpler choices in life.

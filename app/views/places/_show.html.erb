@@ -1,14 +1,15 @@
 <script>
  showPosition();
   function showPosition(){
-     Destination = nNo google.maps.LatLng($('#latitude').text(), $('#longitude').text())
+     Destination = new google.maps.LatLng($('#latitude').text(), $('#longitude').text())
+
     var mapOptions = {
         zoom: 19,
         center: Destination
     };
-    map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-  }
 
+    map = new google.maps.Map(document.getElementById('results-canvas'), mapOptions);
+  }
 
   var position = navigator.geolocation.getCurrentPosition(showDirections)
 
@@ -27,8 +28,17 @@
   }
 </script>
 
-
 <div id="results-canvas"></div>
+
+
+<div id="header">
+  <nav class="wootstrap-navbar">
+      <ul>
+        <li class="wootstrap-home-icon">Feed Me</li>
+      </ul>
+      <li style="padding-left:60%;"><img src="https://playfoursquare.s3.amazonaws.com/press/logo/poweredByFoursquare_gray.png" width=40% ></img></li>
+  </nav>
+</div>
 
 <div id='result'>
 
@@ -45,10 +55,15 @@
     <% end %>
 
     <%= form_tag recommendation_path(recommendation), action: "update", method: "put" , :html => {  :'data-no' => "no" } do %>
-    <%= button_tag "No", class: "no", :"data-id" => recommendation.id %>
-  </div>
-
+    <%= button_tag "No!", class: "no", :"data-id" => recommendation.id %>
   <% end %>
+  </div>
+</div>
 
+<div id="placeInfo">
+  <p id="phoneNum">Phone Number: <%= rest.phone_num %></p>
+  <p id="address">Address: <%= rest.address %></p>
+  <p id="companyUrl"><a href='<%="#{rest.company_url}"%>'>Company Website <%=rest.company_url%></a></p>
+  <p id="menuUrl"><a href=<%"#{rest.menu_url}"%>>See Menu</a></p>
 </div>
 
