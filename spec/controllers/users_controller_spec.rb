@@ -22,18 +22,6 @@ describe UsersController do
 
         it {should set_session(:user_id).to attribs[:userID]}
       end
-
-      context "with invalid params" do
-        before(:each){post :create, authResponse: invalid_attribs}
-        it  "should render template partial places/_index" do
-          expect(response).to be_redirect
-        end
-        it "should increase the User count" do
-          expect(User.count).to eq 0
-        end
-
-        it {should set_session(:user_id).to nil}
-      end
     end
 
     context 'with a previous user' do
