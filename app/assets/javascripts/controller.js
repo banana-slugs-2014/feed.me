@@ -20,6 +20,14 @@ FeedMe.Controller.prototype = {
 
   logIn: function(){
     var self = this
+
+    // opts = {
+    //   type: "POST",
+    //   url: '/login',
+    //   data: response
+    // }
+    // this.ajaxCaller()
+
     this.facebook.login(function(response){
       $.ajax({
         type: "POST",
@@ -37,18 +45,17 @@ FeedMe.Controller.prototype = {
   },
 
   getFacebookInfo: function(userId){
+
     var self = this
     this.facebook.api('/me?fields=id,name,checkins,age_range,gender,location,likes,address,languages,relationship_status,birthday',
       function(response){
         if (response && !response.error){
-          $.ajax({
+          var opts = {
             type: "PUT",
             url: '/users/'+userId,
             data: response
-          }).done(function(data){
-            console.log('All your base are belong to us!')
-            self.view.renderUpdate(data)
-          })
+          }
+          self.ajaxCaller(opts, self.view.renderUpdate)
         }
       })
   },

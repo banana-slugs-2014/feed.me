@@ -16,7 +16,7 @@ FeedMe.Binder.prototype = {
 
   bindFbLogOut: function(){
     var self = this
-    $(this.sel.logoutButtonSelector).on("click", function(e){
+    $(this.sel.bodySelector).on("click", this.sel.logoutButtonSelector, function(e){
       e.preventDefault()
       self.controller.logOut()
     })
