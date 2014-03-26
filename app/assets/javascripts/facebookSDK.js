@@ -1,4 +1,3 @@
-
 $(document).on('ready', function(){
 
   window.fbAsyncInit = function() {

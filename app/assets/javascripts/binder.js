@@ -10,24 +10,22 @@ FeedMe.Binder.prototype = {
     this.bindFbLogIn();
     this.bindFindLocationOnDocReady();
     this.bindfindPlaceButton();
-    this.bindToggleInfo();
     this.bindYesButton();
     this.bindNoButton();
-    this.bindToggleInfo();
   },
 
   bindFbLogOut: function(){
     var self = this
-    $(".logout").on("click", function(event){
-      event.preventDefault()
+    $(this.sel.logoutButtonSelector).on("click", function(e){
+      e.preventDefault()
       self.controller.logOut()
     })
   },
 
   bindFbLogIn: function(){
     self = this
-    $(".facebookLogin").on("click", function(event){
-      event.preventDefault();
+    $(this.sel.loginButtonSelector).on("click", function(e){
+      e.preventDefault();
       self.controller.logIn()
     })
   },
@@ -38,21 +36,15 @@ FeedMe.Binder.prototype = {
 
   bindfindPlaceButton: function(){
     var controller = this.controller;
-    $('body').on('click', ".helpMeButton" ,function(e){
+    $(this.sel.bodySelector).on('click', this.sel.helpMeButtonSelector,function(e){
       e.preventDefault();
       controller.findNearbyRestaurants();
     });
   },
 
-  bindToggleInfo: function(){
-    $('body').on('click', '#result', function(){
-      $('#placeInfo').toggle();
-    });
-  },
-
   bindYesButton: function(){
     var controller = this.controller;
-    $('body').on('click', ".yes" ,function(e){
+    $(this.sel.bodySelector).on('click', this.sel.yesButtonSelector ,function(e){
       var id = e.target.dataset.id
       e.preventDefault();
       controller.yesAction(id);
@@ -60,7 +52,7 @@ FeedMe.Binder.prototype = {
   },
   bindNoButton: function(){
     var controller = this.controller;
-    $('body').on('click', ".no" ,function(e){
+    $(this.sel.bodySelector).on('click', this.sel.noButtonSelector ,function(e){
       var id = e.target.dataset.id
       e.preventDefault();
       controller.noAction(id);

@@ -4,15 +4,15 @@ FeedMe.View = function(sel){
 
 FeedMe.View.prototype = {
   renderPlace: function(partial){
-    $('body').html(partial);
+    $(FeedMe.view.sel.bodySelector).html(partial);
   },
   showYes: function(partial){
-    $('body').html(partial);
+    $(FeedMe.view.sel.bodySelector).html(partial);
   },
   showNo: function(partial){
-    $('body').html(partial);
+    $(FeedMe.view.sel.bodySelector).html(partial);
   },
   renderUpdate: function(partial){
-    $('#body').html(partial)
+    $(FeedMe.view.sel.idBodySelector).html(partial)
   }
 }
