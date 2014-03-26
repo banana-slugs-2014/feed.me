@@ -14,20 +14,21 @@ class AwesomeFacebook < RecommendationStrategy
 
   def determine_place_based_on_user_and_time
     meal = meal_types
-    if breakfast
+    case
+    when breakfast?
       find_place(meal[:breakfast])
-    elsif lunch
+    when lunch?
       find_place(meal[:lunch])
-    elsif dinner && user_not_single
+    when dinner? && user_not_single
       find_place(meal[:dinner])
-    elsif dinner && user_over_twentyone
+    when dinner? && user_over_twentyone
       find_place(meal[:bar])
     end
   end
 
   def find_place(opts = [])
     possibilities = @places.select do |place|
-      (opts & place.types) != []
+      (opts & place.types).any?
     end
     possibilities.sample
   end
@@ -39,15 +40,15 @@ class AwesomeFacebook < RecommendationStrategy
       dinner: ["Sushi Restaurant", "Steakhouse", "Tapas Restaurant", "Thai Restaurant", "Japanese Restaurant", "Indian Restaurant", "French Restaurant", "Asian Restaurant", "American Restaurant"] }
     end
 
-  def breakfast
+  def breakfast?
     @hour < 12
   end
 
-  def lunch
+  def lunch?
     @hour >= 12 && @hour <= 18
   end
 
-  def dinner
+  def dinner?
     @hour >= 18 && @hour <= 24
   end
 
