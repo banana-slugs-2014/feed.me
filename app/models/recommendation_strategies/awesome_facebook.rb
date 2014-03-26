@@ -15,14 +15,10 @@ class AwesomeFacebook < RecommendationStrategy
   def determine_place_based_on_user_and_time
     meal = meal_types
     case
-    when breakfast?
-      find_place(meal[:breakfast])
-    when lunch?
-      find_place(meal[:lunch])
-    when dinner? && user_not_single
-      find_place(meal[:dinner])
-    when dinner? && user_over_twentyone
-      find_place(meal[:bar])
+    when breakfast? then find_place(meal[:breakfast])
+    when lunch? then find_place(meal[:lunch])
+    when dinner? && user_not_single then find_place(meal[:dinner])
+    when dinner? && user_over_twentyone then find_place(meal[:bar])
     end
   end
 
