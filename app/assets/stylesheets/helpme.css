@@ -1,6 +1,4 @@
 html {
-  /*background-image: url('http://imgur.com/fun4Z8W.jpg');*/
-  background-size: 100%;
   font-family: verdana, arial, helvetica, sans-serif;
 }
 
@@ -61,10 +59,8 @@ button {
   background-color: #c0392b;
 }
 
-
 #result .user-preference .no:hover {
   background-color: #4CA378;
-
 }
 
 #result .user-preference .yes:hover {
@@ -72,14 +68,8 @@ button {
 
 }
 
-.user-preference form {
-}
 
 
-/*http://imgur.com/J5AvSW4.jpg*/
-/*http://imgur.com/MWY0kuL.jpg*/
-/*http://imgur.com/U1PHgKa.jpg*/
-/*http://imgur.com/fun4Z8W.jpg*/
 /*===============================*/
             /*USER LOGIN*/
 /*===============================*/
@@ -97,7 +87,6 @@ button {
   margin-left: -100px;
   border: 0;
   position: fixed;
-  /*text style*/
   text-align: center;
   font-size: 6.2em;
   margin-top: 1px;
@@ -122,7 +111,6 @@ button {
   margin-top: -50px;
   margin-left: -100px;
   border: 0;
-  /*text style*/
   text-align: center;
   font-size: 3.0em;
   margin-top: 1px;
@@ -152,7 +140,6 @@ button {
   top: 70%;
   margin: 0 auto;
   border: 0;
-  /*text style*/
   text-align: center;
   font-size: 3.0em;
   margin-top: 1px;
@@ -165,7 +152,6 @@ button {
 /*===============================*/
 
 .hungry button {
-  /*button styling*/
   background-color: #4CA378;
   height: 80px;
   width: 300px;
@@ -177,8 +163,6 @@ button {
   margin-top: -50px;
   margin-left: -100px;
   border: 0;
-  /*text styling*/
-
   font-size: 2.0em;
   margin-top: 20px;
   color: white;
@@ -197,11 +181,12 @@ button {
 nav {
   height: 65px;
   width: 100%;
-  background-color: #4CA378; /*#4c66a3 #4CA378*/
+  background-color: #4CA378;
   position: absolute;
   top: 0;
   left: 0;
   margin-bottom: 5%;
+  padding: 0;
 }
 
 ul .wootstrap-home-icon{
@@ -225,7 +210,6 @@ ul {
   padding-left: 30px;
   padding-top: 10px;
   height: 55px;
-  width: 100%;
   top: 0;
   left: 0;
   margin: 0;
@@ -241,6 +225,7 @@ li {
 
 li a {
   text-decoration: none;
+  color: white;
 }
 
 
@@ -412,7 +397,6 @@ li a {
     font-size: 2.0em;
   }
   #footer {
-    padding-left: 10px;
     margin-top: -4%;
     height: 55px;
   }
