@@ -3,7 +3,6 @@
   function showPosition(){
      Destination = new google.maps.LatLng($('#latitude').text(), $('#longitude').text())
 
-
     var mapOptions = {
         zoom: 19,
         center: Destination
@@ -47,12 +46,12 @@
   <% rest = recommendation.place %>
   <p id="restName"><%= rest.name %> Restaurant</p>
 
-  <p style="visibility: hidden;" id="latitude"><%=  rest.latitude %></p>
-  <p style="visibility: hidden;" id="longitude"><%=  rest.longitude %></p>
+  <p style="visibility: hidden; padding: 0; margin: 0; height: 5px;" id="latitude"><%=  rest.latitude %></p>
+  <p style="visibility: hidden; padding: 0; margin: 0; height: 5px;" id="longitude"><%=  rest.longitude %></p>
 
   <div class="user-preference">
     <%= form_tag recommendation_path(recommendation), action: "update", method: "put" , :html => { :'data-yes' => "yes"} do %>
-    <%= button_tag "Yes!", class: "yes", :"data-id" => recommendation.id %>
+    <%= button_tag "Yes", class: "yes", :"data-id" => recommendation.id %>
     <% end %>
 
     <%= form_tag recommendation_path(recommendation), action: "update", method: "put" , :html => {  :'data-no' => "no" } do %>
@@ -61,10 +60,10 @@
   </div>
 </div>
 
-<div id="placeInfo">
-  <p id="phoneNum">Phone Number: <%= rest.phone_num %></p>
-  <p id="address">Address: <%= rest.address %></p>
-  <p id="companyUrl"><a href='<%="#{rest.company_url}"%>'>Company Website <%=rest.company_url%></a></p>
-  <p id="menuUrl"><a href=<%"#{rest.menu_url}"%>>See Menu</a></p>
-</div>
+    <div id="footer">
+      <p>Made with love by the Feed.Me team</p>
+
+      <p><a href="http://twitter.com/jonathanpeterwu">Johnny</a> <a href="http://twitter.com/MathildeMouw">Mathilde</a> <a href="http://twitter.com/HWhelchel">Harry</a> <a href="http://twitter.com/darrendahl">Darren</a> <a href="http://twitter.com/philipavargas">Phil</a></p>
+    </div>
+
 
