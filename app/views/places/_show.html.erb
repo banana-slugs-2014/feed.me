@@ -53,6 +53,7 @@
   <p style="visibility: hidden;" id="longitude"><%=  rest.longitude %></p>
 
 
+
 </div>
 
 <div id="placeInfo">
@@ -61,6 +62,7 @@
   <p id="companyUrl"><a href='<%="#{rest.company_url}"%>'>Company Website <%=rest.company_url%></a></p>
   <p id="menuUrl"><a href=<%"#{rest.menu_url}"%>>See Menu: <%= rest.menu_url %></a></p>
 </div>
+
 
   <div class="user-preference">
     <%= form_tag recommendation_path(recommendation), action: "update", method: "put" , :html => { :'data-yes' => "yes"} do %>

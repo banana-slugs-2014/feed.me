@@ -4,13 +4,12 @@ require_relative 'fsq_stub'
 describe PlacesController do
   describe '#create' do
     let(:attribs) {FactoryGirl.attributes_for :place}
-    let(:my_user) { create(:user) }
+    let(:my_user){FactoryGirl.create :user, age_range: 21}
     let!(:my_recommendation) { create(:recommendation) }
-    let(:myuser){FactoryGirl.create :user, age_range: 21}
 
     before(:each) do
       controller.stub(:get_places_from_foursquare){FSQ_STUB}
-      controller.stub(:current_user){ myuser }
+      controller.stub(:current_user){ my_user }
       controller.stub(:get_places_from_foursquare){FSQ_STUB}
     end
 
