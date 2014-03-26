@@ -4,42 +4,47 @@ class AwesomeFacebook < RecommendationStrategy
     @user = data.user
     @places = data.places
     @hour = Time.now.hour
+
     recommendation = determine_place_based_on_user_and_time
 
-    if recommendation.nil?
-      recommendation = @places.sample
-    end
-    recommendation
+    recommendation.nil? ? @places.sample : recommendation
   end
 
   private
 
   def determine_place_based_on_user_and_time
-    category_groups = find_possible_groups
-    if user_in_twenties && lunch
-      recommendation = find_place(category_groups[:lunch_twenties])
-    elsif breakfast
-      recommendation = find_place(category_groups[:breakfast_places])
-    elsif dinner && user_not_single
-      recommendation = find_place(category_groups[:dinner_for_two])
+    meal = meal_types
+    case
+    when breakfast? then find_place(meal[:breakfast])
+    when lunch? then find_place(meal[:lunch])
+    when dinner? && user_not_single then find_place(meal[:dinner])
+    when dinner? && user_over_twentyone then find_place(meal[:bar])
     end
   end
 
-  def find_possible_groups
-    {lunch_twenties: ["Mexican Restaurant", "Burrito Place", "Taco Place", "BBQ Joint", "Food Truck", "Hot Dog Joint", "Burger Joint", "Irish Pub", "Gastropub", "Pizza Place", "Ramen / Noodle House", "Sandwich Place"],
-      breakfast_places: ["Bagel Shop", "Bakery", "Cafe", "Diner", "Donut Shop", "Breakfast Spot"],
-      dinner_for_two: ["Sushi Restaurant", "Steakhouse, Tapas Restaurant, Thai Restaurant, Japanese Restaurant, Indian Restaurant, French Restaurant, Asian Restaurant, American Restaurant"]}
+  def find_place(opts = [])
+    possibilities = @places.select do |place|
+      (opts & place.types).any?
+    end
+    possibilities.sample
   end
 
-  def breakfast
+  def meal_types
+    { lunch: ["Mexican Restaurant", "Burrito Place", "Taco Place", "BBQ Joint", "Food Truck", "Hot Dog Joint", "Burger Joint", "Pizza Place", "Ramen / Noodle House", "Sandwich Place"],
+      bar: ["Irish Pub", "Gastropub", "Brewery", "Bar"],
+      breakfast: ["Bagel Shop", "Bakery", "Cafe", "Diner", "Donut Shop", "Breakfast Spot"],
+      dinner: ["Sushi Restaurant", "Steakhouse", "Tapas Restaurant", "Thai Restaurant", "Japanese Restaurant", "Indian Restaurant", "French Restaurant", "Asian Restaurant", "American Restaurant"] }
+    end
+
+  def breakfast?
     @hour < 12
   end
 
-  def lunch
+  def lunch?
     @hour >= 12 && @hour <= 18
   end
 
-  def dinner
+  def dinner?
     @hour >= 18 && @hour <= 24
   end
 
@@ -47,15 +52,7 @@ class AwesomeFacebook < RecommendationStrategy
     @user.relationship_status != "Single"
   end
 
-  def user_in_twenties
-    @user.age_range >= 21 && @user.age_range <= 30
-  end
-
-  def find_place(opts = [])
-    possibilities = @places.select do |place|
-      types = place.types
-      (opts & types) != []
-    end
-    possibilities.sample
+  def user_over_twentyone
+    @user.age_range >= 21
   end
 end

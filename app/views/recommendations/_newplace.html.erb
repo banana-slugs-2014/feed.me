@@ -1,5 +1,3 @@
-
-
 <script>
  showPosition();
   function showPosition(){
@@ -28,40 +26,47 @@
   }
 </script>
 
-<div id="newresults-canvas"></div>
+    <div id="newresults-canvas"></div>
 
     <div id="header">
-      <nav class="wootstrap-navbar">
-          <ul>
-            <li class="wootstrap-home-icon">Feed Me</li>
+      <nav>
+          <ul class="left">
+            <li class="wootstrap-home-icon"><a href="/">Feed.Me</a></li>
+          </ul>
+          <ul class="right">
+            <li><button class="logout">Logout</button></li>
           </ul>
           <li style="padding-left:60%;"><img src="https://playfoursquare.s3.amazonaws.com/press/logo/poweredByFoursquare_gray.png" width=40% ></img></li>
       </nav>
     </div>
 
 
+    <div id='result'>
 
-<div id='result'>
+      <h3>Your only choice:</h3>
+      <% rest = recommendation.place %>
+      <p id="restName"><%= rest.name %> Restaurant</p>
 
-  <h3>Your only choice:</h3>
-  <% rest = recommendation.place %>
-  <p id="restName"><%= rest.name %> Restaurant</p>
-
-  <p style="visibility: hidden;" id="latitude"><%=  rest.latitude %></p>
-  <p style="visibility: hidden;" id="longitude"><%=  rest.longitude %></p>
+      <p style="visibility: hidden; padding: 0; margin: 0; height: 5px;" id="latitude"><%=  rest.latitude %></p>
+      <p style="visibility: hidden; padding: 0; margin: 0; height: 5px;" id="longitude"><%=  rest.longitude %></p>
 
 
-  <div class="user-preference">
-    <%= form_tag recommendation_path(recommendation), action: "update", method: "put" , :html => { :'data-yes' => "yes"} do %>
-    <%= button_tag "Yes!", class: "yes", :"data-id" => recommendation.id %>
-    <% end %>
+      <div class="user-preference">
+        <%= form_tag recommendation_path(recommendation), action: "update", method: "put" , :html => { :'data-yes' => "yes"} do %>
+        <%= button_tag "Yes", class: "yes", :"data-id" => recommendation.id %>
+        <% end %>
 
-    <%= form_tag recommendation_path(recommendation), action: "update", method: "put" , :html => {  :'data-no' => "no" } do %>
-    <%= button_tag "No!", class: "no", :"data-id" => recommendation.id %>
+        <%= form_tag recommendation_path(recommendation), action: "update", method: "put" , :html => {  :'data-no' => "no" } do %>
+        <%= button_tag "No", class: "no", :"data-id" => recommendation.id %>
 
-    <% end %>
-  </div>
-</div>
+        <% end %>
+      </div>
+    </div>
 
+    <div id="footer">
+      <p>Made with love by the Feed.Me team</p>
+
+      <p><a href="http://twitter.com/jonathanpeterwu">Johnny</a> <a href="http://twitter.com/MathildeMouw">Mathilde</a> <a href="http://twitter.com/HWhelchel">Harry</a> <a href="http://twitter.com/darrendahl">Darren</a> <a href="http://twitter.com/philipavargas">Phil</a></p>
+    </div>
 
 
