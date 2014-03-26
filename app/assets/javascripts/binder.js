@@ -8,8 +8,10 @@ HelpMe.Binder.prototype = {
   bind: function(){
     this.bindFindLocationOnDocReady();
     this.bindfindPlaceButton();
+    this.bindToggleInfo();
     this.bindYesButton();
     this.bindNoButton();
+    this.bindToggleInfo();
   },
 
   bindFindLocationOnDocReady: function(){
@@ -21,6 +23,12 @@ HelpMe.Binder.prototype = {
     $('body').on('click', ".helpMeButton" ,function(e){
       e.preventDefault();
       controller.findNearbyRestaurants();
+    });
+  },
+
+  bindToggleInfo: function(){
+    $('body').on('click', '#result', function(){
+      $('#placeInfo').toggle();
     });
   },
 
@@ -40,4 +48,5 @@ HelpMe.Binder.prototype = {
       controller.noAction(id);
     });
   }
+
 }

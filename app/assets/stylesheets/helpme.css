@@ -235,6 +235,18 @@ li a {
   top: 35%;
 }
 
+
+#placeInfo {
+  background-color: #f39c12;
+  height: 250px;
+  width: 300px;
+  display: none;
+  border-radius: 2px;
+  position: fixed;
+  top: 13%;
+}
+
+
 #result p {
   text-align: center;
   line-height: 1;

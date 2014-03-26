@@ -61,6 +61,9 @@ FactoryGirl.define do
   factory :foursquare, class: SimpleFourSquare do
   end
 
+  factory :awesome_facebook, class: AwesomeFacebook do
+  end
+
   factory :namesake, class: FacebookFirstnamePlaces do
   end
 
@@ -68,7 +71,6 @@ FactoryGirl.define do
   end
 
   factory :simple_four_square do
-
   end
 
 end

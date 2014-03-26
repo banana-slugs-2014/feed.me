@@ -5,7 +5,7 @@ describe RecommendationsController do
   describe '#update' do
 
     let(:my_recommendation){ create(:recommendation) }
-    let(:my_user){ create(:user) }
+    let(:my_user){ create(:user, age_range: 21) }
 
     context 'user likes a recommendation' do
 
