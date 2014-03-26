@@ -20,7 +20,6 @@ class FacebookWeighted < RecommendationStrategy
       rand -= weight
       rand <= 0
     end
-    p weighted_collection.values
     selected_place.first
   end
 
