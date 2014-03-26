@@ -67,6 +67,13 @@ FactoryGirl.define do
   factory :namesake, class: FacebookFirstnamePlaces do
   end
 
+  factory :matching_place, class: Place do
+    address {Faker::Address.city}
+    types ["food", "otherfood"]
+    latitude 123
+    longitude 122
+  end
+
   factory :recommendable_strategy, class: RecommendableStrategy do
   end
 
