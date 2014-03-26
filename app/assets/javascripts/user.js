@@ -3,7 +3,6 @@ var User = function(){
 }
 
 User.prototype = {
-
   getPos: function(){
     var user = this;
     navigator.geolocation.getCurrentPosition(function(position){

@@ -1,8 +1,8 @@
-HelpMe.View = function(sel){
+FeedMe.View = function(sel){
   this.sel = sel;
 }
 
-HelpMe.View.prototype = {
+FeedMe.View.prototype = {
   renderPlace: function(partial){
     $('body').html(partial);
   },
@@ -11,5 +11,8 @@ HelpMe.View.prototype = {
   },
   showNo: function(partial){
     $('body').html(partial);
+  },
+  renderUpdate: function(partial){
+    $('#body').html(partial)
   }
 }
