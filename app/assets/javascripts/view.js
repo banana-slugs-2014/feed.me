@@ -14,5 +14,8 @@ FeedMe.View.prototype = {
   },
   renderUpdate: function(partial){
     $(FeedMe.view.sel.idBodySelector).html(partial)
+  },
+  redirectToHome: function(){
+    window.location.href = '/'
   }
 }

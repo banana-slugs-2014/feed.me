@@ -7,57 +7,50 @@ FeedMe.Controller = function(view, user, facebook){
 FeedMe.Controller.prototype = {
 
   logOut: function(){
+    var self = this
     this.facebook.logout(function(response){
-      $.ajax({
+      var opts = {
         type: "DELETE",
         url: '/logout',
-      }).done(function(response){
-        console.log('logging out')
-        window.location.href = '/'
-      })
+      }
+    self.ajaxCaller(opts, self.view.redirectToHome)
     });
   },
 
   logIn: function(){
     var self = this
-
-    // opts = {
-    //   type: "POST",
-    //   url: '/login',
-    //   data: response
-    // }
-    // this.ajaxCaller()
-
     this.facebook.login(function(response){
-      $.ajax({
+      opts = {
         type: "POST",
         url: '/login',
         data: response
-      }).done(function(data){
-        console.log('logged in')
-        if (data.id){
-          self.getFacebookInfo(data.id)
-        } else {
-          self.view.renderUpdate(data)
-        }
-      });
+      }
+      self.ajaxCaller(opts, self.getFbInfoOrRenderUpdate)
     },{scope: 'user_likes,user_checkins,user_about_me,user_location,user_activities,user_relationships'});
+  },
+
+  getFbInfoOrRenderUpdate: function(data){
+    if(data.id){
+      FeedMe.view.getFacebookInfo(data.id)
+    }else{
+      FeedMe.view.renderUpdate(data)
+    }
   },
 
   getFacebookInfo: function(userId){
 
     var self = this
     this.facebook.api('/me?fields=id,name,checkins,age_range,gender,location,likes,address,languages,relationship_status,birthday',
-      function(response){
-        if (response && !response.error){
-          var opts = {
-            type: "PUT",
-            url: '/users/'+userId,
-            data: response
-          }
-          self.ajaxCaller(opts, self.view.renderUpdate)
+    function(response){
+      if (response && !response.error){
+        var opts = {
+          type: "PUT",
+          url: '/users/'+userId,
+          data: response
         }
-      })
+        self.ajaxCaller(opts, self.view.renderUpdate)
+      }
+    })
   },
 
   findUserLocation: function(){
