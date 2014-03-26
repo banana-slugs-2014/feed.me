@@ -2,6 +2,7 @@ FactoryGirl.define do
   factory :user do
     uid {Faker::Number.number(10)}
     oauth_token "1234567890asdfghjkl"
+    name {Faker::Name.name}
   end
 
   factory :user_attribs, class: User do
@@ -61,6 +62,9 @@ FactoryGirl.define do
   end
 
   factory :awesome_facebook, class: AwesomeFacebook do
+  end
+
+  factory :namesake, class: FacebookFirstnamePlaces do
   end
 
   factory :recommendable_strategy, class: RecommendableStrategy do

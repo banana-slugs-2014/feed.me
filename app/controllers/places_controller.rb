@@ -21,6 +21,7 @@ class PlacesController < ApplicationController
     places = get_places_from_foursquare(@user_location["latitude"], @user_location["longitude"])
 
       #initialize new places in the database
+
     places = places.map do |place|
       #find categories
       categories = get_foursquare_categories_names(place["categories"])
@@ -39,8 +40,9 @@ class PlacesController < ApplicationController
 
       new_place.valid? ? new_place : Place.find_by_name(place["name"])
     end
+
     trial = ab_test('Recommendation Strategy', *StrategyTester.strategies).constantize
-    recommendation = Recommender.new(current_user, places, strategy: trial).recommend
+    recommendation = Recommender.new(current_user, places, {strategy: trial}).recommend
     render partial: 'show', locals: { recommendation: recommendation }
   end
 
