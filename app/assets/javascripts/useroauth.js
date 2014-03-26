@@ -74,7 +74,7 @@ App.Binder.prototype = {
 
   bindFbLogOut: function(){
     var self = this
-    $(window).on("click", ".logout", function(event){
+    $('body').on("click", ".logout", function(event){
       event.preventDefault()
       self.controller.logOut()
     })
