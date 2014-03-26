@@ -13,6 +13,7 @@ App.Controller.prototype = {
         url: '/logout',
       }).done(function(response){
         console.log('logging out')
+        window.location.href = '/'
       })
     });
   },
