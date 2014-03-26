@@ -24,10 +24,6 @@ class FacebookWeighted < RecommendationStrategy
   end
 
   def update_weights(user, normalized_data)
-    #better way of creating updated weights hash?
-    #current route: map the data to destructively update weight
-    # outputs an array of douples --> Hash[douples]
-    #to recreate array
     update_weights = normalized_data.inject({}) do |updated, (place, weight)|
       if user.age_range == 21
         case place.types.first
