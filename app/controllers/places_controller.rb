@@ -36,8 +36,6 @@ class PlacesController < ApplicationController
           types: categories,
           menu_url: menu_url, company_url: place["url"])
 
-
-
       new_place.valid? ? new_place : Place.find_by_name(place["name"])
     end
 
