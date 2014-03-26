@@ -10,8 +10,5 @@ describe FacebookFirstnamePlaces do
     it "should return a place" do
       expect(namesake.recommend(my_recommender)).to be_an_instance_of Place
     end
-
-    xit "should return place matching the first letter of the user's first name, when possible" do
-    end
   end
 end

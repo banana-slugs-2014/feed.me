@@ -10,7 +10,6 @@ describe PlacesController do
     before(:each) do
       controller.stub(:get_places_from_foursquare){FSQ_STUB}
       controller.stub(:current_user){ my_user }
-      controller.stub(:get_places_from_foursquare){FSQ_STUB}
     end
 
     it "should render a partial" do
