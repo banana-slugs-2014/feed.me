@@ -7,7 +7,7 @@ class AwesomeFacebook < RecommendationStrategy
 
     recommendation = determine_place_based_on_user_and_time
 
-    recommendation ? @places.sample : recommendation
+    recommendation.nil? ? @places.sample : recommendation
   end
 
   private
