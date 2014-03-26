@@ -8,17 +8,20 @@ class FacebookWeighted < RecommendationStrategy
 
   def weighted_random(data)
     weighted_initial = Hash[data.places.map{ |place| [place, 3] }]
-    weighted_elements = update_weights_for_age(data.user, weighted_initial)
+    weighted_places = update_weights_for_age(data.user, weighted_initial)
+    select_weighted_place(weighted_places)
+  end
 
-    weight_sum = weighted_elements.values.inject(:+)
+  def select_weighted_place(weighted_collection)
+    weight_sum = weighted_collection.values.inject(:+)
     rand = Random.new.rand(weight_sum)
 
-
-    selected_element = weighted_elements.detect do |place,weight|
+    selected_place = weighted_collection.detect do |place,weight|
       rand -= weight
       rand <= 0
     end
-    selected_element.first
+
+    selected_place.first
   end
 
   def update_weights_for_age(user, normalized_data)
