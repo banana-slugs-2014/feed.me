@@ -9,7 +9,6 @@
     map = new google.maps.Map(document.getElementById('newresults-canvas'), mapOptions);
   }
 
-
   var position = navigator.geolocation.getCurrentPosition(showDirections)
 
   function showDirections(position){
@@ -27,7 +26,7 @@
   }
 </script>
 
-<div id="newresults-canvas"></div>
+    <div id="newresults-canvas"></div>
 
     <div id="header">
       <nav>
@@ -42,19 +41,19 @@
     </div>
 
 
-<div id='selection'>
+    <div id='selection'>
 
-  <% rest = place.place %>
-  <p id="restName"><%= rest.name %> Restaurant</p>
-  <p id="phoneNum"><a href="tel:<%= rest.phone_num %>"><%= rest.phone_num %></a></p>
-  <p id="address">Address: <%= rest.address %></p>
-  <p id="companyUrl"><a href=<%=rest.company_url%>>Company Website</a></p>
-  <p id="menuUrl"><a href=<%=rest.menu_url%>>See Menu</a></p>
+      <% rest = place.place %>
+      <p id="restName"><%= rest.name %> Restaurant</p>
+      <p id="phoneNum"><a href="tel:<%= rest.phone_num %>"><%= rest.phone_num %></a></p>
+      <p id="address">Address: <%= rest.address %></p>
+      <p id="companyUrl"><a href=<%=rest.company_url%>>Company Website</a></p>
+      <p id="menuUrl"><a href=<%=rest.menu_url%>>See Menu</a></p>
 
-  <p style="visibility: hidden;" id="latitude"><%=  rest.latitude %></p>
-  <p style="visibility: hidden;" id="longitude"><%=  rest.longitude %></p>
+      <p style="visibility: hidden;" id="latitude"><%=  rest.latitude %></p>
+      <p style="visibility: hidden;" id="longitude"><%=  rest.longitude %></p>
 
-</div>
+    </div>
 
     <div id="footer">
       <p>Made with love by the Feed.Me team</p>
