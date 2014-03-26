@@ -21,7 +21,7 @@ else
 end
 
 10.times do
-  puts User.create(uid: Faker::Lorem.characters(40) , oauth_token: Faker::Lorem.characters(40))
+  puts User.create(age_range: [13, 18, 21].sample, name: Faker::Name.name, uid: Faker::Lorem.characters(40) , oauth_token: Faker::Lorem.characters(40))
 end
 
 number_of_places = Place.all.length
