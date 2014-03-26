@@ -1,6 +1,7 @@
 require 'json'
 require 'net/http'
 require 'uri'
+require 'faker'
 
 uri = URI.parse("http://data.sfgov.org/resource/rqzj-sfat.json")
 http = Net::HTTP.new(uri.host, uri.port)
@@ -19,34 +20,19 @@ else
   puts "ERROR!!!"
 end
 
-
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-# require 'faker'
-
-
-# 10.times do
-#   puts User.create(uid: Faker::Lorem.characters(40) , oauth_token: Faker::Lorem.characters(40))
-# end
-
-# 2500.times do
-#   puts Place.create(name: Faker::Lorem.characters(40), address: Faker::Lorem.characters(40))
-# end
-
-# places_id = [*1..1000]
-
-1000.times do
-  puts Place.create(name: Faker::Lorem.characters(40), address: Faker::Lorem.characters(40))
+10.times do
+  puts User.create(uid: Faker::Lorem.characters(40) , oauth_token: Faker::Lorem.characters(40))
 end
 
-places_id = [*1..1000]
+number_of_places = Place.all.length
+places_id = [*1..number_of_places]
 users_id = [*1..10]
 100.times do
-  Recommendation.create(place: Place.find(places_id.sample), user: User.find(users_id.sample), recommendation_strategy: SimpleGooglePlaces.create )
+  Recommendation.create(place: Place.find(places_id.sample), user: User.find(users_id.sample), recommendation_strategy: SimpleFourSquare.create )
 end
 
-# 10.times do |time|
-#   2500.times do
-#     puts User.find(time+1).like(Place.find(places_id.sample))
-#   end
-# end
+10.times do |time|
+  number_of_places.times do
+    puts User.find(time+1).like(Place.find(places_id.sample))
+  end
+end
