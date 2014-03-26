@@ -29,7 +29,6 @@ class AwesomeFacebook < RecommendationStrategy
     possibilities = @places.select do |place|
       (opts & place.types) != []
     end
-    possibilities.each{|t| p t.types}
     possibilities.sample
   end
 
