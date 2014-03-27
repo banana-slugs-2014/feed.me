@@ -14,7 +14,6 @@ class AwesomeFacebook < RecommendationStrategy
 
   def determine_place_based_on_user_and_time
     meal = meal_types
-    p breakfast?
     case
     when breakfast? then find_place(meal[:breakfast])
     when lunch? then find_place(meal[:lunch])
