@@ -9,9 +9,9 @@ DBC Banana Slugs 2014. [Johnny Wu](johnnywu.io), [Phil Vargas](https://github.co
 ![feedthebeast](http://i.imgur.com/nyEZV13.png)
 
 
- Documentation
+
  
-#Description
+# Documentation
 
 Indecision when you are hungry hurts. Use Feed.me to save yourself from analysis paralysis. Feed.me
 learns about you and your preferences through Facebook Oauth and response and collaborative filtering and recommends a restaurant in the local area.
