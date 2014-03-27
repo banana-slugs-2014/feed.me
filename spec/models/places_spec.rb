@@ -34,4 +34,4 @@ describe Place do
       should validate_uniqueness_of :address
     end
   end
- end
+end

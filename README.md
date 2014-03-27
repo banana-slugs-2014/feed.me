@@ -38,8 +38,16 @@ Feed.me alternately employs six strategies to choose a restaurant recommendation
 Feed.me is mobile-format friendly. Aesthetically simple design allows users to get the critical information for a single restuarant recommendation without information overload or distraction.
 
 ###Application Testing
+Bundle, rake db:create, rake db:migrate, rake db:test:prepare, rspec.
+As of 3/27: 108 Tests, all passing, 0 pending, 0 ommitted (commented out) with 94% test coverage.
 
-
+###Contributing
+If you wish to contribute, fork the repo, and follow the steps: 
+1) Run all tests and be sure they pass.
+2) Make a new branch, apple your modifications. No change is too small. All contributions are welcome, be it syntax, refactoring,  additional recommendation modules, etc.
+3) Write Tests on your code! Untested code cannot be accepted.
+4) Run Rspec. If the tests do not pass, return to step 2 and refactor.
+5) Submit a pull request. Be sure to outline the changes you've made.
 
 ####License
 

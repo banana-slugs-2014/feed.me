@@ -17,7 +17,6 @@ describe RecommendationsController do
       it 'changes the recommendation like to true' do
         expect(my_recommendation.reload.like).to be_true
       end
-
     end
 
     context 'user dislikes a recommendation' do
@@ -30,10 +29,6 @@ describe RecommendationsController do
       it 'changes the recommendation like to true' do
         expect(my_recommendation.reload.like).to be_false
       end
-
     end
   end
-
-
-
 end

@@ -8,7 +8,6 @@ describe AwesomeFacebook do
   let(:my_user) { create(:user, age_range: 21) }
   let(:my_recommender){ Recommender.new(my_user, [my_place, breakfast_place, lunch_place]) }
 
-
   context '#recommend' do
     before(:each){
       PlacesController.stub(:current_user){my_user}

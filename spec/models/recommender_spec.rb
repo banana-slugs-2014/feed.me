@@ -18,7 +18,6 @@ describe Recommender do
         expect{ invalid_recommender }.to raise_error ArgumentError
       end
     end
-
   end
 
   context "#recommend" do
@@ -27,5 +26,4 @@ describe Recommender do
       expect(my_recommender.recommend).to be_an_instance_of Recommendation
     end
   end
-
 end

@@ -1,9 +1,6 @@
 class RecommendationsController < ApplicationController
   after_filter :update_recommendable_redis, only: :update
 
-  # I think we should use new, create, and edit actions here
-  # for the core user experience instead of places actions.
-
   def update
     if params[:yes]
       like_true!
@@ -20,7 +17,6 @@ class RecommendationsController < ApplicationController
     end
   end
 
-  # METHODS
   def like_true!
     recommendation = Recommendation.where(id: params[:id]).first
     recommendation.update_attributes(like: true)
