@@ -52,7 +52,7 @@ FeedMe.Binder.prototype = {
   },
   bindNoButton: function(){
     var controller = this.controller;
-    $(this.sel.bodySelector).on('click', this.sel.noButtonSelector ,function(e){
+    $(this.sel.bodySelector).on('click', this.sel.noButtonSelector,function(e){
       var id = e.target.dataset.id
       e.preventDefault();
       controller.noAction(id);

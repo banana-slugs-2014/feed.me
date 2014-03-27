@@ -31,14 +31,13 @@ FeedMe.Controller.prototype = {
 
   getFbInfoOrRenderUpdate: function(data){
     if(data.id){
-      FeedMe.view.getFacebookInfo(data.id)
+      FeedMe.controller.getFacebookInfo(data.id)
     }else{
       FeedMe.view.renderUpdate(data)
     }
   },
 
   getFacebookInfo: function(userId){
-
     var self = this
     this.facebook.api('/me?fields=id,name,checkins,age_range,gender,location,likes,address,languages,relationship_status,birthday',
     function(response){
@@ -85,7 +84,7 @@ FeedMe.Controller.prototype = {
       context: this,
       data: {no: "no"}
     };
-    this.ajaxCaller(opts, this.view.showNo );
+    this.ajaxCaller(opts, this.view.showNo);
   },
 
   ajaxCaller: function(opts, callback){

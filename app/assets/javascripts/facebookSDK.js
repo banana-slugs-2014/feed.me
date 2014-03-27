@@ -1,4 +1,8 @@
+
+
 $(document).on('ready', function(){
+  var mapper = new MapsMaker();
+  mapper.getLocation();
 
   window.fbAsyncInit = function() {
   FB.init({
@@ -21,7 +25,7 @@ $(document).on('ready', function(){
     loginButtonSelector: '.facebookLogin'
   }
 
-  FeedMe.view = new FeedMe.View(Selectors);
+  FeedMe.view = new FeedMe.View(Selectors, mapper);
   FeedMe.controller = new FeedMe.Controller(FeedMe.view, myUser, FB);
   new FeedMe.Binder(Selectors, FeedMe.controller).bind();
 
@@ -51,6 +55,6 @@ $(document).on('ready', function(){
   // This testAPI() function is only called in those cases.
   function testAPI() {
     console.log('Welcome!  Logging In');
-    }
+  }
 
 })
