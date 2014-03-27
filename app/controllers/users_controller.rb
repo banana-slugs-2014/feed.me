@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+
+  def index
+    render "places/index", locals: { user_id: session[:user_id]} if logged_in?
+  end
+
   def create #user/session create hybrid due to facebook login
     user = User.find_by_uid(params[:authResponse][:userID])
     if user.blank?
@@ -38,7 +43,7 @@ class UsersController < ApplicationController
         end
       end
     end
-    
+
     render partial: "places/index", locals: { user_id: session[:user_id]}
   end
 end

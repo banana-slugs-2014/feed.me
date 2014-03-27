@@ -7,6 +7,30 @@ describe UsersController do
   let(:invalid_attribs){FactoryGirl.attributes_for :user}
   let(:facebook_input){FACEBOOK_UPDATE_INFO}
 
+
+  context '#index' do
+    context 'when the user is logged in' do
+      it 'is ok' do
+        expect(get :index,{},user_id: myuser.uid).to be_ok
+      end
+
+      it 'renders the places/index template' do
+        expect(get :index,{},user_id: myuser.uid).to render_template("places/index")
+      end
+    end
+
+    context 'when the user is not logged in' do
+      it 'is ok' do
+        expect(get :index).to be_ok
+      end
+
+      it 'renders the users/index template' do
+        expect(get :index).to render_template("users/index")
+      end
+    end
+  end
+
+
   context '#create' do
     context 'with a new user' do
       context "with valid params" do
