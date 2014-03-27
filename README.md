@@ -1,6 +1,5 @@
 [![Build Status](https://travis-ci.org/banana-slugs-2014/feed.me.png?branch=master)](https://travis-ci.org/banana-slugs-2014/feed.me)
-#
-[Feed.ME](feedthebeast.today) Documentation
+#[Feed.ME](feedthebeast.today) Documentation
 
 DBC Banana Slugs 2014. [Johnny Wu](johnnywu.io), [Phil Vargas](https://github.com/PhilVargas), [Mathilde Mouw](https://github.com/mathildemouw), [Darren Dahl](https://github.com/darrendahl), and [Harry Whelchel](https://github.com/harryw377).
 
