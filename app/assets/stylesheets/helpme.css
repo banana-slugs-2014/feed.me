@@ -32,12 +32,8 @@ button {
 }
 
 #result .user-preference {
-  margin-top: :;px;
-  text-align: center;
-}
-
-.user-preference {
   margin-top: 30px;
+  text-align: center;
 }
 
 #result .user-preference form {
