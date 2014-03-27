@@ -3,7 +3,7 @@ require 'spec_helper'
 describe FacebookFirstnamePlaces do
   let(:namesake){ create(:namesake) }
   let(:my_user){ create(:user) }
-  let(:my_places){ [create(:place), create(:matching_place, name: my_user.name[0]+"place")] }
+  let(:my_places){ [create(:place), create(:place, name: my_user.name[0]+"place")] }
   let(:my_recommender){ Recommender.new( my_user, my_places) }
 
   context "#recommend" do
