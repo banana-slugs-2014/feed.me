@@ -1,17 +1,33 @@
-HelpMe.Binder = function(sel, controller){
+FeedMe.Binder = function(sel, controller){
   this.sel = sel;
   this.controller = controller;
 }
 
-HelpMe.Binder.prototype = {
+FeedMe.Binder.prototype = {
 
   bind: function(){
+    this.bindFbLogOut();
+    this.bindFbLogIn();
     this.bindFindLocationOnDocReady();
     this.bindfindPlaceButton();
-    this.bindToggleInfo();
     this.bindYesButton();
     this.bindNoButton();
-    this.bindToggleInfo();
+  },
+
+  bindFbLogOut: function(){
+    var self = this
+    $(this.sel.bodySelector).on("click", this.sel.logoutButtonSelector, function(e){
+      e.preventDefault()
+      self.controller.logOut()
+    })
+  },
+
+  bindFbLogIn: function(){
+    self = this
+    $(this.sel.loginButtonSelector).on("click", function(e){
+      e.preventDefault();
+      self.controller.logIn()
+    })
   },
 
   bindFindLocationOnDocReady: function(){
@@ -20,21 +36,15 @@ HelpMe.Binder.prototype = {
 
   bindfindPlaceButton: function(){
     var controller = this.controller;
-    $('body').on('click', ".helpMeButton" ,function(e){
+    $(this.sel.bodySelector).on('click', this.sel.helpMeButtonSelector,function(e){
       e.preventDefault();
       controller.findNearbyRestaurants();
     });
   },
 
-  bindToggleInfo: function(){
-    $('body').on('click', '#result', function(){
-      $('#placeInfo').toggle();
-    });
-  },
-
   bindYesButton: function(){
     var controller = this.controller;
-    $('body').on('click', ".yes" ,function(e){
+    $(this.sel.bodySelector).on('click', this.sel.yesButtonSelector ,function(e){
       var id = e.target.dataset.id
       e.preventDefault();
       controller.yesAction(id);
@@ -42,7 +52,7 @@ HelpMe.Binder.prototype = {
   },
   bindNoButton: function(){
     var controller = this.controller;
-    $('body').on('click', ".no" ,function(e){
+    $(this.sel.bodySelector).on('click', this.sel.noButtonSelector,function(e){
       var id = e.target.dataset.id
       e.preventDefault();
       controller.noAction(id);

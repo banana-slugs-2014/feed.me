@@ -1,49 +1,5 @@
-<script>
- showPosition();
-  function showPosition(){
-     Destination = new google.maps.LatLng($('#latitude').text(), $('#longitude').text())
-
-    var mapOptions = {
-        zoom: 19,
-        center: Destination
-    };
-
-    map = new google.maps.Map(document.getElementById('results-canvas'), mapOptions);
-  }
-
-  var position = navigator.geolocation.getCurrentPosition(showDirections)
-
-  function showDirections(position){
-    var request = {
-      origin: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
-      destination: Destination,
-      travelMode: google.maps.TravelMode.WALKING
-    }
-    var directionsDisplay = new google.maps.DirectionsRenderer();
-    var directionsServce = new google.maps.DirectionsService();
-    directionsServce.route(request, function(result,status){
-      directionsDisplay.setDirections(result)
-      directionsDisplay.setMap(map);
-    })
-  }
-</script>
-
-<div id="results-canvas"></div>
-
-    <div id="header">
-      <nav>
-          <ul class="left">
-            <li class="wootstrap-home-icon"><a href="/">Feed.Me</a></li>
-          </ul>
-          <ul class="right">
-            <li><button class="logout">Logout</button></li>
-          </ul>
-          <li style="padding-left:60%;"><img src="https://playfoursquare.s3.amazonaws.com/press/logo/poweredByFoursquare_gray.png" width=40% ></img></li>
-      </nav>
-    </div>
 
 <div id='result'>
-
   <h3>Your only choice:</h3>
   <% rest = recommendation.place %>
   <p id="restName"><%= rest.name %> Restaurant</p>
@@ -61,11 +17,3 @@
   <% end %>
   </div>
 </div>
-
-    <div id="footer">
-      <p>Made with love by the Feed.Me team</p>
-
-      <p><a href="http://twitter.com/jonathanpeterwu">Johnny</a> <a href="http://twitter.com/MathildeMouw">Mathilde</a> <a href="http://twitter.com/HWhelchel">Harry</a> <a href="http://twitter.com/darrendahl">Darren</a> <a href="http://twitter.com/philipavargas">Phil</a></p>
-    </div>
-
-

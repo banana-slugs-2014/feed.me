@@ -10,18 +10,11 @@
   <meta charset="utf-8">
 
 
-  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-
-
-  <script>
-    google.maps.event.addDomListener(window, 'load', getLocation);
-  </script>
+  <script src=<%="https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_KEY']}&sensor=false"%>></script>
 
 </head>
 
 <body>
-
-
 
     <div id="map-canvas"></div>
 
@@ -41,8 +34,7 @@
 
 
     <div id="body">
-
-    <%= yield %>
+      <%= yield %>
     </div>
 
     <div id="footer">

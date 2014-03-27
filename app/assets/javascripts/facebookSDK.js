@@ -1,4 +1,9 @@
+
+
 $(document).on('ready', function(){
+  var mapper = new MapsMaker();
+  mapper.getLocation();
+
   window.fbAsyncInit = function() {
   FB.init({
     appId      : '702219983134648',
@@ -6,9 +11,24 @@ $(document).on('ready', function(){
     cookie     : true, // enable cookies to allow the server to access the session
     xfbml      : true  // parse XFBML
   });
-  App.view = new App.View()
-  App.controller = new App.Controller(FB, App.view);
-  new App.Binder(App.controller).bind()
+
+  var myUser = new User();
+
+  var Selectors = {
+    resultContainerSelector: '#result',
+    helpMeButtonSelector: '.helpMeButton',
+    bodySelector: 'body',
+    idBodySelector: '#body',
+    yesButtonSelector: '.yes',
+    noButtonSelector: '.no',
+    logoutButtonSelector: '.logout',
+    loginButtonSelector: '.facebookLogin'
+  }
+
+  FeedMe.view = new FeedMe.View(Selectors, mapper);
+  FeedMe.controller = new FeedMe.Controller(FeedMe.view, myUser, FB);
+  new FeedMe.Binder(Selectors, FeedMe.controller).bind();
+
 
   FB.Event.subscribe('auth.authResponseChange', function(response) {
     if (response.status === 'connected') {
@@ -20,6 +40,7 @@ $(document).on('ready', function(){
     };
   });
   };
+
 
   // Load the SDK asynchronously
   (function(d){
@@ -34,6 +55,6 @@ $(document).on('ready', function(){
   // This testAPI() function is only called in those cases.
   function testAPI() {
     console.log('Welcome!  Logging In');
-    }
+  }
 
 })

@@ -1,15 +1,25 @@
-HelpMe.View = function(sel){
+FeedMe.View = function(sel, mapper){
   this.sel = sel;
+  this.mapper = mapper;
 }
 
-HelpMe.View.prototype = {
+FeedMe.View.prototype = {
   renderPlace: function(partial){
-    $('body').html(partial);
+    $(FeedMe.view.sel.idBodySelector).html(partial);
+    FeedMe.view.mapper.findOrigin();
   },
   showYes: function(partial){
-    $('body').html(partial);
+    $(FeedMe.view.sel.idBodySelector).html(partial);
   },
   showNo: function(partial){
-    $('body').html(partial);
+    $(FeedMe.view.sel.idBodySelector).html(partial);
+    FeedMe.view.mapper.getLocation();
+    FeedMe.view.mapper.findOrigin();
+  },
+  renderUpdate: function(partial){
+    $(FeedMe.view.sel.idBodySelector).html(partial)
+  },
+  redirectToHome: function(){
+    window.location.href = '/'
   }
 }
