@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/banana-slugs-2014/feed.me.png?branch=master)](https://travis-ci.org/banana-slugs-2014/feed.me)
-#[Feed.Me](http://www.feedthebeast.today) Documentation
+#[Feed.Me](http://www.feedthebeast.today)
 
 ## A path to the simpler choices in life.
 #### Let us make the dinner choice for you
@@ -8,6 +8,9 @@ DBC Banana Slugs 2014. [Johnny Wu](johnnywu.io), [Phil Vargas](https://github.co
 
 ![feedthebeast](http://i.imgur.com/nyEZV13.png)
 
+
+ Documentation
+ 
 #Description
 
 Indecision when you are hungry hurts. Use Feed.me to save yourself from analysis paralysis. Feed.me
