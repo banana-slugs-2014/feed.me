@@ -1,17 +1,25 @@
 language: ruby
 rvm:
-  - 1.9.3
+- 1.9.3
 env:
-  - DB=postgresql
+- DB=postgresql
 bundler_args: --without development
 services: redis
 branches:
   only:
-    - master
+  - master
 before_script:
-  - cp config/database.travis.yml config/database.yml
-  - psql -c 'create database helpme_test' -U postgres
+- cp config/database.travis.yml config/database.yml
+- psql -c 'create database helpme_test' -U postgres
 script:
-  - RAILS_ENV=test bundle exec rake db:migrate --trace
-  - bundle exec rake db:test:prepare
-  - bundle exec rake
+- RAILS_ENV=test bundle exec rake db:migrate --trace
+- bundle exec rake db:test:prepare
+- bundle exec rake
+deploy:
+  provider: heroku
+  api_key:
+    secure: sJKF5AwqQZHVtnEwSiuQYiUpc+HNZ4DqmvNeQiUBTevop3746iPP6SlaixAqJWLq5JUzCeRXw41Riv0ALwxCtBObTEhqeAaYuIAWB2UwDiAxVSNiHivg91FRFU4/Smstwq16KgAxpAIqPM6RksIMDU5e9AdDCjhgzuWQH2BFPkQ=
+  app: feedmesohungry
+  on: master
+  run: "rake db:migrate"
+  strategy: git

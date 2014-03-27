@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby "1.9.3"
 
 # Collaborative Filtering Strategy
 gem 'redis'
@@ -16,6 +17,7 @@ gem 'json'
 gem 'oauth'
 gem 'httparty'
 gem 'split', :require => 'split/dashboard'
+gem 'faker'
 
 
 
@@ -41,7 +43,6 @@ group :test do
   gem 'rake'
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
-  gem 'faker'
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'database_cleaner'
