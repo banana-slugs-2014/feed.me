@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/banana-slugs-2014/feed.me.png?branch=master)](https://travis-ci.org/banana-slugs-2014/feed.me)
-#[Feed.Me](feedthebeast.today) Documentation
+#[Feed.Me](http://www.feedthebeast.today) Documentation
 
 ## A path to the simpler choices in life.
 #### Let us make the dinner choice for you
