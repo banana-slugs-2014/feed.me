@@ -6,6 +6,7 @@ Split.configure do |config|
   config.persistence = Split::Persistence::SessionAdapter
   #config.start_manually = false ## new test will have to be started manually from the admin panel. default false
   config.include_rails_helper = true
+  config.algorithm = Split::Algorithms::Whiplash
 end
 
 Split::Dashboard.use Rack::Auth::Basic do |username, password|
