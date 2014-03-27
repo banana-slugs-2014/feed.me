@@ -2,15 +2,8 @@ require 'json'
 require 'open-uri'
 require 'oauth'
 
-
 class PlacesController < ApplicationController
   include StrategyTester
-
-  def index
-  end
-
-  def show
-  end
 
   def create
     @user_location = JSON.parse(params[:userLocation])
@@ -19,8 +12,6 @@ class PlacesController < ApplicationController
       recent_longitude: @user_location["longitude"])
 
     places = get_places_from_foursquare(@user_location["latitude"], @user_location["longitude"])
-
-      #initialize new places in the database
 
     places = places.map do |place|
       #find categories

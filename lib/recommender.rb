@@ -8,7 +8,6 @@ class Recommender
     @strategy = (opts[:strategy] || SimpleFourSquare).create
   end
 
-
   def recommend
     place = strategy.recommend(self)
     Recommendation.create(place: place, recommendation_strategy: strategy, user: user)

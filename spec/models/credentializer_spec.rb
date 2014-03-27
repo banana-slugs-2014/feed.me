@@ -16,10 +16,5 @@ describe Credentializer do
         expect{Credentializer.credentialize!(bad_configs)}.to_not raise_error Errno::ENOENT
       end
     end
-
   end
-
-
-
-
 end
