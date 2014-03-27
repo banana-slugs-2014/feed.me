@@ -17,6 +17,7 @@ gem 'json'
 gem 'oauth'
 gem 'httparty'
 gem 'split', :require => 'split/dashboard'
+gem 'faker'
 
 
 
@@ -42,7 +43,6 @@ group :test do
   gem 'rake'
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
-  gem 'faker'
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'database_cleaner'
