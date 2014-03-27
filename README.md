@@ -33,13 +33,24 @@ to facilitate the A/B testing of our strategies. In light of our team having a v
 
 Feed.me alternately employs six strategies to choose a restaurant recommendation. AwesomeFacebook, FacebookFirstnamePlaces, FacebookWeighted and RecommendableStrategy recommend based on user information. SimpleFourSquare chooses from the most recent search and SimpleQuirkyPlaces chooses from stored data. All inherit from a RecommendationStrategy parent class. Contributors can add (or remove or combine) strategies easily with this modular pattern. A/B testing user responses provides discreet data on which strategies work best.
 
+Add a strategy in app/models/recommendable_strategies.
+Add strategy to StrategyTester strategies array in lib/strategy_tester.rb to implement in app.
+
 ###User Inteface
 
 Feed.me is mobile-format friendly. Aesthetically simple design allows users to get the critical information for a single restuarant recommendation without information overload or distraction.
 
 ###Application Testing
+Bundle, rake db:create, rake db:migrate, rake db:test:prepare, rspec.
+As of 3/27: 108 Tests, all passing, 0 pending, 0 ommitted (commented out) with 94% test coverage.
 
-
+###Contributing
+If you wish to contribute, fork the repo, and follow the steps: 
+1) Run all tests and be sure they pass.
+2) Make a new branch, apple your modifications. No change is too small. All contributions are welcome, be it syntax, refactoring,  additional recommendation modules, etc.
+3) Write Tests on your code! Untested code cannot be accepted.
+4) Run Rspec. If the tests do not pass, return to step 2 and refactor.
+5) Submit a pull request. Be sure to outline the changes you've made.
 
 ####License
 

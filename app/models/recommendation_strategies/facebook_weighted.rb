@@ -40,7 +40,7 @@ class FacebookWeighted < RecommendationStrategy
     weight += (['Brewery','Irish Pub','Beer Garden','Gastropub'] & types).length * 2    
     weight += (['Pizza Place','Burger Joint','Taco Place','Mexican Restaurant'] & types).length    
     weight -= (['Grocery Store'] & types).length
-    weight    
+    weight < 0 ? 0 : weight    
   end
 
 end

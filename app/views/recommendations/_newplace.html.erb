@@ -7,7 +7,6 @@
   <p style="visibility: hidden; padding: 0; margin: 0; height: 5px;" id="latitude"><%=  rest.latitude %></p>
   <p style="visibility: hidden; padding: 0; margin: 0; height: 5px;" id="longitude"><%=  rest.longitude %></p>
 
-
   <div class="user-preference">
     <%= form_tag recommendation_path(recommendation), action: "update", method: "put" , :html => { :'data-yes' => "yes"} do %>
     <%= button_tag "Yes", class: "yes", :"data-id" => recommendation.id %>
