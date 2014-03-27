@@ -15,7 +15,7 @@ class FacebookFirstnamePlaces < RecommendationStrategy
     places.each do |place|
       firstname_places << place if (place.name[0] == firstname_letter) || (place.address[0] == firstname_letter)
     end
-    p firstname_places
+    firstname_places
     firstname_places.empty? ? places.sample : firstname_places.sample
   end
 end

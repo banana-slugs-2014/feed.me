@@ -20,6 +20,9 @@ else
   puts "ERROR!!!"
 end
 
+# Reset Redis Database
+`redis-cli FLUSHDB`
+
 10.times do
   puts User.create(age_range: [13, 18, 21].sample, name: Faker::Name.name, uid: Faker::Lorem.characters(40) , oauth_token: Faker::Lorem.characters(40))
 end
@@ -35,4 +38,9 @@ end
   number_of_places.times do
     puts User.find(time+1).like(Place.find(places_id.sample))
   end
+end
+
+10.times do |time|
+  Recommendable::Helpers::Calculations.update_similarities_for(time+1)
+  Recommendable::Helpers::Calculations.update_recommendations_for(time+1)
 end
