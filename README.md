@@ -6,7 +6,7 @@
 
 DBC Banana Slugs 2014. [Johnny Wu](johnnywu.io), [Phil Vargas](https://github.com/PhilVargas), [Mathilde Mouw](https://github.com/mathildemouw), [Darren Dahl](https://github.com/darrendahl), and [Harry Whelchel](https://github.com/harryw377).
 
-[Imgur](http://i.imgur.com/nyEZV13.png)
+![feedthebeast](http://i.imgur.com/nyEZV13.png)
 
 #Description
 
