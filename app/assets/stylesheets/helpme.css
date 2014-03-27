@@ -36,6 +36,10 @@ button {
   text-align: center;
 }
 
+.user-preference {
+  margin-top: 20px;
+}
+
 #result .user-preference form {
   display: inline-block;
   text-align: center;
