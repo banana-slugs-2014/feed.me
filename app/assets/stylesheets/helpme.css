@@ -32,7 +32,7 @@ button {
 }
 
 #result .user-preference {
-  margin-top: 15px;
+  margin-top: :;px;
   text-align: center;
 }
 
@@ -428,12 +428,12 @@ li a:hover {
     margin-right: 16px;
   }
   .logout{
-  background-color: #4CA378; /*#4c66a3 #4CA378*/
-  height: 35px;
-  width: 85px;
-  border-radius: 2px;
-  text-align: center;
-  font-size: 0.6em;
+    background-color: #4CA378; /*#4c66a3 #4CA378*/
+    height: 35px;
+    width: 85px;
+    border-radius: 2px;
+    text-align: center;
+    font-size: 0.6em;
   }
   .logout:hover {
     height: 35px;
@@ -509,7 +509,7 @@ li a:hover {
      margin: 0px;
   }
   .hungry button{
-    top: 54%;
+    top: 53%;
     left: 52%;
   }
 }
@@ -592,7 +592,7 @@ li a:hover {
   #result {
     opacity:0.9;
     width: 200px;
-    height: 100px;
+    height: 120px;
     font-size: 0.8em;
   }
   #result p #latitude {
