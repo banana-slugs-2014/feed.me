@@ -1,2 +1,2 @@
 web: bundle exec rails server -p $PORT
-worker: bundle exec sidekiq -q recommendable
+worker: bundle exec sidekiq -c 3 -q recommendable
