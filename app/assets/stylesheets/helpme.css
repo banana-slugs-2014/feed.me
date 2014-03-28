@@ -367,8 +367,10 @@ li a:hover {
   width: 100%;
   background-color: #4CA378; /*#4c66a3 #4CA378*/
   position: absolute;
-  top: 94%;
+  top: 93%;
   left: 0;
+  padding-bottom:  2px;
+  margin-top: -5px;
 }
 
 
@@ -571,7 +573,8 @@ li a:hover {
     top: 51%;
   }
   #map-canvas, #results-canvas, #newresults-canvas {
-     height: 103%;
+     padding-top: 12px;
+     height: 100%;
      width: 100%;
      margin: 0px;
   }
