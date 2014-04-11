@@ -3,7 +3,6 @@ require 'open-uri'
 require 'oauth'
 
 class PlacesController < ApplicationController
-  include StrategyTester
 
   def create
     @user_location = JSON.parse(params[:userLocation])
@@ -30,7 +29,7 @@ class PlacesController < ApplicationController
       new_place.valid? ? new_place : Place.find_by_name(place["name"])
     end
 
-    trial = ab_test('Recommendation Strategy', *StrategyTester.strategies).constantize
+    trial = ab_test('Recommendation Strategy', *RecommendationStrategy.strategies).constantize
     recommendation = Recommender.new(current_user, places, strategy: trial).recommend
     render partial: 'show', locals: { recommendation: recommendation }
   end
