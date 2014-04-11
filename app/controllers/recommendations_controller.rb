@@ -10,7 +10,7 @@ class RecommendationsController < ApplicationController
       like_false!
       places = Place.last(28)
 
-      trial = ab_test('Recommendation Strategy', *StrategyTester.strategies).constantize
+      trial = ab_test('Recommendation Strategy', *RecommendationStrategy.strategies).constantize
       recommendation = Recommender.new(current_user, places, strategy: trial).recommend
 
       render partial: 'newplace', locals: { recommendation: recommendation}

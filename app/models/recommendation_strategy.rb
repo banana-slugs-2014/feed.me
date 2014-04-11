@@ -4,4 +4,16 @@ class RecommendationStrategy < ActiveRecord::Base
   def recommend(data)
     raise "You found the abstract class! Implement #{__method__} on a subclassed recommendation strategy."
   end
+
+  @strategies = []
+  class << self
+
+    attr_reader :strategies
+    
+    def inherited(subclass)
+      @strategies << subclass.to_s
+    end
+
+  end
+
 end
