@@ -18,7 +18,7 @@ learns about you and your preferences through Facebook Oauth and response and co
 
 ##Major Features
 
-- As a user I can login, click 'Me So Hungry', and see a tailored local restaurant recommendation.
+- As a user I can login, click 'Feed Me!', and see a tailored local restaurant recommendation.
 - As a user I can reject the recommendation and see a new recommendation.
 
 ###Software Design
