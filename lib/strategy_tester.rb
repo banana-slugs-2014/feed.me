@@ -1,7 +1,7 @@
 module StrategyTester
 
   def self.strategies
-    ["SimpleFourSquare","FacebookWeighted","RecommendableStrategy", "AwesomeFacebook", "FacebookFirstnamePlaces"]
+    ["SimpleFourSquare","FacebookWeighted", "AwesomeFacebook", "FacebookFirstnamePlaces"]
   end
 
 end
