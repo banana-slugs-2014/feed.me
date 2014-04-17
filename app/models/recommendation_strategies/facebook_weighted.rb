@@ -42,5 +42,4 @@ class FacebookWeighted < RecommendationStrategy
     weight -= (['Grocery Store'] & types).length
     weight < 0 ? 0 : weight    
   end
-
 end
