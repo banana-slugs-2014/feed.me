@@ -1,7 +1,7 @@
 class RecommendableStrategy < RecommendationStrategy
 
   def recommend(data)
-    if data.user.recommended_places
+    unless data.user.recommended_places.blank?
       data.user.recommended_places.sample
     else
       data.places.sample
