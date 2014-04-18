@@ -38,7 +38,7 @@ class PlacesController < ApplicationController
   private
 
   def get_places_from_foursquare(lat, long)
-    response = HTTParty.get("https://api.foursquare.com/v2/venues/search?client_id=#{ENV['FOURSQUARE_ID']}&client_secret=#{ENV['FOURSQUARE_SECRET']}&v=20130815&ll=#{lat},#{long}&categoryId=4d4b7105d754a06374d81259")
+    response = HTTParty.get("https://api.foursquare.com/v2/venues/search?client_id=#{ENV['FOURSQUARE_ID']}&client_secret=#{ENV['FOURSQUARE_SECRET']}&v=20130815&ll=#{lat},#{long}&categoryId=4d4b7105d754a06374d81259&radius=500")
     response["response"]["venues"]
   end
 
