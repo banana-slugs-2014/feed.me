@@ -8,7 +8,9 @@ class RecommendationsController < ApplicationController
       render partial: 'recommendations/thankyou', locals: {place: recommendation }
     elsif params[:no]
       like_false!
-      places = Place.last(28)
+      nearby_longitude = (current_user.recent_longitude - 0.02)..(current_user.recent_longitude + 0.02)
+      nearby_latitude = (current_user.recent_latitude - 0.02)..(current_user.recent_latitude + 0.02)
+      places = Place.where(longitude: nearby_longitude).where(latitude: nearby_latitude).shuffle.last(28)
 
       trial = ab_test('Recommendation Strategy', *StrategyTester.strategies).constantize
       recommendation = Recommender.new(current_user, places, strategy: trial).recommend

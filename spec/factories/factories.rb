@@ -3,6 +3,8 @@ FactoryGirl.define do
     uid {Faker::Number.number(10)}
     oauth_token "1234567890asdfghjkl"
     name {Faker::Name.name}
+    recent_longitude {Faker::Address.longitude}
+    recent_latitude {Faker::Address.latitude}
   end
 
   factory :user_attribs, class: User do
